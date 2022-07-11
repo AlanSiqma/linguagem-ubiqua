@@ -25,7 +25,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             try
             {
-                if(string.IsNullOrEmpty(dto.Email) || string.IsNullOrEmpty(dto.Password))
+                if(!string.IsNullOrEmpty(dto.Email) || !string.IsNullOrEmpty(dto.Password))
                     await this._userService.AddOrUpdate(dto);
                 else
                     return View(dto);
