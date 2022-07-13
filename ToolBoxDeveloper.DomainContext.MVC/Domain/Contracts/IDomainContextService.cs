@@ -9,6 +9,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts
         Task<List<DomainContextDto>> GetAll();
         Task AddOrUpdate(DomainContextDto dto);
         Task<DomainContextDto> Find(string id);
-        Task<bool> Delete(string id);
+        Task Delete(string id);
     }
 }

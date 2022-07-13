@@ -13,7 +13,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         private readonly IUserService _userService;
         public AutenticationController(IUserService userService)
         {
-            this._userService = userService;
+            this._userService = userService;           
         }
         public IActionResult Index()
         {

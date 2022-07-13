@@ -24,100 +24,49 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
             else
                 await Update(dto);
         }
-        private async Task<bool> Update(UserDto dto)
+        private async Task Update(UserDto dto)
         {
-            var result = true;
-            try
-            {
-                await this._userRepository.Update(dto.Id, new UserEntity().BuildDto(dto));
-            }
-            catch (Exception)
-            {
-                result = false;
-            }
+            var buildDto = new UserEntity().BuildDto(dto);
 
-            return result;
+            await this._userRepository.Update(dto.Id, buildDto);
         }
 
-        private async Task<bool> Create(UserDto dto)
+        private async Task Create(UserDto dto)
         {
-            var result = true;
-            try
-            {
-                await this._userRepository.Create(new UserEntity().BuildDto(dto));
-            }
-            catch (Exception)
-            {
-                result = false;
-            }
+            var buildDto = new UserEntity().BuildDto(dto);
 
-            return result;
+            await this._userRepository.Create(buildDto);
         }
 
-        public async Task<bool> Delete(string id)
+        public async Task Delete(string id)
         {
-            var result = false;
-            try
-            {
-                var entity = (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            var entity = (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
 
-                await this._userRepository.Remove(entity);
-                result = true;
-            }
-            catch (Exception)
-            {
-                result = false;
-            }
-            return result;
+            await this._userRepository.Remove(entity);
         }
 
         public async Task<UserDto> Find(string id)
         {
-            UserDto result;
-            try
-            {
-                var entity = (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            var entity = (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
 
-                result = new UserDto(entity);
-
-            }
-            catch (Exception)
-            {
-                result = new UserDto();
-            }
-
-            return result;
+            return new UserDto(entity);
         }
 
         public async Task<List<UserDto>> GetAll()
         {
-            List<UserDto> result;
-            try
-            {
-                var entities = await this._userRepository.Get();
-                result = entities.Select(x => new UserDto(x)).ToList();
-            }
-            catch (Exception)
-            {
-                result = new List<UserDto>();
-            }
+            var entities = await this._userRepository.Get();
 
-            return result;
+            return entities.Select(x => new UserDto(x)).ToList();
         }
 
         public async Task<bool> Autenticate(UserDto dto)
         {
             bool result = false;
-            try
-            {
-                var entity = await this._userRepository.Get(x => x.Email.Equals(dto.Email) && x.Password.Equals(dto.Password.Encrypt()));
-                if (entity.Count >0)
-                    result = true;
-            }
-            catch (Exception)
-            {
-                result = false;
-            }
+
+            var entity = await this._userRepository.Get(x => x.Email.Equals(dto.Email) && x.Password.Equals(dto.Password.Encrypt()));
+            if (entity.Count > 0)
+                result = true;
+
             return result;
         }
     }

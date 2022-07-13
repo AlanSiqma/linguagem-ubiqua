@@ -9,7 +9,7 @@ using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 {
-    public class DomainContextService: IDomainContextService
+    public class DomainContextService : IDomainContextService
     {
         private readonly ILogger<DomainContextService> _logger;
         private readonly IDomainContextRepository _domainContextRepository;
@@ -22,93 +22,39 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
         public async Task AddOrUpdate(DomainContextDto dto)
         {
             if (string.IsNullOrEmpty(dto.Id))
-                 await Create(dto);
+                await Create(dto);
             else
-                 await Update(dto);
+                await Update(dto);
         }
-        private async Task<bool> Update(DomainContextDto dto)
+        private async Task Update(DomainContextDto dto)
         {
-            var result = true;
-            try
-            {
-                await this._domainContextRepository.Update(dto.Id, new DomainContextEntity().BuildDto(dto));
-            }
-            catch (Exception)
-            {
-                result = false;
-            }
-
-            return result;
+            await this._domainContextRepository.Update(dto.Id, new DomainContextEntity().BuildDto(dto));
         }
 
-        private async Task<bool> Create(DomainContextDto dto)
+        private async Task Create(DomainContextDto dto)
         {
-            var result = true;
-            try
-            {            
-                await this._domainContextRepository.Create(new DomainContextEntity().BuildDto(dto));
-            }
-            catch (Exception)
-            {
-                result = false;
-            }
-
-            return result;
+            await this._domainContextRepository.Create(new DomainContextEntity().BuildDto(dto));
         }
 
-        public async Task<bool> Delete(string id)
+        public async Task Delete(string id)
         {
-            var result = false;
-            try
-            {
-                var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
 
-                await this._domainContextRepository.Remove(entity);
-
-                result = true;
-            }
-            catch (Exception)
-            {
-                result = false;
-            }
-            return result;
+            await this._domainContextRepository.Remove(entity);
         }
 
         public async Task<DomainContextDto> Find(string id)
         {
-            DomainContextDto result;
-            try
-            {
-                var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
 
-                result = new DomainContextDto(entity);
-
-            }
-            catch (Exception)
-            {
-                result = new DomainContextDto();
-            }
-
-            return result;
+            return new DomainContextDto(entity);
         }
 
         public async Task<List<DomainContextDto>> GetAll()
         {
+            var entities = await this._domainContextRepository.Get();
 
-            this._logger.LogInformation("teste");
-
-            List<DomainContextDto> result;
-            try
-            {
-                var entities = await this._domainContextRepository.Get();
-                result = entities.Select(x => new DomainContextDto(x)).ToList();
-            }
-            catch (Exception)
-            {
-                result = new List<DomainContextDto>();
-            }
-
-            return result;
+            return entities.Select(x => new DomainContextDto(x)).ToList();
         }
     }
 }

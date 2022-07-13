@@ -78,6 +78,7 @@ body {
 .btn-site {
     max-width: unset !important;
     width: 100% !important;
+    margin-top:13px;
 }
 
 .row-site{
@@ -85,10 +86,28 @@ body {
 }
 
 .logo-site {
-    width: 23%;
+    width: 13%;
     margin-right: 50%;
 }
 
 .container-site {
     padding-top: 5%!important
+}
+
+.section-3 {
+    display: none;
+}
+@media only screen and (max-width: 770px) {
+    .col-section-2 {
+        display:none;
+    }
+    .col-section-1 {
+        display: none;
+    }
+    .section-3 {
+        display: unset;
+    }
+    .section-3-container-img {
+        width: 100%;
+    }
 }

@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
@@ -9,9 +10,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly ILogger<UserController> _logger;
+        public UserController(IUserService userService, ILogger<UserController> logger)
         {
             this._userService = userService;
+            this._logger = logger;
         }
 
         public ActionResult Index()
@@ -32,9 +35,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
                 return RedirectToAction("Index", "Autentication");
             }
-            catch
+            catch(Exception ex)
             {
-                return View(dto);
+                this._logger.LogError($"Erro: {ex.Message}");
+                throw ex;
             }
         }
 
@@ -55,9 +59,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                this._logger.LogError($"Erro: {ex.Message}");
+                throw ex;
             }
         }
 
@@ -68,9 +73,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
                 await this._userService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                this._logger.LogError($"Erro: {ex.Message}");
+                throw ex;
             }
         }
     }
