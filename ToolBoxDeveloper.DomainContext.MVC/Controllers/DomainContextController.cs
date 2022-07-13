@@ -24,7 +24,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             this._httpContextAccessor = httpContextAccessor;
             this._logger = logger;
         }
-        // GET: DomainContextController
         private string NameContext()
         {
             return this._httpContextAccessor.HttpContext.User.Identity.Name;
