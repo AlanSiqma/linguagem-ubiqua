@@ -32,17 +32,16 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
        
         public async Task<ActionResult> Index()
         {
+           
             List<DomainContextDto> list = await this._domainContextService.GetAll();
             return View(list);
         }
 
-        // GET: DomainContextController/Create
         public ActionResult Create()
         {
             return View(new DomainContextDto().SetEmail(NameContext()));
         }
 
-        // POST: DomainContextController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(DomainContextDto dto)
@@ -60,7 +59,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
         }
 
-        // GET: DomainContextController/Edit/5
         public async Task<ActionResult> Edit(string id)
         {
             DomainContextDto result = await this._domainContextService.Find(id);
@@ -68,7 +66,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             return View(result.SetEmail(NameContext()));
         }
 
-        // POST: DomainContextController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(DomainContextDto dto)

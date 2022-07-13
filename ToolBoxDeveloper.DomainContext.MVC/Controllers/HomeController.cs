@@ -8,7 +8,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 {
     public class HomeController : Controller
     {
-
         public HomeController()
         {
         }

@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using System;
+using System.IO;
 
 namespace ToolBoxDeveloper.DomainContext.MVC
 {
@@ -13,12 +15,15 @@ namespace ToolBoxDeveloper.DomainContext.MVC
         }
         public static void Main(string[] args)
         {
-            var connfiguration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
+            var file = $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json";
+           
+            var configuration = new ConfigurationBuilder()
+              .SetBasePath(Directory.GetCurrentDirectory())
+              .AddJsonFile(file, true)
+              .Build();
 
             Log.Logger = new LoggerConfiguration()
-                 .WriteTo.EventCollector("http://localhost:8090/services/collector", "f36268c9-a7f9-4c92-9011-e6e071696fee")
+                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();
 
             CreateHostBuilder(args).Build().Run();
