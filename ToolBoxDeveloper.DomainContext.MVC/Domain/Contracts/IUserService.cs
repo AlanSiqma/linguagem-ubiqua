@@ -9,7 +9,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts
         Task<List<UserDto>> GetAll();
         Task AddOrUpdate(UserDto dto);
         Task<UserDto> Find(string id);
-        Task<bool> Delete(string id);
+        Task Delete(string id);
         Task<bool> Autenticate(UserDto dto);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
@@ -13,7 +14,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         private readonly IUserService _userService;
         public AutenticationController(IUserService userService)
         {
-            this._userService = userService;
+            this._userService = userService;           
         }
         public IActionResult Index()
         {

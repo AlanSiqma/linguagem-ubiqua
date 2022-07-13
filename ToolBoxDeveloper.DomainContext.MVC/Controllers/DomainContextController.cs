@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
@@ -13,10 +15,14 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
     {
         private readonly IDomainContextService _domainContextService;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public DomainContextController(IDomainContextService domainContextService, IHttpContextAccessor httpContextAccessor)
+        private readonly ILogger<DomainContextController> _logger;
+        public DomainContextController(IDomainContextService domainContextService, 
+            IHttpContextAccessor httpContextAccessor,
+            ILogger<DomainContextController> logger)
         {
             this._domainContextService = domainContextService;
             this._httpContextAccessor = httpContextAccessor;
+            this._logger = logger;
         }
         // GET: DomainContextController
         private string NameContext()
@@ -47,9 +53,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View(dto);
+                this._logger.LogError($"Erro: {ex.Message}");
+                throw ex;
             }
         }
 
@@ -72,9 +79,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                this._logger.LogError($"Erro: {ex.Message}");
+                throw ex;
             }
         }
 
@@ -85,9 +93,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
                 await this._domainContextService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                this._logger.LogError($"Erro: {ex.Message}");
+                throw ex;
             }
         }
     }
