@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Serilog;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Settings;
 using ToolBoxDeveloper.DomainContext.MVC.Infra.IoC;
@@ -66,6 +67,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSerilogRequestLogging();
 
             app.UseRouting();
 
