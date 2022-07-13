@@ -1,11 +1,14 @@
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Serilog;
+using ToolBoxDeveloper.DomainContext.MVC.CustomHealthChecks;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Settings;
 using ToolBoxDeveloper.DomainContext.MVC.Infra.IoC;
@@ -34,18 +37,35 @@ namespace ToolBoxDeveloper.DomainContext.MVC
 
             services.AddInjectionConfiguration();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(opt =>
             {
                 opt.LoginPath = new PathString("/Autentication/Index");
                 opt.LogoutPath = new PathString("/Autentication/Logout");
                 opt.Cookie = new CookieBuilder()
                 {
                     Name = "DomainContext",
-                    //Expiration = new System.TimeSpan(0, 120, 0),
-                    //Se tiver um domínio...
-                    //Domain = ".site.com.br",
                 };
             });
+
+            var configurationSection = Configuration.GetSection(nameof(DatabaseSettings));
+            DatabaseSettings appSettings = new DatabaseSettings();
+            ConfigurationBinder.Bind(configurationSection, appSettings);
+
+            services.AddHealthChecks()
+                .AddMongoDb(mongodbConnectionString: appSettings.ConnectionString,
+                name: "Instancia mongoDB")
+                .AddCheck<DependeciesValidadeHealthCheck>("Health Checks customizavel");
+
+            services.AddHealthChecksUI(setupSettings: setup =>
+            {
+                setup.SetEvaluationTimeInSeconds(5);
+                setup.MaximumHistoryEntriesPerEndpoint(10);
+                setup.AddHealthCheckEndpoint("API com Health Checks", "/health");
+            }).AddInMemoryStorage(); ;
+
+            services.AddHealthChecksUI();
+
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
@@ -57,6 +77,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSerilogRequestLogging();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();
 
@@ -66,10 +87,23 @@ namespace ToolBoxDeveloper.DomainContext.MVC
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
+
+            app.UseHealthChecks("/health", new HealthCheckOptions
+            {
+                Predicate = p => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+
+            app.UseHealthChecksUI(options => { options.UIPath = "/dashboard"; });
+
+            app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                });
         }
     }
 }
