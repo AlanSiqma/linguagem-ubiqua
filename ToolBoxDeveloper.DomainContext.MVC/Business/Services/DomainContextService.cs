@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,10 +11,12 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 {
     public class DomainContextService: IDomainContextService
     {
+        private readonly ILogger<DomainContextService> _logger;
         private readonly IDomainContextRepository _domainContextRepository;
-        public DomainContextService(IDomainContextRepository domainContextRepository)
+        public DomainContextService(IDomainContextRepository domainContextRepository, ILogger<DomainContextService> logger)
         {
             this._domainContextRepository = domainContextRepository;
+            this._logger = logger;
         }
 
         public async Task AddOrUpdate(DomainContextDto dto)
@@ -91,6 +94,9 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task<List<DomainContextDto>> GetAll()
         {
+
+            this._logger.LogInformation("teste");
+
             List<DomainContextDto> result;
             try
             {
