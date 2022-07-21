@@ -17,9 +17,5 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Entities
             this.Password = dto.Password.Encrypt();
             return this;
         }
-        public override string ToString()
-        {
-            return "UserEntity";
-        }
     }
 }

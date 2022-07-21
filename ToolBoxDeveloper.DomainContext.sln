@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-UI", "01-UI", "{1F8A4BD8-94CA-4BEA-838B-A467955E18B1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.MVC", "ToolBoxDeveloper.DomainContext.MVC\ToolBoxDeveloper.DomainContext.MVC.csproj", "{5102C0C1-8EC7-47F1-8F0C-18480200D5A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Test", "02-Test", "{8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolBoxDeveloper.DomainContext.Domain.Test", "ToolBoxDeveloper.DomainContext.Domain.Test\ToolBoxDeveloper.DomainContext.Domain.Test.csproj", "{FBF98099-4861-4C22-9677-8A22A44E6C3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,17 @@ Global
 		{5102C0C1-8EC7-47F1-8F0C-18480200D5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5102C0C1-8EC7-47F1-8F0C-18480200D5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5102C0C1-8EC7-47F1-8F0C-18480200D5A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF98099-4861-4C22-9677-8A22A44E6C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF98099-4861-4C22-9677-8A22A44E6C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF98099-4861-4C22-9677-8A22A44E6C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF98099-4861-4C22-9677-8A22A44E6C3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5102C0C1-8EC7-47F1-8F0C-18480200D5A6} = {1F8A4BD8-94CA-4BEA-838B-A467955E18B1}
+		{FBF98099-4861-4C22-9677-8A22A44E6C3D} = {8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99F7F5FF-004E-468B-922D-CAD6A29864E4}
