@@ -17,7 +17,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Infra.Data.Base
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            var databaseName = Activator.CreateInstance(typeof(TEntity)).ToString();
+            var databaseName = typeof(TEntity).Name;
 
             this._collections = database.GetCollection<TEntity>(databaseName);
         }
