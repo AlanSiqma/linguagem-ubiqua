@@ -1,4 +1,4 @@
-﻿using System;
+﻿using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,9 +12,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository)
+        public readonly IMapper _mapper;
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
             this._userRepository = userRepository;
+            this._mapper = mapper;
         }
 
         public async Task AddOrUpdate(UserDto dto)
@@ -26,16 +28,18 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
         }
         private async Task Update(UserDto dto)
         {
-            var buildDto = new UserEntity().BuildDto(dto);
+            UserEntity entity = _mapper.Map<UserEntity>(dto);
+            entity.SetPassword(dto.Password);
 
-            await this._userRepository.Update(dto.Id, buildDto);
+            await this._userRepository.Update(dto.Id, entity);
         }
 
         private async Task Create(UserDto dto)
         {
-            var buildDto = new UserEntity().BuildDto(dto);
+            UserEntity entity = _mapper.Map<UserEntity>(dto);
+            entity.SetPassword(dto.Password);
 
-            await this._userRepository.Create(buildDto);
+            await this._userRepository.Create(entity);
         }
 
         public async Task Delete(string id)

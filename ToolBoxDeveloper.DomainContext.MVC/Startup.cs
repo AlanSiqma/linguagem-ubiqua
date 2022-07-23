@@ -68,6 +68,8 @@ namespace ToolBoxDeveloper.DomainContext.MVC
 
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddAutoMapper(typeof(Startup));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
