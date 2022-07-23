@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
     {
         private readonly ILogger<DomainContextService> _logger;
         private readonly IDomainContextRepository _domainContextRepository;
-        public DomainContextService(IDomainContextRepository domainContextRepository, ILogger<DomainContextService> logger)
+        public readonly IMapper _mapper;
+        public DomainContextService(IDomainContextRepository domainContextRepository, ILogger<DomainContextService> logger, IMapper mapper)
         {
             this._domainContextRepository = domainContextRepository;
             this._logger = logger;
+            this._mapper = mapper;
         }
 
         public async Task AddOrUpdate(DomainContextDto dto)
@@ -28,12 +31,16 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
         }
         private async Task Update(DomainContextDto dto)
         {
-            await this._domainContextRepository.Update(dto.Id, new DomainContextEntity().BuildDto(dto));
+
+            DomainContextEntity entity = _mapper.Map<DomainContextEntity>(dto);
+            await this._domainContextRepository.Update(dto.Id, entity);
         }
 
         private async Task Create(DomainContextDto dto)
         {
-            await this._domainContextRepository.Create(new DomainContextEntity().BuildDto(dto));
+
+            DomainContextEntity entity = _mapper.Map<DomainContextEntity>(dto);
+            await this._domainContextRepository.Create(entity);
         }
 
         public async Task Delete(string id)

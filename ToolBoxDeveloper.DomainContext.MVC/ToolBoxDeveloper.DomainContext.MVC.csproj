@@ -10,6 +10,8 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="5.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="5.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="5.0.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="MongoDB.Driver" Version="2.16.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />

@@ -1,5 +1,4 @@
-﻿using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities.Base;
+﻿using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities.Base;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Entities
@@ -8,14 +7,14 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Entities
     {
         public string Email { get; set; }
 
-        public string Password { get; set; }
-
-        internal UserEntity BuildDto(UserDto dto)
+        public string Password
         {
-            this.Id = dto.Id;
-            this.Email = dto.Email;
-            this.Password = dto.Password.Encrypt();
-            return this;
+            get; private set;
+        }
+
+        internal void SetPassword(string password)
+        {
+            this.Password = password.Encrypt();
         }
     }
 }

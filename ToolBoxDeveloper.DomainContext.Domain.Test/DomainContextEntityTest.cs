@@ -43,6 +43,5 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
             //Arange && Act && Assert 
             Assert.Throws<ArgumentNullException>(() => new DomainContextEntity(organization, domain, context, key, description, userRegister));
         }
-
     }
 }
