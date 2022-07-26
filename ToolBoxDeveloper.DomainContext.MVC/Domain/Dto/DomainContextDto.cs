@@ -1,13 +1,7 @@
 ﻿namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Dto
 {
     public class DomainContextDto
-    {
-      
-        internal DomainContextDto()
-        {
-
-        }
-
+    {   
         public string Id { get; set; }
         public string Organization { get; set; }
         public string Domain { get; set; }

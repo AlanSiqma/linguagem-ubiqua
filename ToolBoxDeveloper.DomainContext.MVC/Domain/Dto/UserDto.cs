@@ -4,10 +4,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Dto
 {
     public class UserDto
     {
-        internal UserDto()
-        {
-        }
-
         public string Id { get; set; }
         [Required(ErrorMessage = "Favor informar um usuário")]
         public string Email { get; set; }
