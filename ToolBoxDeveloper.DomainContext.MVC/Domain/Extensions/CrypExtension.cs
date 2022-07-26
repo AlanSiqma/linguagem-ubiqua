@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -8,6 +9,9 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Extensions
     {
         public static string Encrypt(this string Texto)
         {
+            if (Texto.IsNullOrEmptyOrWhiteSpace())
+                throw new ArgumentException("Valor não pode ser nulo, estar vazio ou conter apenas espaços");
+
             byte[] Hash;
             StringBuilder Retorno = new StringBuilder();
 
