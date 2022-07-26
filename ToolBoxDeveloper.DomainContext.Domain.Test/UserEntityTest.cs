@@ -26,7 +26,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void CreateObjetEmailNotSuccess(string email)
         {
             //Arrange && Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new UserEntity(email));
+            Assert.Throws<ArgumentException>(() => new UserEntity(email));
         }
 
         [Theory(DisplayName = "Erro ao criar objeto, senha invalida")]
@@ -39,7 +39,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
             UserEntity user = new UserEntity(email);
             
             //Act && Assert
-            Assert.Throws<ArgumentNullException>(() => user.SetPassword(password));
+            Assert.Throws<ArgumentException>(() => user.SetPassword(password));
         }
     }
 }

@@ -29,7 +29,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void CreateObjectParametersEmpty(string organization, string domain, string context, string key, string description, string userRegister)
         {
             //Arange && Act && Assert 
-            Assert.Throws<ArgumentNullException>(() => new DomainContextEntity(organization, domain, context, key, description, userRegister));
+            Assert.Throws<ArgumentException>(() => new DomainContextEntity(organization, domain, context, key, description, userRegister));
         }
         [Theory(DisplayName = "Multipla instancias parametros nulos DomainContextEntity")]
         [InlineData(null, "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")]
@@ -41,7 +41,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void CreateObjectParametersNull(string organization, string domain, string context, string key, string description, string userRegister)
         {
             //Arange && Act && Assert 
-            Assert.Throws<ArgumentNullException>(() => new DomainContextEntity(organization, domain, context, key, description, userRegister));
+            Assert.Throws<ArgumentException>(() => new DomainContextEntity(organization, domain, context, key, description, userRegister));
         }
     }
 }

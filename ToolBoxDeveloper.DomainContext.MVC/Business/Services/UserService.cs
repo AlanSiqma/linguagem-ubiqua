@@ -52,15 +52,15 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
         public async Task<UserDto> Find(string id)
         {
             var entity = (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
-
-            return new UserDto(entity);
+            UserDto dto = _mapper.Map<UserDto>(entity);
+            return dto;
         }
 
         public async Task<List<UserDto>> GetAll()
         {
             var entities = await this._userRepository.Get();
-
-            return entities.Select(x => new UserDto(x)).ToList();
+            List<UserDto> listDto = _mapper.Map<List<UserDto>>(entities);
+            return listDto;
         }
 
         public async Task<bool> Autenticate(UserDto dto)
