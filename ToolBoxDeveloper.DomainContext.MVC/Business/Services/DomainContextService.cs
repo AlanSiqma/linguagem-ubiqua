@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,15 +52,15 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
         public async Task<DomainContextDto> Find(string id)
         {
             var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
-
-            return new DomainContextDto(entity);
+            DomainContextDto dto = _mapper.Map<DomainContextDto>(entity);
+            return dto;
         }
 
         public async Task<List<DomainContextDto>> GetAll()
         {
             var entities = await this._domainContextRepository.Get();
-
-            return entities.Select(x => new DomainContextDto(x)).ToList();
+            List<DomainContextDto> listDto = _mapper.Map<List<DomainContextDto>>(entities);
+            return listDto;
         }
     }
 }

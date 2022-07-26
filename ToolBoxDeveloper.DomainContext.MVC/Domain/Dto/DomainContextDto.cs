@@ -1,22 +1,9 @@
-﻿using System;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
-
-namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Dto
+﻿namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Dto
 {
     public class DomainContextDto
     {
-        
-        public DomainContextDto(DomainContextEntity entity)
-        {
-            this.Id = entity.Id;
-            this.Organization = entity.Organization;
-            this.Domain = entity.Domain;
-            this.Context = entity.Context;
-            this.Key = entity.Key;
-            this.Description = entity.Description;
-            this.UserRegister = entity.UserRegister;
-        }
-        public DomainContextDto()
+      
+        internal DomainContextDto()
         {
 
         }
