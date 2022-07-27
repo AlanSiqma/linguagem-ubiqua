@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
+using ToolBoxDeveloper.DomainContext.MVC.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 {
@@ -44,9 +46,22 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task Delete(string id)
         {
-            var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            if (!this.InvalidValidateDelete(id))
+                throw new System.ArgumentException("Campo id é obrigatorio");
+
+            DomainContextEntity entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
 
             await this._domainContextRepository.Remove(entity);
+        }
+
+        private bool InvalidValidateDelete(string id)
+        {
+            bool result = true;
+            
+            if (id.IsNullOrEmptyOrWhiteSpace() || id.IsNotNumber() || id.NumberNotBiggerThan(0))
+                result = false;
+
+            return result;
         }
 
         public async Task<DomainContextDto> Find(string id)
