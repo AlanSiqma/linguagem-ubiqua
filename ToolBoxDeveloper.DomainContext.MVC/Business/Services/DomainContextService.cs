@@ -44,7 +44,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task Delete(string id)
         {
-            var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            DomainContextEntity entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
 
             await this._domainContextRepository.Remove(entity);
         }
