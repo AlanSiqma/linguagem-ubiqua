@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
+using ToolBoxDeveloper.DomainContext.MVC.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 {
@@ -44,6 +45,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task Delete(string id)
         {
+            if (id.IsNullOrEmptyOrWhiteSpace())
+                throw new System.ArgumentException("Campo Obrigatorio");
+            if (id.IsNotNumber())
+                throw new System.ArgumentException("O Campo é invalido");
+
             DomainContextEntity entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
 
             await this._domainContextRepository.Remove(entity);
