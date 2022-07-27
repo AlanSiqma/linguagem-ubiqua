@@ -14,5 +14,12 @@
             int n;
             return !int.TryParse(value, out n);
         }
+
+
+        public static bool NumberNotBiggerThan(this string value,int biggerThan)
+        {
+            int parse = int.Parse(value);
+            return !(parse > biggerThan);
+        }
     }
 }

@@ -43,6 +43,8 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         [InlineData("")]
         [InlineData(null)]
         [InlineData("asdasd")]
+        [InlineData("0")]
+        [InlineData("-1")]
         public async void DeleteNotSuccess(string idRemove)
         {
             //Arrange
