@@ -46,7 +46,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task Delete(string id)
         {
-            if (!this.InvalidValidateDelete(id))
+            if (this.InvalidValidateDelete(id))
                 throw new System.ArgumentException("Campo id é obrigatorio");
 
             DomainContextEntity entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
@@ -56,10 +56,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         private bool InvalidValidateDelete(string id)
         {
-            bool result = true;
+            bool result = false;
             
-            if (id.IsNullOrEmptyOrWhiteSpace() || id.IsNotNumber() || id.NumberNotBiggerThan(0))
-                result = false;
+            if (id.IsNullOrEmptyOrWhiteSpace())
+                result = true;
 
             return result;
         }
