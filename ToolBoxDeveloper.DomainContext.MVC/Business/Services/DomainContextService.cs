@@ -30,6 +30,34 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
             else
                 await Update(dto);
         }
+
+        public async Task<List<DomainContextDto>> GetAll()
+        {
+            var entities = await this._domainContextRepository.Get();
+            List<DomainContextDto> listDto = _mapper.Map<List<DomainContextDto>>(entities);
+            return listDto;
+        }
+        public async Task<DomainContextDto> Find(string id)
+        {
+            if (this.IsInvalidId(id))
+                throw new ArgumentException("Campo id é obrigatorio");
+
+            return _mapper.Map<DomainContextDto>(await this.FindEntity(id));
+        }
+        public async Task Delete(string id)
+        {
+            if (this.IsInvalidId(id))
+                throw new ArgumentException("Campo id é obrigatorio");
+
+            await this._domainContextRepository.Remove(await this.FindEntity(id));
+        }
+
+        private async Task<DomainContextEntity> FindEntity(string id)
+        {
+            var listEntity = await this._domainContextRepository.Get(x => x.Id.Equals(id));
+            return listEntity.FirstOrDefault();
+        }
+
         private async Task Update(DomainContextDto dto)
         {
 
@@ -44,38 +72,14 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
             await this._domainContextRepository.Create(entity);
         }
 
-        public async Task Delete(string id)
-        {
-            if (this.InvalidValidateDelete(id))
-                throw new System.ArgumentException("Campo id é obrigatorio");
-
-            DomainContextEntity entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
-
-            await this._domainContextRepository.Remove(entity);
-        }
-
-        private bool InvalidValidateDelete(string id)
+        private bool IsInvalidId(string id)
         {
             bool result = false;
-            
+
             if (id.IsNullOrEmptyOrWhiteSpace())
                 result = true;
 
             return result;
-        }
-
-        public async Task<DomainContextDto> Find(string id)
-        {
-            var entity = (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
-            DomainContextDto dto = _mapper.Map<DomainContextDto>(entity);
-            return dto;
-        }
-
-        public async Task<List<DomainContextDto>> GetAll()
-        {
-            var entities = await this._domainContextRepository.Get();
-            List<DomainContextDto> listDto = _mapper.Map<List<DomainContextDto>>(entities);
-            return listDto;
         }
     }
 }
