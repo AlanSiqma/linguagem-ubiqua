@@ -6,7 +6,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Entities
 {
     public class DomainContextEntity : BaseEntity
     {
-        internal DomainContextEntity()
+        public DomainContextEntity()
         {
 
         }

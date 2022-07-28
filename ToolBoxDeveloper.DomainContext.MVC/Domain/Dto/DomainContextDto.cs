@@ -5,6 +5,19 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Dto
 {
     public class DomainContextDto
     {
+        public DomainContextDto()
+        {
+
+        }
+        public DomainContextDto(string organization, string domain, string context, string key, string description, string userRegister)
+        {
+            this.Organization = organization;
+            this.Domain = domain;
+            this.Context = context;
+            this.Key = key;
+            this.Description = description;
+            this.UserRegister = userRegister;
+        }
         public string Id { get; set; }
         public string Organization { get; set; }
         public string Domain { get; set; }
