@@ -33,10 +33,9 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task<List<DomainContextDto>> GetAll()
         {
-            var entities = await this._domainContextRepository.Get();
-            List<DomainContextDto> listDto = _mapper.Map<List<DomainContextDto>>(entities);
-            return listDto;
+            return _mapper.Map<List<DomainContextDto>>(await this._domainContextRepository.Get());
         }
+
         public async Task<DomainContextDto> Find(string id)
         {
             if (this.IsInvalidId(id))
@@ -44,6 +43,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
             return _mapper.Map<DomainContextDto>(await this.FindEntity(id));
         }
+
         public async Task Delete(string id)
         {
             if (this.IsInvalidId(id))
