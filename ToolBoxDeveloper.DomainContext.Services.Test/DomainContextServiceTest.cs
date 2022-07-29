@@ -161,5 +161,62 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Assert.Equal(domainContextEntity.Description, result.Description);
             Assert.Equal(domainContextEntity.UserRegister, result.UserRegister);
         }
+        [Fact]
+        public async void AddSuccess()
+        {
+            //Arrange
+            Mock<ILogger<DomainContextService>> logger = new Mock<ILogger<DomainContextService>>();
+            Mock<IDomainContextRepository> moqRepository = new Mock<IDomainContextRepository>();
+            Mock<IMapper> moqMapper = new Mock<IMapper>();
+
+            string idFind = " ";
+
+            DomainContextEntity domainContextEntity = new DomainContextEntity("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
+            domainContextEntity.Id = idFind;
+            
+            DomainContextDto dtoMoq = new DomainContextDto("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
+            dtoMoq.Id = idFind;
+           
+
+            moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
+
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object, logger.Object, moqMapper.Object);
+
+            //Act
+            await domainContextService.AddOrUpdate(dtoMoq);
+
+            //Assert
+            //Assert
+            Assert.Equal(idFind, dtoMoq.Id);
+        }
+
+        [Fact]
+        public async void UpdateSuccess()
+        {
+            //Arrange
+            Mock<ILogger<DomainContextService>> logger = new Mock<ILogger<DomainContextService>>();
+            Mock<IDomainContextRepository> moqRepository = new Mock<IDomainContextRepository>();
+            Mock<IMapper> moqMapper = new Mock<IMapper>();
+
+            string idFind = "1";
+
+            DomainContextEntity domainContextEntity = new DomainContextEntity("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
+            domainContextEntity.Id = idFind;
+
+            DomainContextDto dtoMoq = new DomainContextDto("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
+            dtoMoq.Id = idFind;
+
+
+            moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
+
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object, logger.Object, moqMapper.Object);
+
+            //Act
+            await domainContextService.AddOrUpdate(dtoMoq);
+
+            //Assert
+            //Assert
+            Assert.Equal(idFind, dtoMoq.Id);
+        }
     }
 }

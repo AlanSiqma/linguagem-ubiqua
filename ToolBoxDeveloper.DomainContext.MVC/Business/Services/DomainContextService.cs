@@ -25,10 +25,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task AddOrUpdate(DomainContextDto dto)
         {
-            if (string.IsNullOrEmpty(dto.Id))
-                await Create(dto);
+            if (dto.Id.IsNullOrEmptyOrWhiteSpace())
+                await this.Create(dto);
             else
-                await Update(dto);
+                await this.Update(dto);
         }
 
         public async Task<List<DomainContextDto>> GetAll()
@@ -38,7 +38,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task<DomainContextDto> Find(string id)
         {
-            if (this.IsInvalidId(id))
+            if (id.IsNullOrEmptyOrWhiteSpace())
                 throw new ArgumentException("Campo id é obrigatorio");
 
             return _mapper.Map<DomainContextDto>(await this.FindEntity(id));
@@ -46,7 +46,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task Delete(string id)
         {
-            if (this.IsInvalidId(id))
+            if (id.IsNullOrEmptyOrWhiteSpace())
                 throw new ArgumentException("Campo id é obrigatorio");
 
             await this._domainContextRepository.Remove(await this.FindEntity(id));
@@ -70,16 +70,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
             DomainContextEntity entity = _mapper.Map<DomainContextEntity>(dto);
             await this._domainContextRepository.Create(entity);
-        }
-
-        private bool IsInvalidId(string id)
-        {
-            bool result = false;
-
-            if (id.IsNullOrEmptyOrWhiteSpace())
-                result = true;
-
-            return result;
         }
     }
 }
