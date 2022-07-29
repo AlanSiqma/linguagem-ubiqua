@@ -38,24 +38,20 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task<DomainContextDto> Find(string id)
         {
-            if (id.IsNullOrEmptyOrWhiteSpace())
-                throw new ArgumentException("Campo id é obrigatorio");
-
-            return _mapper.Map<DomainContextDto>(await this.FindEntity(id));
+            return _mapper.Map<DomainContextDto>(await this.FindEntityById(id));
         }
 
         public async Task Delete(string id)
         {
+            await this._domainContextRepository.Remove(await this.FindEntityById(id));
+        }
+
+        private async Task<DomainContextEntity> FindEntityById(string id)
+        {
             if (id.IsNullOrEmptyOrWhiteSpace())
                 throw new ArgumentException("Campo id é obrigatorio");
 
-            await this._domainContextRepository.Remove(await this.FindEntity(id));
-        }
-
-        private async Task<DomainContextEntity> FindEntity(string id)
-        {
-            var listEntity = await this._domainContextRepository.Get(x => x.Id.Equals(id));
-            return listEntity.FirstOrDefault();
+            return (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
         }
 
         private async Task Update(DomainContextDto dto)
