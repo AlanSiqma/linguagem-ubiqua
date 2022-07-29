@@ -22,38 +22,19 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
         public async Task AddOrUpdate(UserDto dto)
         {
             if (string.IsNullOrEmpty(dto.Id))
-                await Create(dto);
+                await this.Create(dto);
             else
-                await Update(dto);
-        }
-        private async Task Update(UserDto dto)
-        {
-            UserEntity entity = _mapper.Map<UserEntity>(dto);
-            entity.SetPassword(dto.Password);
-
-            await this._userRepository.Update(dto.Id, entity);
-        }
-
-        private async Task Create(UserDto dto)
-        {
-            UserEntity entity = _mapper.Map<UserEntity>(dto);
-            entity.SetPassword(dto.Password);
-
-            await this._userRepository.Create(entity);
+                await this.Update(dto);
         }
 
         public async Task Delete(string id)
         {
-            var entity = (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
-
-            await this._userRepository.Remove(entity);
+            await this._userRepository.Remove(await this.FindEntityById(id));
         }
 
         public async Task<UserDto> Find(string id)
         {
-            var entity = (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
-            UserDto dto = _mapper.Map<UserDto>(entity);
-            return dto;
+            return  _mapper.Map<UserDto>(await this.FindEntityById(id));
         }
 
         public async Task<List<UserDto>> GetAll()
@@ -72,6 +53,29 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
                 result = true;
 
             return result;
+        }
+
+        private async Task<UserEntity> FindEntityById(string id)
+        {
+            return (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+        }
+
+        private async Task Update(UserDto dto)
+        {
+            UserEntity entity = _mapper.Map<UserEntity>(dto);
+            
+            entity.SetPassword(dto.Password);
+
+            await this._userRepository.Update(dto.Id, entity);
+        }
+
+        private async Task Create(UserDto dto)
+        {
+            UserEntity entity = _mapper.Map<UserEntity>(dto);
+            
+            entity.SetPassword(dto.Password);
+
+            await this._userRepository.Create(entity);
         }
     }
 }
