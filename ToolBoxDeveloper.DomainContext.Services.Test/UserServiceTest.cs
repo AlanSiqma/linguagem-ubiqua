@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.MVC.Business.Services;
 using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
@@ -133,6 +134,44 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => userService.Find(id));
+        }
+        [Fact]
+        public async void GetAllSuccess()
+        {
+            //Arrange
+            string userPassword = "1";
+            string id = "1";
+            Mock<ILogger<UserService>> logger = new Mock<ILogger<UserService>>();
+            Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
+            Mock<IMapper> moqMapper = new Mock<IMapper>();
+
+            UserEntity userEntity = new UserEntity("joares");
+            userEntity.Id = id;
+            userEntity.SetPassword(userPassword);
+            List<UserEntity> list = new List<UserEntity>();
+            list.Add(userEntity);
+
+            UserDto moqDto = new UserDto()
+            {
+                Id = id,
+                Password = userPassword.Encrypt(),
+                Email = "joares"
+            };
+            List<UserDto> listDto = new List<UserDto>();
+            listDto.Add(moqDto);
+
+            moqRepository.Setup(x => x.Get()).Returns(Task.FromResult(list));
+            moqMapper.Setup(m => m.Map<List<UserDto>>(list)).Returns(listDto);            
+
+            UserService userService = new UserService(moqRepository.Object, moqMapper.Object, logger.Object);
+
+            //Act
+            var result = (await userService.GetAll()).FirstOrDefault();
+
+            //Assert
+            Assert.Equal(userEntity.Id, result.Id);
+            Assert.Equal(userEntity.Email, result.Email);
+            Assert.Equal(userEntity.Password, result.Password);
         }
     }
 }
