@@ -173,5 +173,74 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Assert.Equal(userEntity.Email, result.Email);
             Assert.Equal(userEntity.Password, result.Password);
         }
+        [Fact]
+        public async void AddSuccess()
+        {
+            //Arrange
+            string userPassword = "1";
+            string id = "1";
+            Mock<ILogger<UserService>> logger = new Mock<ILogger<UserService>>();
+            Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
+            Mock<IMapper> moqMapper = new Mock<IMapper>();
+
+            UserEntity userEntity = new UserEntity("joares");
+            userEntity.Id = id;
+            userEntity.SetPassword(userPassword);
+
+            UserDto moqDto = new UserDto()
+            {
+                Id = id,
+                Password = userPassword.Encrypt(),
+                Email = "joares"
+            };
+
+
+            moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
+            moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
+
+            UserService userService = new UserService(moqRepository.Object, moqMapper.Object, logger.Object);
+
+            //Act
+            await userService.AddOrUpdate(moqDto);
+
+            //Assert
+            //Assert
+            Assert.Equal(id, moqDto.Id);
+        }
+
+        [Fact]
+        public async void UpdateSuccess()
+        {
+            //Arrange
+            string userPassword = "1";
+            string id = " ";
+            Mock<ILogger<UserService>> logger = new Mock<ILogger<UserService>>();
+            Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
+            Mock<IMapper> moqMapper = new Mock<IMapper>();
+
+            UserEntity userEntity = new UserEntity("joares");
+            userEntity.Id = id;
+            userEntity.SetPassword(userPassword);
+
+            UserDto moqDto = new UserDto()
+            {
+                Id = id,
+                Password = userPassword.Encrypt(),
+                Email = "joares"
+            };
+
+
+            moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
+            moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
+
+            UserService userService = new UserService(moqRepository.Object, moqMapper.Object, logger.Object);
+
+            //Act
+            await userService.AddOrUpdate(moqDto);
+
+            //Assert
+            //Assert
+            Assert.Equal(id, moqDto.Id);
+        }
     }
 }
