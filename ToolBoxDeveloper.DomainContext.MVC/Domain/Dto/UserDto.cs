@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Domain.Dto
 {
+    [ExcludeFromCodeCoverage]
     public class UserDto
     {
         public string Id { get; set; }

@@ -25,7 +25,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 
         public async Task AddOrUpdate(UserDto dto)
         {
-            if (string.IsNullOrEmpty(dto.Id))
+            if (dto.Id.IsNullOrEmptyOrWhiteSpace())
                 await this.Create(dto);
             else
                 await this.Update(dto);
@@ -51,6 +51,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
             bool result = false;
 
             var entity = await this._userRepository.Get(x => x.Email.Equals(dto.Email) && x.Password.Equals(dto.Password.Encrypt()));
+            
             if (entity.Count > 0)
                 result = true;
 
