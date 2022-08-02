@@ -178,7 +178,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         {
             //Arrange
             string userPassword = "1";
-            string id = "1";
+            string id = " ";
             Mock<ILogger<UserService>> logger = new Mock<ILogger<UserService>>();
             Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
             Mock<IMapper> moqMapper = new Mock<IMapper>();
@@ -213,7 +213,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         {
             //Arrange
             string userPassword = "1";
-            string id = " ";
+            string id = "1";
             Mock<ILogger<UserService>> logger = new Mock<ILogger<UserService>>();
             Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
             Mock<IMapper> moqMapper = new Mock<IMapper>();
@@ -241,6 +241,79 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Assert
             //Assert
             Assert.Equal(id, moqDto.Id);
+        }
+        [Fact]
+        public async void AutenticateSuccess()
+        {
+            //Arrange
+            string userPassword = "1";
+            string id = "20";
+            Mock<ILogger<UserService>> logger = new Mock<ILogger<UserService>>();
+            Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
+            Mock<IMapper> moqMapper = new Mock<IMapper>();
+
+            UserEntity userEntity = new UserEntity("joares");
+            userEntity.Id = id;
+            userEntity.SetPassword(userPassword);
+
+            var list = new List<UserEntity>();
+            list.Add(userEntity);
+
+            UserDto moqDto = new UserDto()
+            {
+                Id = id,
+                Password = userPassword,
+                Email = "joares"
+            };
+
+
+            moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
+            moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
+            moqRepository.Setup(x => x.Get(x => x.Email.Equals(moqDto.Email) && x.Password.Equals(moqDto.Password.Encrypt()))).Returns(Task.FromResult(list));
+
+            UserService userService = new UserService(moqRepository.Object, moqMapper.Object, logger.Object);
+
+            //Act
+            var result = await userService.Autenticate(moqDto);
+
+            //Assert
+            Assert.True(result);
+        }
+        [Fact]
+        public async void AutenticateNotSuccess()
+        {
+            //Arrange
+            string userPassword = "1";
+            string id = "20";
+            Mock<ILogger<UserService>> logger = new Mock<ILogger<UserService>>();
+            Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
+            Mock<IMapper> moqMapper = new Mock<IMapper>();
+
+            UserEntity userEntity = new UserEntity("joares");
+            userEntity.Id = id;
+            userEntity.SetPassword(userPassword);
+
+            var list = new List<UserEntity>();
+
+
+            UserDto moqDto = new UserDto()
+            {
+                Id = id,
+                Password = userPassword,
+                Email = "joares"
+            };
+
+            moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
+            moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
+            moqRepository.Setup(x => x.Get(x => x.Email.Equals(moqDto.Email) && x.Password.Equals(moqDto.Password.Encrypt()))).Returns(Task.FromResult(list));
+
+            UserService userService = new UserService(moqRepository.Object, moqMapper.Object, logger.Object);
+
+            //Act
+            var result = await userService.Autenticate(moqDto);
+
+            //Assert
+            Assert.False(result);
         }
     }
 }
