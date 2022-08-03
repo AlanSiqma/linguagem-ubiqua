@@ -1,0 +1,15 @@
+ê
+ÑF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\Autentication\Index.cshtml.g.csutf-8ë
+ÖF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\DomainContext\Create.cshtml.g.csutf-8è
+ÉF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\DomainContext\Edit.cshtml.g.csutf-8ê
+ÑF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\DomainContext\Index.cshtml.g.csutf-8Ü
+{F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.csutf-8à
+}F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.csutf-8à
+}F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.csutf-8ä
+F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.csutf-8ù
+ëF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.csutf-8Ö
+zF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\User\Edit.cshtml.g.csutf-8Ü
+{F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\User\Index.cshtml.g.csutf-8à
+}F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.csutf-8Ü
+{F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.csutf-8¢
+ñF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.MVC\obj\Debug\net5.0\ToolBoxDeveloper.DomainContext.MVC.RazorTargetAssemblyInfo.csutf-8
