@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
-  <ProjectName>ToolBoxDeveloper.DomainContext.Domain.Test</ProjectName>
+  <ProjectName>ToolBoxDeveloper.DomainContext.Services.Test</ProjectName>
   <ProjectLanguage>C#</ProjectLanguage>
   <ProjectType>Test</ProjectType>
-  <ProjectGuid>fbf98099-4861-4c22-9677-8a22a44e6c3d</ProjectGuid>
-  <FullPath>F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\ToolBoxDeveloper.DomainContext.Domain.Test.csproj</FullPath>
+  <ProjectGuid>3ca96629-34c9-497d-9ac8-7049679ab0a0</ProjectGuid>
+  <FullPath>F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Services.Test\ToolBoxDeveloper.DomainContext.Services.Test.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>
     <AnalysisResult Id="FilesToAnalyze" Location="F:\projetos\pessoal\linguagem-ubiqua\.sonarqube\conf\2\FilesToAnalyze.txt" />
   </AnalysisResults>
   <AnalysisSettings>
-    <Property Name="sonar.cs.roslyn.reportFilePaths">F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\bin\Debug\net5.0\ToolBoxDeveloper.DomainContext.Domain.Test.dll.RoslynCA.json|F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\bin\Debug\net5.0\ToolBoxDeveloper.DomainContext.Domain.Test.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Services.Test\bin\Debug\net5.0\ToolBoxDeveloper.DomainContext.Services.Test.dll.RoslynCA.json|F:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Services.Test\bin\Debug\net5.0\ToolBoxDeveloper.DomainContext.Services.Test.dll.RoslynCA.json</Property>
     <Property Name="sonar.cs.analyzer.projectOutPaths">F:\projetos\pessoal\linguagem-ubiqua\.sonarqube\out\2</Property>
   </AnalysisSettings>
   <Configuration>Debug</Configuration>
