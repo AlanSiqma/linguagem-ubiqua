@@ -11,7 +11,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         {
             //Arange
             string email = "joares@gmail.com";
-            DomainContextDto dto = new DomainContextDto()
+            DomainContextDto dto = new()
             {
                 Id = Guid.NewGuid().ToString(),
                 Organization = "ToolBoDevelopr",
@@ -34,7 +34,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void SetEmailNotSuccess(string email)
         {
             //Arange
-            DomainContextDto dto = new DomainContextDto()
+            DomainContextDto dto = new()
             {
                 Id = Guid.NewGuid().ToString(),
                 Organization = "ToolBoDevelopr",
