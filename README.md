@@ -1,6 +1,6 @@
  # Linguagem ubíqua
 
-O projeto foi gerado em [.net core](https://dotnet.microsoft.com/en-us/download/dotnet/3.1) versao 3.1.
+O projeto foi gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) versao 5.0.
 
 # Para rodar localmente seguir os passos abaixo:
 1. Instale o docker
