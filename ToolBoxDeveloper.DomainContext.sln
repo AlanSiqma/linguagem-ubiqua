@@ -7,11 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-UI", "01-UI", "{1F8A4BD8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.MVC", "ToolBoxDeveloper.DomainContext.MVC\ToolBoxDeveloper.DomainContext.MVC.csproj", "{5102C0C1-8EC7-47F1-8F0C-18480200D5A6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Test", "02-Test", "{8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Test", "05-Test", "{8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Domain.Test", "ToolBoxDeveloper.DomainContext.Domain.Test\ToolBoxDeveloper.DomainContext.Domain.Test.csproj", "{FBF98099-4861-4C22-9677-8A22A44E6C3D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Services.Test", "ToolBoxDeveloper.DomainContext.Services.Test\ToolBoxDeveloper.DomainContext.Services.Test.csproj", "{3CA96629-34C9-497D-9AC8-7049679AB0A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Domain", "03-Domain", "{34EE1C51-1921-43BD-B463-051CA5ED589C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolBoxDeveloper.DomainContext.Domain", "ToolBoxDeveloper.DomainContext.Domain\ToolBoxDeveloper.DomainContext.Domain.csproj", "{BE3F2441-BB68-463A-B7FE-81D375291181}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{3CA96629-34C9-497D-9AC8-7049679AB0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CA96629-34C9-497D-9AC8-7049679AB0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CA96629-34C9-497D-9AC8-7049679AB0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE3F2441-BB68-463A-B7FE-81D375291181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3F2441-BB68-463A-B7FE-81D375291181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3F2441-BB68-463A-B7FE-81D375291181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3F2441-BB68-463A-B7FE-81D375291181}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +47,7 @@ Global
 		{5102C0C1-8EC7-47F1-8F0C-18480200D5A6} = {1F8A4BD8-94CA-4BEA-838B-A467955E18B1}
 		{FBF98099-4861-4C22-9677-8A22A44E6C3D} = {8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}
 		{3CA96629-34C9-497D-9AC8-7049679AB0A0} = {8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}
+		{BE3F2441-BB68-463A-B7FE-81D375291181} = {34EE1C51-1921-43BD-B463-051CA5ED589C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99F7F5FF-004E-468B-922D-CAD6A29864E4}
