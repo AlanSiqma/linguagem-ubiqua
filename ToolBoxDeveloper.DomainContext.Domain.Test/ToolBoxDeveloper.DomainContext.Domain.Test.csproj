@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.MVC\ToolBoxDeveloper.DomainContext.MVC.csproj" />
+    <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Domain\ToolBoxDeveloper.DomainContext.Domain.csproj" />
   </ItemGroup>
 
 </Project>

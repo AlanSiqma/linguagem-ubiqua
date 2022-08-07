@@ -1,5 +1,5 @@
 ﻿using System;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
+using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using Xunit;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Test

@@ -1,4 +1,4 @@
-﻿using ToolBoxDeveloper.DomainContext.MVC.Domain.Extensions;
+﻿using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 using Xunit;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Test
