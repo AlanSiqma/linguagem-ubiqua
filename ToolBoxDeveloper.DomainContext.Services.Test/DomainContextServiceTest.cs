@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.MVC.Business.Services;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Dto;
+using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using Xunit;
 
 namespace ToolBoxDeveloper.DomainContext.Services.Test

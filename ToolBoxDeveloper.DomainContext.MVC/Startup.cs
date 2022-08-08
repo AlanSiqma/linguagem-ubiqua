@@ -9,8 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Serilog;
 using ToolBoxDeveloper.DomainContext.MVC.CustomHealthChecks;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Settings;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Settings;
 using ToolBoxDeveloper.DomainContext.MVC.Infra.IoC;
 
 namespace ToolBoxDeveloper.DomainContext.MVC

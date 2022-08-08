@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Dto;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 {

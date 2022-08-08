@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ToolBoxDeveloper.DomainContext.MVC.Business.Services;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.MVC.Infra.Data;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Infra.IoC
