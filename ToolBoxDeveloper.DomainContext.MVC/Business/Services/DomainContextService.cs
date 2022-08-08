@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Contracts;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Extensions;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Dto;
+using ToolBoxDeveloper.DomainContext.Domain.Entities;
+using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
 {

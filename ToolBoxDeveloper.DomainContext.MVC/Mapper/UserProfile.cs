@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Dto;
-using ToolBoxDeveloper.DomainContext.MVC.Domain.Entities;
+using ToolBoxDeveloper.DomainContext.Domain.Dto;
+using ToolBoxDeveloper.DomainContext.Domain.Entities;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Mapper
 {
