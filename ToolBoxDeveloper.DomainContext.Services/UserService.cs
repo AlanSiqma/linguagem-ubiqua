@@ -9,7 +9,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 
-namespace ToolBoxDeveloper.DomainContext.MVC.Business.Services
+namespace ToolBoxDeveloper.DomainContext.Services
 {
     public class UserService : IUserService
     {
