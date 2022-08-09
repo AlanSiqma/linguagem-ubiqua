@@ -1,6 +1,6 @@
  # Linguagem ubíqua
 
-O projeto visa o gerenciamento da linguagem obiqua das empresas, faciltiando assim o entendimento da regra de negocio.
+O projeto visa o gerenciamento da linguagem obiqua das empresas, facilitando assim o entendimento da regra de negocio.
 
 Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) versao 5.0
 
