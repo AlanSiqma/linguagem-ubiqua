@@ -1,6 +1,9 @@
- # Linguagem ubíqua
+# O que é Linguagem ubíqua?
+Linguagem Ubíqua (ou Linguagem Onipresente) é um conceito central de DDD. Ela consiste de um conjunto de termos que devem ser plenamente entendidos tanto por especialistas no domínio (usuários do sistema) como por desenvolvedores (implementadores do sistema)
 
-O projeto visa o gerenciamento da linguagem obiqua das empresas, facilitando assim o entendimento da regra de negocio.
+# O Projeto
+
+Visa o gerenciamento da linguagem ubíqua das empresas, facilitando assim o entendimento da regra de negocio.
 
 Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) versao 5.0
 
