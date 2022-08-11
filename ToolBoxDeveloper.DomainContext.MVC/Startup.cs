@@ -11,7 +11,7 @@ using Serilog;
 using ToolBoxDeveloper.DomainContext.MVC.CustomHealthChecks;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.Domain.Settings;
-using ToolBoxDeveloper.DomainContext.MVC.Infra.IoC;
+using ToolBoxDeveloper.DomainContext.IoC;
 
 namespace ToolBoxDeveloper.DomainContext.MVC
 {
