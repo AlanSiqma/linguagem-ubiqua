@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts;
-using ToolBoxDeveloper.DomainContext.MVC.Infra.Data;
+using ToolBoxDeveloper.DomainContext.Infra.Data;
 using ToolBoxDeveloper.DomainContext.Services;
 
-namespace ToolBoxDeveloper.DomainContext.MVC.Infra.IoC
+namespace ToolBoxDeveloper.DomainContext.IoC
 {
     public static class InjectionConfiguration
     {

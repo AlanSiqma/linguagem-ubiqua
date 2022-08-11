@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Domain\ToolBoxDeveloper.DomainContext.Domain.csproj" />
-    <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Services\ToolBoxDeveloper.DomainContext.Services.csproj" />
+    <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.IoC\ToolBoxDeveloper.DomainContext.IoC.csproj" />
   </ItemGroup>
 
 </Project>

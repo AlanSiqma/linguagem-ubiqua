@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Domain\ToolBoxDeveloper.DomainContext.Domain.csproj" />
+    <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Infra\ToolBoxDeveloper.DomainContext.Infra.csproj" />
+    <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Services\ToolBoxDeveloper.DomainContext.Services.csproj" />
+  </ItemGroup>
+
+</Project>
