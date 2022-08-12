@@ -9,6 +9,7 @@ namespace ToolBoxDeveloper.DomainContext.IoC
     {
         public static IServiceCollection AddInjectionConfiguration(this IServiceCollection service)
         {
+
             service.AddTransient<IDomainContextService, DomainContextService>();
             service.AddTransient<IDomainContextRepository, DomainContextRepository>();
             service.AddTransient<IUserService, UserService>();

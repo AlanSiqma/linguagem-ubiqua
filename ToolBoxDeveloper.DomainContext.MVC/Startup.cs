@@ -69,7 +69,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(InjectionConfiguration));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
