@@ -114,28 +114,28 @@ body {
         width: 100%;
     }
 }
-/*Autenticacao*/
-.autenticacao-jumbotron {
+/*Autenticacao, novo-usuario*/
+.autenticacao-jumbotron, .novo-usuario-jumbotron {
     margin-top: 10em;
     background-color: #e9ecef;
 }
 
-.autenticacao-form-container-div-titulo{
-    text-align:center;
-}
-
-.autenticacao-form-container-div-conteudo {
+.autenticacao-form-container-div-titulo, .novo-usuario-form-container-div-titulo {
     text-align: center;
 }
 
-.autenticacao-form-container-div-conteudo input {
+.autenticacao-form-container-div-conteudo, .novo-usuario-form-container-div-conteudo {
+    text-align: center;
+}
+
+    .autenticacao-form-container-div-conteudo input, .novo-usuario-form-container-div-conteudo input {
         margin: 0 auto;
         float: none;
         width: 50% !important;
-}
+    }
 
-.autenticacao-form-container-div-conteudo-form-group-btn {
+.autenticacao-form-container-div-conteudo-form-group-btn, .novo-usuario-form-container-div-conteudo-form-group-btn {
     max-width: 100% !important;
     width: 50%;
 }
-/*Autenticacao*/
+/*Autenticacao,novo-usuario*/
