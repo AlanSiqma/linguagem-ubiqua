@@ -1,58 +1,10 @@
 ﻿@model ToolBoxDeveloper.DomainContext.Domain.Dto.DomainContextDto
-@{
-    ViewData["Title"] = "Create";
-}
-<h1>Criar</h1>
-<h4>Dominio</h4>
+<h1>Criar novo Dominio</h1>
 <hr />
-<div class="jumbotron">
+<div class="jumbotron create-domain-jumbotron">
     <form asp-action="Create">
-        <div class="row">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.HiddenFor(x => x.UserRegister)
-            <div class="col-md-4">
-                <label asp-for="Organization" class="control-label"></label>
-                <input asp-for="Organization" class="form-control" />
-                <span asp-validation-for="Organization" class="text-danger"></span>
-            </div>
-            <div class="col-md-4">
-                <label asp-for="Domain" class="control-label"></label>
-                <input asp-for="Domain" class="form-control" />
-                <span asp-validation-for="Domain" class="text-danger"></span>
-            </div>
-            <div class="col-md-4">
-                <label asp-for="Context" class="control-label"></label>
-                <input asp-for="Context" class="form-control" />
-                <span asp-validation-for="Context" class="text-danger"></span>
-            </div>
-            <div class="col-md-4">
-                <label asp-for="Key" class="control-label"></label>
-                <input asp-for="Key" class="form-control" />
-                <span asp-validation-for="Key" class="text-danger"></span>
-            </div>
-            <div class="col-md-4">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row row-site">
-            <div class="col-md-4">
-                <a asp-action="Index" class="btn btn-info btn-site">
-                    <i class="fa fa-backward" aria-hidden="true"></i>
-                    Voltar
-                </a>
-            </div>
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-success btn-site">
-                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    Salvar
-                </button>
-            </div>
-        </div>
+        @Html.HiddenFor(x => x.UserRegister)
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <partial name="_CreateOrEdit" />
     </form>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

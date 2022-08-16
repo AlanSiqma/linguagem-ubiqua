@@ -114,12 +114,16 @@ body {
         width: 100%;
     }
 }
-/*Autenticacao, novo-usuario*/
-.autenticacao-jumbotron, .novo-usuario-jumbotron {
-    margin-top: 10em;
+/*jumbotron*/
+.autenticacao-jumbotron, .novo-usuario-jumbotron, .create-domain-jumbotron, .edit-domain-jumbotron {
     background-color: #e9ecef;
 }
 
+.autenticacao-jumbotron, .novo-usuario-jumbotron {
+    margin-top: 10em;
+}
+/*jumbotron*/
+/*Autenticacao, novo-usuario*/
 .autenticacao-form-container-div-titulo, .novo-usuario-form-container-div-titulo {
     text-align: center;
 }
