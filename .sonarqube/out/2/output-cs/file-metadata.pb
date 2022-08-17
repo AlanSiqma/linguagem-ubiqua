@@ -1,9 +1,0 @@
-m
-dF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\CrypExtensionTest.csutf-8p
-gF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\DomainContextDtoTest.csutf-8s
-jF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\DomainContextEntityTest.csutf-8p
-gF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\StringExtensionsTest.csutf-8j
-aF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\UserEntityTest.csutf-8}
-rC:\Users\alans\.nuget\packages\microsoft.net.test.sdk\17.2.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.csutf-8õ
-èF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.csutf-8ß
-õF:\projetos\pessoal\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain.Test\obj\Debug\net5.0\ToolBoxDeveloper.DomainContext.Domain.Test.AssemblyInfo.csutf-8
