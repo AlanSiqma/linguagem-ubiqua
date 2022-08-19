@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Domain\ToolBoxDeveloper.DomainContext.Domain.csproj" />
     <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Infra\ToolBoxDeveloper.DomainContext.Infra.csproj" />
     <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.Services\ToolBoxDeveloper.DomainContext.Services.csproj" />
