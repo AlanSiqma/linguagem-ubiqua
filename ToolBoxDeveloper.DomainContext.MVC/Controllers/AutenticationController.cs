@@ -13,7 +13,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         private readonly IUserService _userService;
         public AutenticationController(IUserService userService)
         {
-            this._userService = userService;           
+            this._userService = userService;
         }
         public IActionResult Index()
         {
@@ -22,37 +22,39 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserDto dto)
         {
-
             if (ModelState.IsValid && await this._userService.Autenticate(dto))
-            {
-                var claims = new[]
+                return await this.Autenticate(dto);
+
+            ModelState.AddModelError("ModelOnly", "Usuário ou senha incorreto");
+            return View("Index", dto);
+        }
+        public async Task<IActionResult> Logout()
+        {
+            var cookieAuthentication = CookieAuthenticationDefaults.AuthenticationScheme;
+
+            await HttpContext.SignOutAsync(cookieAuthentication);
+
+            return RedirectToAction("Index", "Home");
+        }
+        private async Task<IActionResult> Autenticate(UserDto dto)
+        {
+            var cookieAuthentication = CookieAuthenticationDefaults.AuthenticationScheme;
+            Claim[] claims = new[]
                             {
                                 new Claim(ClaimTypes.Name, dto.Email),
                                 new Claim(ClaimTypes.Role, "Administrator"),
                                 new Claim("Nome", dto.Email),
                             };
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
+            ClaimsIdentity identity = new(claims, cookieAuthentication);
+            ClaimsPrincipal claimsPrincipal = new(identity);
 
-                var authProperties = new AuthenticationProperties
-                {
-                    IsPersistent = true
-                };
+            AuthenticationProperties authProperties = new() { IsPersistent = true };
 
-                await HttpContext.SignInAsync(
-                            CookieAuthenticationDefaults.AuthenticationScheme,
-                            new ClaimsPrincipal(identity), authProperties);
+            await HttpContext
+                        .SignInAsync(cookieAuthentication,claimsPrincipal,authProperties);
 
-                return RedirectToAction("Index", "DomainContext");
-            }
-            ModelState.AddModelError("ModelOnly", "Usuário ou senha incorreto");
-            return View("Index",dto);
-        }
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "DomainContext");
         }
     }
 }
