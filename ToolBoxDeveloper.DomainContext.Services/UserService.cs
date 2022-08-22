@@ -77,11 +77,16 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
         private async Task Create(UserDto dto)
         {
-            UserEntity entity = _mapper.Map<UserEntity>(dto);
+            UserEntity entityMap = _mapper.Map<UserEntity>(dto);
 
-            entity.SetPassword(dto.Password);
+            entityMap.SetPassword(dto.Password);
 
-            await this._userRepository.Create(entity);
+            var entities = await this._userRepository.Get(x => x.Email.Equals(dto.Email));
+
+            if (entities.Count > 0)
+                return;
+
+            await this._userRepository.Create(entityMap);
         }
     }
 }
