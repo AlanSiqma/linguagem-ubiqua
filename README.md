@@ -20,3 +20,6 @@ Mongo DB
 1. Via prompt de comando acesse o diretorio 'ToolBoxDeveloper.DomainContext.MVC' e execute o comando: 'dotnet run'.
 2. ao termino do build a aplicação estara disponivel no [endereço https](https://localhost:5001) ou no [endereço http](http://localhost:5000).
 
+# Servidor de teste
+
+Você pode acessar a aplicação pelo [endereço](https://linguagem-ubiqua.herokuapp.com/)
