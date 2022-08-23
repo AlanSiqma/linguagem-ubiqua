@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings;
 using ToolBoxDeveloper.DomainContext.Domain.Entities.Base;
 
 namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base

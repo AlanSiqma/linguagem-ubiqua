@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Services;
-using ToolBoxDeveloper.DomainContext.Domain.Contracts;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using Xunit;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
 
 namespace ToolBoxDeveloper.DomainContext.Services.Test
 {
