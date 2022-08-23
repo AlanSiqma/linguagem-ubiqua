@@ -1,4 +1,4 @@
-﻿namespace ToolBoxDeveloper.DomainContext.Domain.Contracts
+﻿namespace ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings
 {
     public interface IDatabaseSettings
     {

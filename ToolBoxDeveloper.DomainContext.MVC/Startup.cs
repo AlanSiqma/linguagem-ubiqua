@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Serilog;
-using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings;
 using ToolBoxDeveloper.DomainContext.Domain.Settings;
 using ToolBoxDeveloper.DomainContext.IoC;
 using ToolBoxDeveloper.DomainContext.MVC.Extensions;

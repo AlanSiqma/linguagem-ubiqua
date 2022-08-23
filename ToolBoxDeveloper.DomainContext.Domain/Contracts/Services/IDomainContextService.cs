@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 
-namespace ToolBoxDeveloper.DomainContext.Domain.Contracts
+namespace ToolBoxDeveloper.DomainContext.Domain.Contracts.Services
 {
     public interface IDomainContextService
     {

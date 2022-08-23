@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Controllers

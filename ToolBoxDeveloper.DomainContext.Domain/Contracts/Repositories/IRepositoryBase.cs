@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace ToolBoxDeveloper.DomainContext.Domain.Contracts
+namespace ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {

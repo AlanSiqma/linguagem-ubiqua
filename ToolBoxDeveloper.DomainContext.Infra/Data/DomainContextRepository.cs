@@ -1,4 +1,5 @@
-﻿using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+﻿using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Infra.Data.Base;
 

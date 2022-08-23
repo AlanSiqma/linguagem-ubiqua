@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using ToolBoxDeveloper.DomainContext.Domain.Contracts;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Settings
 {
