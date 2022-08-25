@@ -23,14 +23,17 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
 
         [DisplayName("Empresa")]
         public string Organization { get; set; }
+
         [DisplayName("Dominio")]
         public string Domain { get; set; }
 
         [DisplayName("Contexto")]
         public string Context { get; set; }
+
         [DisplayName("Chave")]
         public string Key { get; set; }
-        [DisplayName("Valor/Descrição")]
+
+        [DisplayName("Valor")]
         public string Description { get; set; }
         public string UserRegister { get; set; }
 

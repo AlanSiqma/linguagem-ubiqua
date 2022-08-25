@@ -8,4 +8,7 @@ $(document).ready(function () {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
         }
     });
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
 });

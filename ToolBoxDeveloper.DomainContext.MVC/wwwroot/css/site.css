@@ -143,3 +143,15 @@ body {
     width: 50%;
 }
 /*Autenticacao,novo-usuario*/
+
+
+.col-md-4{
+    margin-top:2%!important;
+}
+.col-md-12 {
+    margin-top: 2% !important;
+}
+
+.cursor-pointer{
+    cursor:pointer;
+}

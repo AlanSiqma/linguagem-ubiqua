@@ -2,27 +2,36 @@
 <div class="row">
     <div class="col-md-4">
         <label asp-for="Organization" class="control-label"></label>
-        <input asp-for="Organization" placeholder="ToolBoxDeveloper" class="form-control" />
+        <span class="cursor-pointer" data-container="body" data-toggle="popover" data-placement="top" data-content="Nome da Empresa"> ℹ</span>
+        <input asp-for="Organization" placeholder="Scenic Solutions" class="form-control" />
         <span asp-validation-for="Organization" class="text-danger"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Domain" class="control-label"></label>
-        <input asp-for="Domain" placeholder="DomainContext" class="form-control" />
+        <span class="cursor-pointer" data-container="body" data-toggle="popover" data-placement="top" data-content="Nome do Projeto"> ℹ</span>
+        <input asp-for="Domain" placeholder="Nome do projeto" class="form-control" title="" />
         <span asp-validation-for="Domain" class="text-danger"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Context" class="control-label"></label>
-        <input asp-for="Context" placeholder="Domain" class="form-control" />
+        <span class="cursor-pointer" data-container="body" data-toggle="popover" data-placement="top" data-content="Contexto/Departartamento no qual a palavra chave faz parte"> ℹ</span>
+        <input asp-for="Context" placeholder="Vendas/Compras" class="form-control" />
         <span asp-validation-for="Context" class="text-danger"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Key" class="control-label"></label>
+        <span class="cursor-pointer" data-container="body" data-toggle="popover" data-placement="top" data-content="Palavra chave/abreviação/sinônimo"> ℹ</span>
         <input asp-for="Key" placeholder="Context" class="form-control" />
         <span asp-validation-for="Key" class="text-danger"></span>
     </div>
-    <div class="col-md-4">
+</div>
+<div class="row row-site">
+    <div class="col-md-12">
+
         <label asp-for="Description" class="control-label"></label>
-        <input asp-for="Description" placeholder="Contexto" class="form-control" />
+        <span class="cursor-pointer" data-container="body" data-toggle="popover" data-placement="top" data-content="Valor da chave informada no campo anterior"> ℹ</span>
+
+        <textarea asp-for="Description" placeholder="Context significa contexto" class="form-control"></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 </div>
@@ -44,5 +53,6 @@
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
     }
     }
