@@ -155,3 +155,9 @@ body {
 .cursor-pointer{
     cursor:pointer;
 }
+
+.img-about {
+    width:85%;
+    max-width: 100%;
+    height: auto;
+}
