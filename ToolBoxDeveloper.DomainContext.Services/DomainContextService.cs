@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
@@ -17,11 +18,16 @@ namespace ToolBoxDeveloper.DomainContext.Services
         private readonly ILogger<DomainContextService> _logger;
         private readonly IDomainContextRepository _domainContextRepository;
         public readonly IMapper _mapper;
-        public DomainContextService(IDomainContextRepository domainContextRepository, ILogger<DomainContextService> logger, IMapper mapper)
+        private readonly INotifier _notifier;
+        public DomainContextService(IDomainContextRepository domainContextRepository, 
+            ILogger<DomainContextService> logger, 
+            IMapper mapper,
+            INotifier notifier)
         {
             this._domainContextRepository = domainContextRepository;
             this._logger = logger;
             this._mapper = mapper;
+            this._notifier = notifier;
         }
 
         public async Task AddOrUpdate(DomainContextDto dto)
@@ -50,7 +56,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
         private async Task<DomainContextEntity> FindEntityById(string id)
         {
             if (id.IsNullOrEmptyOrWhiteSpace())
-                throw new ArgumentException("Campo id é obrigatorio");
+                this._notifier.Handle(new NotificationDto(new ArgumentException("Campo id é obrigatorio")));
 
             return (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
         }

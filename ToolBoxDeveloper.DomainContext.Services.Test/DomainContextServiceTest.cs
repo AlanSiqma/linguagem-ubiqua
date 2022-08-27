@@ -10,6 +10,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using Xunit;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 
 namespace ToolBoxDeveloper.DomainContext.Services.Test
 {
@@ -23,6 +24,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<DomainContextService>> logger = new();
             Mock<IDomainContextRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
@@ -36,7 +38,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(idRemove))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.Delete(idRemove);
@@ -54,6 +56,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<DomainContextService>> logger = new();
             Mock<IDomainContextRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
@@ -67,10 +70,10 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(idRemove))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act &&  Assert
-            await Assert.ThrowsAsync<ArgumentException>(() =>domainContextService.Delete(idRemove));
+            await Assert.ThrowsAsync<ArgumentException>(() => domainContextService.Delete(idRemove));
         }
         [Fact]
         public async void FindSuccess()
@@ -80,6 +83,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<DomainContextService>> logger = new();
             Mock<IDomainContextRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
@@ -95,9 +99,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             };
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(idFind))).Returns(Task.FromResult(list));
-            moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq) ;
+            moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             DomainContextDto result = await domainContextService.Find(idFind);
@@ -121,6 +125,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<DomainContextService>> logger = new();
             Mock<IDomainContextRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
@@ -139,7 +144,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => domainContextService.Find(idFind));
@@ -153,6 +158,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<DomainContextService>> logger = new();
             Mock<IDomainContextRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
@@ -175,7 +181,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get()).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<List<DomainContextDto>>(list)).Returns(listDto);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             DomainContextDto result = (await domainContextService.GetAll()).FirstOrDefault();
@@ -196,6 +202,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<DomainContextService>> logger = new();
             Mock<IDomainContextRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             string idFind = " ";
 
@@ -212,7 +219,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.AddOrUpdate(dtoMoq);
@@ -229,6 +236,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<DomainContextService>> logger = new();
             Mock<IDomainContextRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             string idFind = "1";
 
@@ -245,7 +253,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.AddOrUpdate(dtoMoq);
