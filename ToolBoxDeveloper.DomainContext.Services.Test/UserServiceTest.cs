@@ -218,6 +218,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             };
 
 
+            List<UserEntity> entities = new();
+
+            moqRepository.Setup(m => m.Get(x => x.Email.Equals(moqDto.Email))).Returns(Task.FromResult(entities));
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
 
