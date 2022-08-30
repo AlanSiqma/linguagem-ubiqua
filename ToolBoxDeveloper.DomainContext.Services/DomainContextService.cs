@@ -19,8 +19,8 @@ namespace ToolBoxDeveloper.DomainContext.Services
         private readonly IDomainContextRepository _domainContextRepository;
         public readonly IMapper _mapper;
         private readonly INotifier _notifier;
-        public DomainContextService(IDomainContextRepository domainContextRepository, 
-            ILogger<DomainContextService> logger, 
+        public DomainContextService(IDomainContextRepository domainContextRepository,
+            ILogger<DomainContextService> logger,
             IMapper mapper,
             INotifier notifier)
         {
@@ -56,7 +56,11 @@ namespace ToolBoxDeveloper.DomainContext.Services
         private async Task<DomainContextEntity> FindEntityById(string id)
         {
             if (id.IsNullOrEmptyOrWhiteSpace())
-                this._notifier.Handle(new NotificationDto(new ArgumentException("Campo id é obrigatorio")));
+            {
+                var ex = new ArgumentException("Campo id é obrigatorio");
+                this._notifier.Handle(new NotificationDto(ex));
+                throw ex;
+            }
 
             return (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
         }
