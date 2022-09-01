@@ -2,17 +2,19 @@
 @{
     ViewData["Title"] = "Autenticacao";
 }
-<div class="container">
+@*<div class="container">
     <message></message>
-</div>
+</div>*@
 <div class="jumbotron jumbotron-fluid autenticacao-jumbotron">
     <authentication mode="Forms">
-        <form asp-action="index" >
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="index">
             <div class="container">
                 <div class="autenticacao-form-container-div-titulo">
                     <h1 class="display-4">Autenticação</h1>
-                     <p class="lead">Autentique para poder gerenciar a linguagem obiqua ou clique <a asp-controller="User" asp-action="Index">aqui</a> para registrar-se</p>
+                    <p class="lead">Autentique para poder gerenciar a linguagem obiqua ou clique <a asp-controller="User" asp-action="Index">aqui</a> para registrar-se</p>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @Html.ValidationMessage("ModelOnly")
+                    @Html.ValidationSummary(true)
                 </div>
                 <div class="autenticacao-form-container-div-conteudo">
                     <div class="form-group autenticacao-form-container-div-conteudo-form-group">
