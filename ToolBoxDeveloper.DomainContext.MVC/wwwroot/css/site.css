@@ -161,3 +161,7 @@ body {
     max-width: 100%;
     height: auto;
 }
+
+.field-validation-error {
+    color: red !important
+}
