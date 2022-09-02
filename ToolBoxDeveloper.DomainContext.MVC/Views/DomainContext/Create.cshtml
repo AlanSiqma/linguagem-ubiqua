@@ -1,10 +1,11 @@
 ﻿@model ToolBoxDeveloper.DomainContext.Domain.Dto.DomainContextDto
 <h1>Criar novo Dominio</h1>
 <hr />
+<div class="container">
+    <message></message>
+</div>
 <div class="jumbotron create-domain-jumbotron">
     <form asp-action="Create">
-        @Html.HiddenFor(x => x.UserRegister)
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <partial name="_CreateOrEdit" />
     </form>
 </div>
