@@ -1,4 +1,9 @@
 ﻿@model ToolBoxDeveloper.DomainContext.Domain.Dto.DomainContextDto
+
+@Html.HiddenFor(x => x.UserRegister)
+@Html.ValidationMessage("ModelOnly")
+@Html.ValidationSummary(true)
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 <div class="row">
     <div class="col-md-4">
         <label asp-for="Organization" class="control-label"></label>
