@@ -16,7 +16,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         private readonly IDomainContextService _domainContextService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ILogger<DomainContextController> _logger;
-        public DomainContextController(IDomainContextService domainContextService, 
+        public DomainContextController(IDomainContextService domainContextService,
             IHttpContextAccessor httpContextAccessor,
             ILogger<DomainContextController> logger)
         {
@@ -28,10 +28,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             return this._httpContextAccessor.HttpContext.User.Identity.Name;
         }
-       
+
         public async Task<ActionResult> Index()
         {
-           
+
             List<DomainContextDto> list = await this._domainContextService.GetAll();
             return View(list);
         }
@@ -47,9 +47,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             try
             {
-                await this._domainContextService.AddOrUpdate(dto);
+                if (ModelState.IsValid)
+                    await this._domainContextService.AddOrUpdate(dto);
 
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("ModelOnly", "Favor preencher todos os campos");
+                return RedirectToAction(nameof(Create));
             }
             catch (Exception ex)
             {
