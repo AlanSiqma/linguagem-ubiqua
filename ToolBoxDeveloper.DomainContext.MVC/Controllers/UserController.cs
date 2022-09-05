@@ -28,10 +28,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             try
             {
-                if(!string.IsNullOrEmpty(dto.Email) || !string.IsNullOrEmpty(dto.Password))
+                if(ModelState.IsValid)
                     await this._userService.AddOrUpdate(dto);
                 else
-                    return View(dto);
+                    return View("Index",dto);
 
                 return RedirectToAction("Index", "Autentication");
             }
