@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
+using ToolBoxDeveloper.DomainContext.Domain.Notifications;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 {
@@ -11,10 +13,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
     {
         private readonly IUserService _userService;
         private readonly ILogger<UserController> _logger;
+      
         public UserController(IUserService userService, ILogger<UserController> logger)
         {
             this._userService = userService;
-            this._logger = logger;
+            this._logger = logger;          
         }
 
         public ActionResult Index()

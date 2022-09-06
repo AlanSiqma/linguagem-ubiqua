@@ -28,5 +28,10 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Notifications
         {
             return _notifications.Any();
         }
+
+        public void ClearNotification()
+        {
+            _notifications = new List<NotificationDto>();
+        }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
@@ -17,11 +18,13 @@ namespace ToolBoxDeveloper.DomainContext.Services
         private readonly ILogger<UserService> _logger;
         private readonly IUserRepository _userRepository;
         public readonly IMapper _mapper;
-        public UserService(IUserRepository userRepository, IMapper mapper, ILogger<UserService> logger)
+        private readonly INotifier _notifier;
+        public UserService(IUserRepository userRepository, IMapper mapper, ILogger<UserService> logger, INotifier notifier)
         {
             this._userRepository = userRepository;
             this._mapper = mapper;
             this._logger = logger;
+            this._notifier = notifier;
         }
 
         public async Task AddOrUpdate(UserDto dto)
@@ -78,16 +81,28 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
         private async Task Create(UserDto dto)
         {
+            if (await this.EmailExists(dto))
+                return;
+           
             UserEntity entityMap = _mapper.Map<UserEntity>(dto);
-
+            
             entityMap.SetPassword(dto.Password);
+
+            await this._userRepository.Create(entityMap);
+        }
+        private async Task<bool> EmailExists(UserDto dto)
+        {
+            bool result = false;
 
             var entities = await this._userRepository.Get(x => x.Email.Equals(dto.Email));
 
             if (entities.Count > 0)
-                return;
+            {
+                this._notifier.Handle(new NotificationDto($"E-mail: {dto.Email}, já está cadastrado",true));
+                result = true;
+            }
 
-            await this._userRepository.Create(entityMap);
+            return result;
         }
     }
 }

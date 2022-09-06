@@ -8,5 +8,6 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications
         bool HasNotification();
         List<NotificationDto> GetNotifications();
         void Handle(NotificationDto notificacao);
+        void ClearNotification();
     }
 }
