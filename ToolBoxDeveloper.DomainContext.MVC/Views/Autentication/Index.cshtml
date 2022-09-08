@@ -38,8 +38,15 @@
     </authentication>
 </div>
 
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
     }
     }
+    <script>
+        setTimeout(function(){
+            $(".alert").alert('close');
+        },5000) 
+    </script>
