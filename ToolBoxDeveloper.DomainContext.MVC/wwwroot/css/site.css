@@ -145,23 +145,28 @@ body {
 /*Autenticacao,novo-usuario*/
 
 
-.col-md-4{
-    margin-top:2%!important;
+.col-md-4 {
+    margin-top: 2% !important;
 }
+
 .col-md-12 {
     margin-top: 2% !important;
 }
 
-.cursor-pointer{
-    cursor:pointer;
+.cursor-pointer {
+    cursor: pointer;
 }
 
 .img-about {
-    width:85%;
+    width: 85%;
     max-width: 100%;
     height: auto;
 }
 
 .field-validation-error {
     color: red !important
+}
+
+.container-center {
+    text-align:center
 }

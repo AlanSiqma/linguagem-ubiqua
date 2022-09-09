@@ -3,10 +3,12 @@
     ViewData["Title"] = "Autenticacao";
 }
 
-<div class="container container-fluid">
-    <message></message>
-</div>
+
 <div class="jumbotron jumbotron-fluid autenticacao-jumbotron">
+
+    <div class="container-center">
+        <message></message>
+    </div>
     <authentication mode="Forms">
         <form asp-action="index">
             <div class="container">
@@ -45,8 +47,8 @@
 
     }
     }
-    <script>
+   @* <script>
         setTimeout(function(){
             $(".alert").alert('close');
         },5000) 
-    </script>
+    </script>*@
