@@ -168,5 +168,8 @@ body {
 }
 
 .container-center {
-    text-align:center
+    text-align:center;
+    margin-right:10%;
+    margin-left:10%;
 }
+
