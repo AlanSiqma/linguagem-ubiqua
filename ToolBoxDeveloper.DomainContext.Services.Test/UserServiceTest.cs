@@ -11,6 +11,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 using Xunit;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 
 namespace ToolBoxDeveloper.DomainContext.Services.Test
 {
@@ -26,6 +27,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity1 = new("joares");
             UserEntity userEntity = userEntity1;
@@ -40,7 +42,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(userEntity)).Returns(Task.CompletedTask);
 
-            UserService userService = new(moqRepository.Object,  moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object,  moqMapper.Object, logger.Object,moqNotifier.Object);
 
             //Act
             await userService.Delete(id);
@@ -59,6 +61,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -74,7 +77,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(userEntity)).Returns(Task.CompletedTask);
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => userService.Delete(id));
@@ -88,6 +91,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -110,7 +114,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act
             var result = await userService.Find(id) ;
@@ -131,6 +135,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -145,7 +150,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => userService.Find(id));
@@ -159,6 +164,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -184,7 +190,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get()).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<List<UserDto>>(list)).Returns(listDto);            
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act
             var result = (await userService.GetAll()).FirstOrDefault();
@@ -203,6 +209,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -224,7 +231,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act
             await userService.AddOrUpdate(moqDto);
@@ -243,6 +250,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -261,7 +269,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act
             await userService.AddOrUpdate(moqDto);
@@ -279,6 +287,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -303,7 +312,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
             moqRepository.Setup(x => x.Get(x => x.Email.Equals(moqDto.Email) && x.Password.Equals(moqDto.Password.Encrypt()))).Returns(Task.FromResult(list));
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act
             var result = await userService.Autenticate(moqDto);
@@ -320,6 +329,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<ILogger<UserService>> logger = new();
             Mock<IUserRepository> moqRepository = new();
             Mock<IMapper> moqMapper = new();
+            Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")
             {
@@ -341,7 +351,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
             moqRepository.Setup(x => x.Get(x => x.Email.Equals(moqDto.Email) && x.Password.Equals(moqDto.Password.Encrypt()))).Returns(Task.FromResult(list));
 
-            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object);
+            UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
 
             //Act
             var result = await userService.Autenticate(moqDto);
