@@ -65,7 +65,10 @@ namespace ToolBoxDeveloper.DomainContext.Services
         private async Task<UserEntity> FindEntityById(string id)
         {
             if (id.IsNullOrEmptyOrWhiteSpace())
+            {
+                this._notifier.Handle(new NotificationDto("Campo id é obrigatorio"));
                 throw new ArgumentException("Campo id é obrigatorio");
+            }
 
             return (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
         }

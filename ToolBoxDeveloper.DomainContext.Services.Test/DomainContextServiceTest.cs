@@ -16,16 +16,16 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 {
     public class DomainContextServiceTest
     {
+        string idRemove = "1";
+        string idFind = "1";
+        Mock<ILogger<DomainContextService>> logger = new();
+        Mock<IDomainContextRepository> moqRepository = new();
+        Mock<IMapper> moqMapper = new();
+        Mock<INotifier> moqNotifier = new();
         [Fact]
         public async void DeleteSuccess()
         {
             //Arrange
-            string idRemove = "1";
-            Mock<ILogger<DomainContextService>> logger = new();
-            Mock<IDomainContextRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = idRemove
@@ -52,12 +52,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         [InlineData(null)]
         public async void DeleteNotSuccess(string idRemove)
         {
-            //Arrange
-            Mock<ILogger<DomainContextService>> logger = new();
-            Mock<IDomainContextRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
+            //Arrange       
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = idRemove
@@ -78,13 +73,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         [Fact]
         public async void FindSuccess()
         {
-            //Arrange
-            string idFind = "1";
-            Mock<ILogger<DomainContextService>> logger = new();
-            Mock<IDomainContextRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
+            //Arrange          
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = idFind
@@ -122,11 +111,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void FindNotSuccess(string idFind)
         {
             //Arrange
-            Mock<ILogger<DomainContextService>> logger = new();
-            Mock<IDomainContextRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = idFind
@@ -154,12 +138,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void GetAllSuccess()
         {
             //Arrange
-            string idFind = "1";
-            Mock<ILogger<DomainContextService>> logger = new();
-            Mock<IDomainContextRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = idFind
@@ -199,12 +177,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void AddSuccess()
         {
             //Arrange
-            Mock<ILogger<DomainContextService>> logger = new();
-            Mock<IDomainContextRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
-            string idFind = " ";
+            idFind = " ";
 
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
@@ -232,14 +205,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         [Fact]
         public async void UpdateSuccess()
         {
-            //Arrange
-            Mock<ILogger<DomainContextService>> logger = new();
-            Mock<IDomainContextRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
-            string idFind = "1";
-
+            //Arrange           
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = idFind
@@ -257,8 +223,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             //Act
             await domainContextService.AddOrUpdate(dtoMoq);
-
-            //Assert
+            
             //Assert
             Assert.Equal(idFind, dtoMoq.Id);
         }
