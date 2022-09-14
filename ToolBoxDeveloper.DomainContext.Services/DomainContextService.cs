@@ -61,8 +61,9 @@ namespace ToolBoxDeveloper.DomainContext.Services
                 this._notifier.Handle(new NotificationDto(ex));
                 throw ex;
             }
+            var result = await this._domainContextRepository.Get(x => x.Id.Equals(id));
 
-            return (await this._domainContextRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            return result.FirstOrDefault();
         }
 
         private async Task Update(DomainContextDto dto)

@@ -17,20 +17,20 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 {
     public  class UserServiceTest
     {
+        string id = "1";
+        string userPassword = "1";
+        Mock<ILogger<UserService>> logger = new();
+        Mock<IUserRepository> moqRepository = new();
+        Mock<IMapper> moqMapper = new();
+        Mock<INotifier> moqNotifier = new();
+        UserEntity userEntity = new("joares");
+      
 
         [Fact]
         public async void DeleteSuccess()
         {
             //Arrange
-            string id = "1";
-            string userPassword = "1";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
-            UserEntity userEntity1 = new("joares");
-            UserEntity userEntity = userEntity1;
+            var localId = id;
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
@@ -39,7 +39,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
                 userEntity
             };
 
-            moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
+            moqRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(userEntity)).Returns(Task.CompletedTask);
 
             UserService userService = new(moqRepository.Object,  moqMapper.Object, logger.Object,moqNotifier.Object);
@@ -56,13 +56,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         [InlineData(null)]
         public async void DeleteNotSuccess(string id)
         {
-            //Arrange
-            string userPassword = "1";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
+            //Arrange           
             UserEntity userEntity = new("joares")
             {
                 Id = id
@@ -86,13 +80,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void FindSuccess()
         {
             //Arrange
-            string userPassword = "1";
-            string id = "1";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
+            var localId = id;
             UserEntity userEntity = new("joares")
             {
                 Id = id
@@ -111,7 +99,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
                 userEntity
             };
 
-            moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
+            moqRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
 
             UserService userService = new(moqRepository.Object, moqMapper.Object, logger.Object, moqNotifier.Object);
@@ -131,12 +119,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void FindNotSuccess(string id)
         {
             //Arrange
-            string userPassword = "1";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
             UserEntity userEntity = new("joares")
             {
                 Id = id
@@ -159,13 +141,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void GetAllSuccess()
         {
             //Arrange
-            string userPassword = "1";
-            string id = "1";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
             UserEntity userEntity = new("joares")
             {
                 Id = id
@@ -204,13 +179,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void AddSuccess()
         {
             //Arrange
-            string userPassword = "1";
-            string id = " ";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
+            id = " ";
             UserEntity userEntity = new("joares")
             {
                 Id = id
@@ -245,13 +214,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void UpdateSuccess()
         {
             //Arrange
-            string userPassword = "1";
-            string id = "1";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
             UserEntity userEntity = new("joares")
             {
                 Id = id
@@ -282,13 +244,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void AutenticateSuccess()
         {
             //Arrange
-            string userPassword = "1";
-            string id = "20";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
-            Mock<INotifier> moqNotifier = new();
-
+            id = "20";
             UserEntity userEntity = new("joares")
             {
                 Id = id
@@ -324,11 +280,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void AutenticateNotSuccess()
         {
             //Arrange
-            string userPassword = "1";
-            string id = "20";
-            Mock<ILogger<UserService>> logger = new();
-            Mock<IUserRepository> moqRepository = new();
-            Mock<IMapper> moqMapper = new();
+            id = "20";
             Mock<INotifier> moqNotifier = new();
 
             UserEntity userEntity = new("joares")

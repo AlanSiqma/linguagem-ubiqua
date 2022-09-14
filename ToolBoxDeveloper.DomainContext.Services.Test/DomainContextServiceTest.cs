@@ -16,8 +16,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 {
     public class DomainContextServiceTest
     {
-        string idRemove = "1";
-        string idFind = "1";
+        string id = "1";
         Mock<ILogger<DomainContextService>> logger = new();
         Mock<IDomainContextRepository> moqRepository = new();
         Mock<IMapper> moqMapper = new();
@@ -26,25 +25,26 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void DeleteSuccess()
         {
             //Arrange
+            var id = this.id;
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idRemove
+                Id = this.id
             };
             List<DomainContextEntity> list = new()
             {
                 domainContextEntity
             };
 
-            moqRepository.Setup(x => x.Get(x => x.Id.Equals(idRemove))).Returns(Task.FromResult(list));
+            moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
 
             DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
-            await domainContextService.Delete(idRemove);
+            await domainContextService.Delete(this.id);
 
             //Assert
-            Assert.Equal(idRemove, domainContextEntity.Id);
+            Assert.Equal(this.id, domainContextEntity.Id);
         }
 
         [Theory(DisplayName = "Deletar contexto sem sucesso")]
@@ -73,27 +73,28 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         [Fact]
         public async void FindSuccess()
         {
-            //Arrange          
+            //Arrange
+            var id = this.id;
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
             DomainContextDto dtoMoq = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
             List<DomainContextEntity> list = new()
             {
                 domainContextEntity
             };
 
-            moqRepository.Setup(x => x.Get(x => x.Id.Equals(idFind))).Returns(Task.FromResult(list));
+            moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
             DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
-            DomainContextDto result = await domainContextService.Find(idFind);
+            DomainContextDto result = await domainContextService.Find(this.id);
 
             //Assert
             Assert.Equal(domainContextEntity.Id, result.Id);
@@ -140,7 +141,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
             List<DomainContextEntity> list = new()
             {
@@ -149,7 +150,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             DomainContextDto dtoMoq = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
             List<DomainContextDto> listDto = new()
             {
@@ -177,16 +178,16 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void AddSuccess()
         {
             //Arrange
-            idFind = " ";
+            this.id = " ";
 
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
 
             DomainContextDto dtoMoq = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
 
 
@@ -199,7 +200,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             //Assert
             //Assert
-            Assert.Equal(idFind, dtoMoq.Id);
+            Assert.Equal(this.id, dtoMoq.Id);
         }
 
         [Fact]
@@ -208,12 +209,12 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange           
             DomainContextEntity domainContextEntity = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
 
             DomainContextDto dtoMoq = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
-                Id = idFind
+                Id = this.id
             };
 
 
@@ -225,7 +226,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             await domainContextService.AddOrUpdate(dtoMoq);
             
             //Assert
-            Assert.Equal(idFind, dtoMoq.Id);
+            Assert.Equal(this.id, dtoMoq.Id);
         }
     }
 }
