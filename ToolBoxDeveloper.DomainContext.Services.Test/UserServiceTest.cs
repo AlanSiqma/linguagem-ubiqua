@@ -86,12 +86,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             };
             userEntity.SetPassword(userPassword);
 
-            UserDto moqDto = new()
-            {
-                Id = id,
-                Password= userPassword.Encrypt(),
-                Email = "joares"
-            };
+            UserDto moqDto = this.MoqUserDto(id);
 
             List<UserEntity> list = new()
             {
@@ -150,12 +145,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
                 userEntity
             };
 
-            UserDto moqDto = new()
-            {
-                Id = id,
-                Password = userPassword.Encrypt(),
-                Email = "joares"
-            };
+            UserDto moqDto = this.MoqUserDto(id);
+
+
             List<UserDto> listDto = new()
             {
                 moqDto
@@ -185,13 +177,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             };
             userEntity.SetPassword(userPassword);
 
-            UserDto moqDto = new()
-            {
-                Id = id,
-                Password = userPassword.Encrypt(),
-                Email = "joares"
-            };
-
+            UserDto moqDto = this.MoqUserDto(id);
 
             List<UserEntity> entities = new();
 
@@ -209,6 +195,16 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Assert.Equal(id, moqDto.Id);
         }
 
+        private UserDto MoqUserDto(string id)
+        {
+            return new UserDto()
+            {
+                Id = id,
+                Password = userPassword.Encrypt(),
+                Email = "joares"
+            };
+        }
+
         [Fact]
         public async void UpdateSuccess()
         {
@@ -219,13 +215,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             };
             userEntity.SetPassword(userPassword);
 
-            UserDto moqDto = new()
-            {
-                Id = id,
-                Password = userPassword.Encrypt(),
-                Email = "joares"
-            };
-
+            UserDto moqDto = this.MoqUserDto(id);
 
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
@@ -255,13 +245,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
                 userEntity
             };
 
-            UserDto moqDto = new()
-            {
-                Id = id,
-                Password = userPassword,
-                Email = "joares"
-            };
-
+            UserDto moqDto = this.MoqUserDto(id);
 
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
@@ -291,12 +275,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             var list = new List<UserEntity>();
 
 
-            UserDto moqDto = new()
-            {
-                Id = id,
-                Password = userPassword,
-                Email = "joares"
-            };
+            UserDto moqDto = this.MoqUserDto(id);
 
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
