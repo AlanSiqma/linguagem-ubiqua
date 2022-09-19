@@ -56,10 +56,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void DeleteNotSuccess(string id)
         {
             //Arrange           
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
             List<UserEntity> list = new()
@@ -80,10 +77,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         {
             //Arrange
             var localId = id;
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
             UserDto moqDto = this.MoqUserDto(id);
@@ -113,10 +107,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void FindNotSuccess(string id)
         {
             //Arrange
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
             List<UserEntity> list = new()
@@ -135,10 +126,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void GetAllSuccess()
         {
             //Arrange
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
             List<UserEntity> list = new()
             {
@@ -171,10 +159,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         {
             //Arrange
             id = " ";
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
             UserDto moqDto = this.MoqUserDto(id);
@@ -209,10 +194,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void UpdateSuccess()
         {
             //Arrange
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
             UserDto moqDto = this.MoqUserDto(id);
@@ -234,10 +216,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         {
             //Arrange
             id = "20";
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
             var list = new List<UserEntity>
@@ -265,11 +244,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange
             id = "20";
             Mock<INotifier> moqNotifier = new();
-
-            UserEntity userEntity = new("joares")
-            {
-                Id = id
-            };
+            userEntity.Id = id;
             userEntity.SetPassword(userPassword);
 
             var list = new List<UserEntity>();
