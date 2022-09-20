@@ -22,8 +22,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         Mock<IUserRepository> moqRepository = new();
         Mock<IMapper> moqMapper = new();
         Mock<INotifier> moqNotifier = new();
-        UserEntity userEntity = new("joares");
-      
+        UserEntity userEntity = new("joares");      
 
         [Fact]
         public async void DeleteSuccess()
@@ -32,11 +31,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             var localId = id;
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
-            List<UserEntity> list = new()
-            {
-                userEntity
-            };
+            List<UserEntity> list = this.MoqListUserEntity(userEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(userEntity)).Returns(Task.CompletedTask);
@@ -58,11 +53,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange           
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
-            List<UserEntity> list = new()
-            {
-                userEntity
-            };
+            List<UserEntity> list = this.MoqListUserEntity(userEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(userEntity)).Returns(Task.CompletedTask);
@@ -72,6 +63,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => userService.Delete(id));
         }
+
         [Fact]
         public async void FindSuccess()
         {
@@ -79,13 +71,8 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             var localId = id;
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
             UserDto moqDto = this.MoqUserDto(id);
-
-            List<UserEntity> list = new()
-            {
-                userEntity
-            };
+            List<UserEntity> list = this.MoqListUserEntity(userEntity); 
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
@@ -99,7 +86,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Assert.Equal(userEntity.Id, result.Id);
             Assert.Equal(userEntity.Email, result.Email);
             Assert.Equal(userEntity.Password, result.Password);
-        }
+        }       
 
         [Theory(DisplayName = "Buscar contexto sem sucesso")]
         [InlineData("")]
@@ -109,11 +96,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
-            List<UserEntity> list = new()
-            {
-                userEntity
-            };
+            List<UserEntity> list = this.MoqListUserEntity(userEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
 
@@ -122,24 +105,16 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => userService.Find(id));
         }
+
         [Fact]
         public async void GetAllSuccess()
         {
             //Arrange
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-            List<UserEntity> list = new()
-            {
-                userEntity
-            };
-
+            List<UserEntity> list = this.MoqListUserEntity(userEntity);
             UserDto moqDto = this.MoqUserDto(id);
-
-
-            List<UserDto> listDto = new()
-            {
-                moqDto
-            };
+            List<UserDto> listDto = this.MoqListUserDto(moqDto); 
 
             moqRepository.Setup(x => x.Get()).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<List<UserDto>>(list)).Returns(listDto);            
@@ -153,7 +128,8 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Assert.Equal(userEntity.Id, result.Id);
             Assert.Equal(userEntity.Email, result.Email);
             Assert.Equal(userEntity.Password, result.Password);
-        }
+        }             
+
         [Fact]
         public async void AddSuccess()
         {
@@ -161,9 +137,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             id = " ";
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
             UserDto moqDto = this.MoqUserDto(id);
-
             List<UserEntity> entities = new();
 
             moqRepository.Setup(m => m.Get(x => x.Email.Equals(moqDto.Email))).Returns(Task.FromResult(entities));
@@ -178,17 +152,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Assert
             //Assert
             Assert.Equal(id, moqDto.Id);
-        }
-
-        private UserDto MoqUserDto(string id)
-        {
-            return new UserDto()
-            {
-                Id = id,
-                Password = userPassword.Encrypt(),
-                Email = "joares"
-            };
-        }
+        }      
 
         [Fact]
         public async void UpdateSuccess()
@@ -196,7 +160,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
             UserDto moqDto = this.MoqUserDto(id);
 
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
@@ -211,19 +174,15 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Assert
             Assert.Equal(id, moqDto.Id);
         }
+
         [Fact]
         public async void AutenticateSuccess()
-        {
+        { 
             //Arrange
             id = "20";
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
-            var list = new List<UserEntity>
-            {
-                userEntity
-            };
-
+            List<UserEntity> list = this.MoqListUserEntity(userEntity);
             UserDto moqDto = this.MoqUserDto(id);
 
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
@@ -238,6 +197,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Assert
             Assert.True(result);
         }
+
         [Fact]
         public async void AutenticateNotSuccess()
         {
@@ -246,10 +206,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Mock<INotifier> moqNotifier = new();
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-
-            var list = new List<UserEntity>();
-
-
+            List<UserEntity> list = new();
             UserDto moqDto = this.MoqUserDto(id);
 
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
@@ -263,6 +220,32 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             //Assert
             Assert.False(result);
+        }
+
+        private List<UserDto> MoqListUserDto(UserDto moqDto)
+        {
+            return new()
+            {
+                moqDto
+            };
+        }
+
+        private List<UserEntity> MoqListUserEntity(UserEntity userEntity)
+        {
+            return new()
+            {
+                userEntity
+            };
+        }
+
+        private UserDto MoqUserDto(string id)
+        {
+            return new()
+            {
+                Id = id,
+                Password = userPassword.Encrypt(),
+                Email = "joares"
+            };
         }
     }
 }
