@@ -29,10 +29,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             {
                 Id = this.id
             };
-            List<DomainContextEntity> list = new()
-            {
-                domainContextEntity
-            };
+            List<DomainContextEntity> list = this.MoqListDomainContextEntity(domainContextEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
@@ -56,10 +53,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             {
                 Id = idRemove
             };
-            List<DomainContextEntity> list = new()
-            {
-                domainContextEntity
-            };
+            List<DomainContextEntity> list = this.MoqListDomainContextEntity(domainContextEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(idRemove))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
@@ -82,10 +76,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             {
                 Id = this.id
             };
-            List<DomainContextEntity> list = new()
-            {
-                domainContextEntity
-            };
+            List<DomainContextEntity> list = this.MoqListDomainContextEntity(domainContextEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
@@ -119,10 +110,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             {
                 Id = idFind
             };
-            List<DomainContextEntity> list = new()
-            {
-                domainContextEntity
-            };
+            List<DomainContextEntity> list = this.MoqListDomainContextEntity(domainContextEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(idFind))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
@@ -142,10 +130,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             {
                 Id = this.id
             };
-            List<DomainContextEntity> list = new()
-            {
-                domainContextEntity
-            };
+            List<DomainContextEntity> list = this.MoqListDomainContextEntity(domainContextEntity);         
 
             DomainContextDto dtoMoq = new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
@@ -226,6 +211,13 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             
             //Assert
             Assert.Equal(this.id, dtoMoq.Id);
+        }
+        private List<DomainContextEntity> MoqListDomainContextEntity(DomainContextEntity entity)
+        {
+            return new()
+            {
+                entity
+            };
         }
     }
 }
