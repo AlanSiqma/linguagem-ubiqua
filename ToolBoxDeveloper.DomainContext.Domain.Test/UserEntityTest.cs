@@ -6,12 +6,12 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 {
     public class UserEntityTest
     {
+        string email = "joares@gmail.com";
         [Fact]
         public void CreateObjetSuccess()
         {
             //Arrange
-            string password = "123456@asd";
-            string email = "joares@gmail.com";
+            string password = "123456@asd";            
 
             //Act
             UserEntity user = new UserEntity(email);
@@ -34,8 +34,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         [InlineData(null)]
         public void CreateObjetPasswordNotSuccess(string password)
         {
-            //Arrange
-            string email = "joares@gmail.com";
+            //Arrange          
             UserEntity user = new UserEntity(email);
             
             //Act && Assert
