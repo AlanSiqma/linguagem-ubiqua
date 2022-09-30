@@ -11,7 +11,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         {
             //Arange
             string email = "joares@gmail.com";
-            DomainContextDto dto = this.MoqDomainContextDto();
+            DomainContextDto dto = MoqDomainContextDto();
 
             //Act
             dto.SetEmail(email);
@@ -27,13 +27,13 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void SetEmailNotSuccess(string email)
         {
             //Arange
-            DomainContextDto dto = this.MoqDomainContextDto();
+            DomainContextDto dto = MoqDomainContextDto();
 
             //Act && Arrange
             Assert.Throws<ArgumentException>(() => dto.SetEmail(email));
         }
 
-        private DomainContextDto MoqDomainContextDto()
+        private static DomainContextDto MoqDomainContextDto()
         {
             return new()
             {
