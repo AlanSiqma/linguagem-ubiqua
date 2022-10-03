@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.MVC.Extensions;
@@ -25,7 +27,8 @@ namespace ToolBoxDeveloper.DomainContext.MVC.TagHelpers
         {
             if (this._notifier.HasNotification())
             {
-                string text = string.Empty;
+                StringBuilder stringBuilder = new StringBuilder();
+
                 List<NotificationDto> notifications = this._notifier.GetNotifications();
 
                 output.TagName = _div;
@@ -33,11 +36,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.TagHelpers
                 output.Attributes.Add(_role, _alert);
 
                 foreach (var item in notifications)
-                    text += $"<p>{item.Mensagem}</p>";
+                    stringBuilder.Append($"<p>{item.Mensagem}</p>");
 
-                text += _closeButton;
+                stringBuilder.Append(_closeButton);
 
-                output.Content.SetHtmlContent(text);
+                output.Content.SetHtmlContent(stringBuilder.ToString()) ;
 
                 this._notifier.ClearNotification();
             }

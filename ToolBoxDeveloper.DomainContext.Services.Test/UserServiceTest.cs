@@ -31,7 +31,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             var localId = id;
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-            List<UserEntity> list = this.MoqListUserEntity(userEntity);
+            List<UserEntity> list = MoqListUserEntity(userEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(userEntity)).Returns(Task.CompletedTask);
@@ -53,7 +53,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange           
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-            List<UserEntity> list = this.MoqListUserEntity(userEntity);
+            List<UserEntity> list = MoqListUserEntity(userEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(userEntity)).Returns(Task.CompletedTask);
@@ -72,7 +72,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
             UserDto moqDto = this.MoqUserDto(id);
-            List<UserEntity> list = this.MoqListUserEntity(userEntity); 
+            List<UserEntity> list = MoqListUserEntity(userEntity); 
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
@@ -96,7 +96,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-            List<UserEntity> list = this.MoqListUserEntity(userEntity);
+            List<UserEntity> list = MoqListUserEntity(userEntity);
 
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
 
@@ -112,9 +112,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             //Arrange
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-            List<UserEntity> list = this.MoqListUserEntity(userEntity);
+            List<UserEntity> list = MoqListUserEntity(userEntity);
             UserDto moqDto = this.MoqUserDto(id);
-            List<UserDto> listDto = this.MoqListUserDto(moqDto); 
+            List<UserDto> listDto = MoqListUserDto(moqDto); 
 
             moqRepository.Setup(x => x.Get()).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<List<UserDto>>(list)).Returns(listDto);            
@@ -182,7 +182,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             id = "20";
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
-            List<UserEntity> list = this.MoqListUserEntity(userEntity);
+            List<UserEntity> list = MoqListUserEntity(userEntity);
             UserDto moqDto = this.MoqUserDto(id);
 
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
@@ -222,7 +222,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Assert.False(result);
         }
 
-        private List<UserDto> MoqListUserDto(UserDto moqDto)
+        private static List<UserDto> MoqListUserDto(UserDto moqDto)
         {
             return new()
             {
@@ -230,7 +230,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             };
         }
 
-        private List<UserEntity> MoqListUserEntity(UserEntity userEntity)
+        private static List<UserEntity> MoqListUserEntity(UserEntity userEntity)
         {
             return new()
             {
