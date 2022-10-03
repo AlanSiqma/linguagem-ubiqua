@@ -36,7 +36,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
                 setup.SetEvaluationTimeInSeconds(5);
                 setup.MaximumHistoryEntriesPerEndpoint(10);
                 setup.AddHealthCheckEndpoint("API com Health Checks", "/health");
-            }).AddInMemoryStorage(); ;
+            }).AddInMemoryStorage(); 
 
             services.AddHealthChecksUI();
         }
