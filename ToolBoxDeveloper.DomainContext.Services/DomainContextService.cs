@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,17 +14,16 @@ namespace ToolBoxDeveloper.DomainContext.Services
 {
     public class DomainContextService : IDomainContextService
     {
-        private readonly ILogger<DomainContextService> _logger;
+       
         private readonly IDomainContextRepository _domainContextRepository;
         public readonly IMapper _mapper;
         private readonly INotifier _notifier;
-        public DomainContextService(IDomainContextRepository domainContextRepository,
-            ILogger<DomainContextService> logger,
+        public DomainContextService(IDomainContextRepository domainContextRepository,            
             IMapper mapper,
             INotifier notifier)
         {
             this._domainContextRepository = domainContextRepository;
-            this._logger = logger;
+         
             this._mapper = mapper;
             this._notifier = notifier;
         }

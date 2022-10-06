@@ -1,5 +1,4 @@
 using AutoMapper;
-using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
     public class DomainContextServiceTest
     {
         string id = "1";
-        Mock<ILogger<DomainContextService>> logger = new();
         Mock<IDomainContextRepository> moqRepository = new();
         Mock<IMapper> moqMapper = new();
         Mock<INotifier> moqNotifier = new();
@@ -31,7 +29,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.Delete(this.id);
@@ -52,7 +50,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(idRemove))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => domainContextService.Delete(idRemove));
@@ -69,7 +67,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             DomainContextDto result = await domainContextService.Find(this.id);
@@ -98,7 +96,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => domainContextService.Find(idFind));
@@ -116,7 +114,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get()).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<List<DomainContextDto>>(list)).Returns(listDto);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             DomainContextDto result = (await domainContextService.GetAll()).FirstOrDefault();
@@ -140,7 +138,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.AddOrUpdate(dtoMoq);
@@ -159,7 +157,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
 
-            DomainContextService domainContextService = new(moqRepository.Object, logger.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.AddOrUpdate(dtoMoq);
