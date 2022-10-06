@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,15 +14,14 @@ namespace ToolBoxDeveloper.DomainContext.Services
 {
     public class UserService : IUserService
     {
-        private readonly ILogger<UserService> _logger;
+       
         private readonly IUserRepository _userRepository;
         public readonly IMapper _mapper;
         private readonly INotifier _notifier;
-        public UserService(IUserRepository userRepository, IMapper mapper, ILogger<UserService> logger, INotifier notifier)
+        public UserService(IUserRepository userRepository, IMapper mapper, INotifier notifier)
         {
             this._userRepository = userRepository;
-            this._mapper = mapper;
-            this._logger = logger;
+            this._mapper = mapper;          
             this._notifier = notifier;
         }
 
