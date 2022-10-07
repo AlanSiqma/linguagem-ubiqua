@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CoverageSession>
-  <Summary numSequencePoints="209" visitedSequencePoints="163" numBranchPoints="40" visitedBranchPoints="27" sequenceCoverage="77.99" branchCoverage="67.5" maxCyclomaticComplexity="54" minCyclomaticComplexity="25" visitedClasses="24" numClasses="25" visitedMethods="42" numMethods="52" />
+  <Summary numSequencePoints="210" visitedSequencePoints="164" numBranchPoints="40" visitedBranchPoints="27" sequenceCoverage="78.09" branchCoverage="67.5" maxCyclomaticComplexity="54" minCyclomaticComplexity="26" visitedClasses="24" numClasses="25" visitedMethods="43" numMethods="53" />
   <Modules>
-    <Module hash="0C242F0B-41F5-4709-BC39-9B289EBBE821">
+    <Module hash="DCA6E7B4-CBA9-4648-8B96-E1F540EDBF4F">
       <ModulePath>ToolBoxDeveloper.DomainContext.Domain.dll</ModulePath>
-      <ModuleTime>2022-10-06T01:20:34</ModuleTime>
+      <ModuleTime>2022-10-07T01:38:52</ModuleTime>
       <ModuleName>ToolBoxDeveloper.DomainContext.Domain</ModuleName>
       <Files>
         <File uid="1" fullPath="E:\projetos\github\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain\Notifiers\Notifier.cs" />
@@ -546,9 +546,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="871B5517-EE8E-49C2-8432-081FDE709C7D">
+    <Module hash="E03AB500-BD36-45B3-A51F-F7C6D5C97ED1">
       <ModulePath>ToolBoxDeveloper.DomainContext.Services.dll</ModulePath>
-      <ModuleTime>2022-10-06T01:20:34</ModuleTime>
+      <ModuleTime>2022-10-07T01:38:52</ModuleTime>
       <ModuleName>ToolBoxDeveloper.DomainContext.Services</ModuleName>
       <Files>
         <File uid="8" fullPath="E:\projetos\github\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Services\DomainContextService.cs" />
@@ -729,9 +729,22 @@
           </Methods>
         </Class>
         <Class>
-          <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" />
+          <Summary numSequencePoints="9" visitedSequencePoints="9" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="2" numMethods="2" />
           <FullName>ToolBoxDeveloper.DomainContext.Services.UserService</FullName>
           <Methods>
+            <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken />
+              <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService::HandleErrorMessage(System.String)</Name>
+              <FileRef uid="9" />
+              <SequencePoints>
+                <SequencePoint vc="4" uspid="72" ordinal="0" sl="72" sc="1" el="72" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="4" uspid="73" ordinal="1" sl="73" sc="1" el="73" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="4" uspid="74" ordinal="2" sl="74" sc="1" el="74" ec="2" bec="0" bev="0" fileid="9" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint vc="3" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="72" ec="1" el="74" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+            </Method>
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
@@ -746,7 +759,7 @@
                 <SequencePoint vc="11" uspid="26" ordinal="5" sl="26" sc="1" el="26" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="21" ec="1" el="26" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="21" ec="1" el="26" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -802,27 +815,27 @@
         </Class>
         <Class>
           <Summary numSequencePoints="7" visitedSequencePoints="6" numBranchPoints="2" visitedBranchPoints="1" sequenceCoverage="85.71" branchCoverage="50" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" />
-          <FullName>ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Create&gt;d__11</FullName>
+          <FullName>ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Create&gt;d__12</FullName>
           <Methods>
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="85.71" branchCoverage="50" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="7" visitedSequencePoints="6" numBranchPoints="2" visitedBranchPoints="1" sequenceCoverage="85.71" branchCoverage="50" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Create&gt;d__11::MoveNext()</Name>
+              <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Create&gt;d__12::MoveNext()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="84" ordinal="0" sl="84" sc="1" el="84" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="85" ordinal="1" sl="85" sc="1" el="85" ec="2" bec="2" bev="1" fileid="9" />
-                <SequencePoint vc="0" uspid="86" ordinal="2" sl="86" sc="1" el="86" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="88" ordinal="3" sl="88" sc="1" el="88" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="90" ordinal="4" sl="90" sc="1" el="90" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="92" ordinal="5" sl="92" sc="1" el="92" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="93" ordinal="6" sl="93" sc="1" el="93" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="87" ordinal="0" sl="87" sc="1" el="87" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="88" ordinal="1" sl="88" sc="1" el="88" ec="2" bec="2" bev="1" fileid="9" />
+                <SequencePoint vc="0" uspid="89" ordinal="2" sl="89" sc="1" el="89" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="91" ordinal="3" sl="91" sc="1" el="91" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="93" ordinal="4" sl="93" sc="1" el="93" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="95" ordinal="5" sl="95" sc="1" el="95" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="96" ordinal="6" sl="96" sc="1" el="96" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="0" uspid="85" ordinal="0" path="0" offset="146" offsetend="148" sl="85" fileid="9" />
-                <BranchPoint vc="1" uspid="85" ordinal="1" path="1" offset="146" offsetend="153" sl="85" fileid="9" />
+                <BranchPoint vc="0" uspid="88" ordinal="0" path="0" offset="146" offsetend="148" sl="88" fileid="9" />
+                <BranchPoint vc="1" uspid="88" ordinal="1" path="1" offset="146" offsetend="153" sl="88" fileid="9" />
               </BranchPoints>
-              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="84" ec="1" el="93" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="87" ec="1" el="96" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -847,30 +860,30 @@
         </Class>
         <Class>
           <Summary numSequencePoints="10" visitedSequencePoints="6" numBranchPoints="2" visitedBranchPoints="1" sequenceCoverage="60" branchCoverage="50" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" />
-          <FullName>ToolBoxDeveloper.DomainContext.Services.UserService/&lt;EmailExists&gt;d__12</FullName>
+          <FullName>ToolBoxDeveloper.DomainContext.Services.UserService/&lt;EmailExists&gt;d__13</FullName>
           <Methods>
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="60" branchCoverage="50" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="10" visitedSequencePoints="6" numBranchPoints="2" visitedBranchPoints="1" sequenceCoverage="60" branchCoverage="50" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService/&lt;EmailExists&gt;d__12::MoveNext()</Name>
+              <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService/&lt;EmailExists&gt;d__13::MoveNext()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="95" ordinal="0" sl="95" sc="1" el="95" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="96" ordinal="1" sl="96" sc="1" el="96" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="98" ordinal="2" sl="98" sc="1" el="98" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="100" ordinal="3" sl="100" sc="1" el="100" ec="2" bec="2" bev="1" fileid="9" />
-                <SequencePoint vc="0" uspid="101" ordinal="4" sl="101" sc="1" el="101" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="102" ordinal="5" sl="102" sc="1" el="102" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="103" ordinal="6" sl="103" sc="1" el="103" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="104" ordinal="7" sl="104" sc="1" el="104" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="106" ordinal="8" sl="106" sc="1" el="106" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="107" ordinal="9" sl="107" sc="1" el="107" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="98" ordinal="0" sl="98" sc="1" el="98" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="99" ordinal="1" sl="99" sc="1" el="99" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="101" ordinal="2" sl="101" sc="1" el="101" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="103" ordinal="3" sl="103" sc="1" el="103" ec="2" bec="2" bev="1" fileid="9" />
+                <SequencePoint vc="0" uspid="104" ordinal="4" sl="104" sc="1" el="104" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="105" ordinal="5" sl="105" sc="1" el="105" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="106" ordinal="6" sl="106" sc="1" el="106" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="107" ordinal="7" sl="107" sc="1" el="107" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="109" ordinal="8" sl="109" sc="1" el="109" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="110" ordinal="9" sl="110" sc="1" el="110" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="0" uspid="100" ordinal="0" path="0" offset="344" offsetend="346" sl="100" fileid="9" />
-                <BranchPoint vc="1" uspid="100" ordinal="1" path="1" offset="344" offsetend="409" sl="100" fileid="9" />
+                <BranchPoint vc="0" uspid="103" ordinal="0" path="0" offset="344" offsetend="346" sl="103" fileid="9" />
+                <BranchPoint vc="1" uspid="103" ordinal="1" path="1" offset="344" offsetend="409" sl="103" fileid="9" />
               </BranchPoints>
-              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="95" ec="1" el="107" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="98" ec="1" el="110" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -894,11 +907,11 @@
           </Methods>
         </Class>
         <Class>
-          <Summary numSequencePoints="7" visitedSequencePoints="7" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" />
+          <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" />
           <FullName>ToolBoxDeveloper.DomainContext.Services.UserService/&lt;FindEntityById&gt;d__9</FullName>
           <Methods>
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="7" visitedSequencePoints="7" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService/&lt;FindEntityById&gt;d__9::MoveNext()</Name>
               <FileRef uid="9" />
@@ -906,16 +919,14 @@
                 <SequencePoint vc="6" uspid="64" ordinal="0" sl="64" sc="1" el="64" ec="2" bec="0" bev="0" fileid="9" />
                 <SequencePoint vc="6" uspid="65" ordinal="1" sl="65" sc="1" el="65" ec="2" bec="2" bev="2" fileid="9" />
                 <SequencePoint vc="4" uspid="66" ordinal="2" sl="66" sc="1" el="66" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="4" uspid="67" ordinal="3" sl="67" sc="1" el="67" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="4" uspid="68" ordinal="4" sl="68" sc="1" el="68" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="2" uspid="71" ordinal="5" sl="71" sc="1" el="71" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="2" uspid="72" ordinal="6" sl="72" sc="1" el="72" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="2" uspid="68" ordinal="3" sl="68" sc="1" el="68" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="2" uspid="69" ordinal="4" sl="69" sc="1" el="69" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints>
                 <BranchPoint vc="4" uspid="65" ordinal="0" path="0" offset="64" offsetend="66" sl="65" fileid="9" />
-                <BranchPoint vc="2" uspid="65" ordinal="1" path="1" offset="64" offsetend="106" sl="65" fileid="9" />
+                <BranchPoint vc="2" uspid="65" ordinal="1" path="1" offset="64" offsetend="83" sl="65" fileid="9" />
               </BranchPoints>
-              <MethodPoint vc="7" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="64" ec="1" el="72" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="5" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="64" ec="1" el="69" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -940,22 +951,22 @@
         </Class>
         <Class>
           <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" />
-          <FullName>ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Update&gt;d__10</FullName>
+          <FullName>ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Update&gt;d__11</FullName>
           <Methods>
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Update&gt;d__10::MoveNext()</Name>
+              <Name>System.Void ToolBoxDeveloper.DomainContext.Services.UserService/&lt;Update&gt;d__11::MoveNext()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="75" ordinal="0" sl="75" sc="1" el="75" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="76" ordinal="1" sl="76" sc="1" el="76" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="78" ordinal="2" sl="78" sc="1" el="78" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="80" ordinal="3" sl="80" sc="1" el="80" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="1" uspid="81" ordinal="4" sl="81" sc="1" el="81" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="78" ordinal="0" sl="78" sc="1" el="78" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="79" ordinal="1" sl="79" sc="1" el="79" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="81" ordinal="2" sl="81" sc="1" el="81" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="83" ordinal="3" sl="83" sc="1" el="83" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="84" ordinal="4" sl="84" sc="1" el="84" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="5" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="75" ec="1" el="81" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="5" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="78" ec="1" el="84" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
