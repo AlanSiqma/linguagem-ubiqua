@@ -54,11 +54,8 @@ namespace ToolBoxDeveloper.DomainContext.Services
         private async Task<DomainContextEntity> FindEntityById(string id)
         {
             if (id.IsNullOrEmptyOrWhiteSpace())
-            {
-                var ex = new ArgumentException("Campo id é obrigatorio");
-                this._notifier.Handle(new NotificationDto(ex));
-                throw ex;
-            }
+                this.HandleErrorMessage("Campo id é obrigatorio");
+            
             var result = await this._domainContextRepository.Get(x => x.Id.Equals(id));
 
             return result.FirstOrDefault();
@@ -76,6 +73,11 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
             DomainContextEntity entity = _mapper.Map<DomainContextEntity>(dto);
             await this._domainContextRepository.Create(entity);
+        }
+        private void HandleErrorMessage(string message)
+        {
+            this._notifier.Handle(new NotificationDto(message));
+            throw new ArgumentException(message);
         }
     }
 }
