@@ -2,9 +2,9 @@
 <CoverageSession>
   <Summary numSequencePoints="114" visitedSequencePoints="71" numBranchPoints="26" visitedBranchPoints="26" sequenceCoverage="62.28" branchCoverage="100" maxCyclomaticComplexity="54" minCyclomaticComplexity="54" visitedClasses="5" numClasses="7" visitedMethods="22" numMethods="34" />
   <Modules>
-    <Module hash="333D2B55-5A74-4642-95A5-09AB9919F5E1">
+    <Module hash="88101990-E5D8-4527-871F-E72176659B6C">
       <ModulePath>ToolBoxDeveloper.DomainContext.Domain.dll</ModulePath>
-      <ModuleTime>2022-10-07T01:38:51</ModuleTime>
+      <ModuleTime>2022-10-08T11:25:07</ModuleTime>
       <ModuleName>ToolBoxDeveloper.DomainContext.Domain</ModuleName>
       <Files>
         <File uid="1" fullPath="E:\projetos\github\linguagem-ubiqua\ToolBoxDeveloper.DomainContext.Domain\Notifiers\Notifier.cs" />
