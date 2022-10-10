@@ -9,6 +9,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
+using ToolBoxDeveloper.DomainContext.Domain.Specs;
 
 namespace ToolBoxDeveloper.DomainContext.Services
 {
@@ -52,7 +53,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
         {
             bool result = false;
 
-            var entity = await this._userRepository.Get(x => x.Email.Equals(dto.Email) && x.Password.Equals(dto.Password.Encrypt()));
+            var entity = await this._userRepository.Get(UserEntitySpec.AutenticateSpec(dto));
             
             if (entity.Count > 0)
                 result = true;
