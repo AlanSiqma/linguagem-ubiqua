@@ -53,7 +53,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
         {
             bool result = false;
 
-            var entity = await this._userRepository.Get(UserEntitySpec.AutenticateSpec(dto));
+            var entity = await this._userRepository.Get(UserEntitySpec.Autenticate(dto));
             
             if (entity.Count > 0)
                 result = true;
@@ -66,7 +66,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
             if (id.IsNullOrEmptyOrWhiteSpace())            
                 this.HandleErrorMessage("Campo id é obrigatorio");            
 
-            return (await this._userRepository.Get(x => x.Id.Equals(id))).FirstOrDefault();
+            return (await this._userRepository.Get(UserEntitySpec.FindEntityById(id))).FirstOrDefault();
         }
 
         private void HandleErrorMessage(string message)
@@ -99,7 +99,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
         {
             bool result = false;
 
-            var entities = await this._userRepository.Get(x => x.Email.Equals(dto.Email));
+            var entities = await this._userRepository.Get(UserEntitySpec.FindEntityByEmail(dto.Email));
 
             if (entities.Count > 0)
             {

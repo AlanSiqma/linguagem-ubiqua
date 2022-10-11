@@ -8,9 +8,18 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Specs
 {
     public static  class UserEntitySpec
     {
-        public static Expression<Func<UserEntity,bool>> AutenticateSpec(UserDto dto)
+        public static Expression<Func<UserEntity,bool>> Autenticate(UserDto dto)
         {
             return x => x.Email.Equals(dto.Email) && x.Password.Equals(dto.Password.Encrypt());
+        }
+        public static Expression<Func<UserEntity, bool>> FindEntityById(string id)
+        {
+            return x => x.Id.Equals(id);
+        }
+
+        public static Expression<Func<UserEntity, bool>> FindEntityByEmail(string email)
+        {
+            return x => x.Email.Equals(email);
         }
     }
 }
