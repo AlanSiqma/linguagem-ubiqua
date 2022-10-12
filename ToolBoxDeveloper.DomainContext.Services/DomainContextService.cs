@@ -9,6 +9,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
+using ToolBoxDeveloper.DomainContext.Domain.Specs;
 
 namespace ToolBoxDeveloper.DomainContext.Services
 {
@@ -56,7 +57,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
             if (id.IsNullOrEmptyOrWhiteSpace())
                 this.HandleErrorMessage("Campo id é obrigatorio");
             
-            var result = await this._domainContextRepository.Get(x => x.Id.Equals(id));
+            var result = await this._domainContextRepository.Get(DomainContextEntitySpec.FindEntityById(id));
 
             return result.FirstOrDefault();
         }
