@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings;
 using ToolBoxDeveloper.DomainContext.Domain.Entities.Base;
+using ToolBoxDeveloper.DomainContext.Domain.Specs;
 
 namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
 {
@@ -36,7 +37,7 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
 
         public async Task<TEntity> Get(string id)
         {
-            var entity = await this._collections.FindAsync<TEntity>(x => x.Id == id);
+            var entity = await this._collections.FindAsync<TEntity>(RepositorySpec.FindEntityById<TEntity>(id)) ;
             return entity.FirstOrDefault();
         }
 
@@ -48,17 +49,17 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
 
         public async Task Update(string id, TEntity entity)
         {
-            await _collections.ReplaceOneAsync(x => x.Id == id, entity);
+            await _collections.ReplaceOneAsync(RepositorySpec.FindEntityById<TEntity>(id), entity);
         }
 
         public async Task Remove(TEntity entity)
         {
-            await _collections.DeleteOneAsync(x => x.Id == entity.Id);
+            await _collections.DeleteOneAsync(RepositorySpec.FindEntityById<TEntity>(entity.Id) );
         }
 
         public async Task Remove(string id)
         {
-            await _collections.DeleteOneAsync(x => x.Id == id);
+            await _collections.DeleteOneAsync(RepositorySpec.FindEntityById<TEntity>(id));
         }
     }
 }
