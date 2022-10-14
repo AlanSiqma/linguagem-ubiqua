@@ -5,7 +5,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
-using ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings;
 using ToolBoxDeveloper.DomainContext.Domain.Entities.Base;
 using ToolBoxDeveloper.DomainContext.Domain.Specs;
 
@@ -14,14 +13,11 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity
     {
         public readonly IMongoCollection<TEntity> _collections;
-        public RepositoryBase(IDatabaseSettings settings)
+
+        private readonly string _dataBaseName = typeof(TEntity).Name;
+        public RepositoryBase(IMongoDatabase database)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
-
-            var databaseName = typeof(TEntity).Name;
-
-            this._collections = database.GetCollection<TEntity>(databaseName);
+            this._collections = database.GetCollection<TEntity>(_dataBaseName);
         }
 
         public async Task<List<TEntity>> Get()

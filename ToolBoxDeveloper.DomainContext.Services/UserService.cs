@@ -101,7 +101,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
             var entities = await this._userRepository.Get(UserEntitySpec.FindEntityByEmail(dto.Email));
 
-            if (entities.Count > 0)
+            if (entities ==null || entities.Count > 0)
             {
                 this._notifier.Handle(new NotificationDto($"E-mail: {dto.Email}, já está cadastrado",true));
                 result = true;
