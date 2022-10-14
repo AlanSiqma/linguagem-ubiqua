@@ -31,6 +31,8 @@ namespace ToolBoxDeveloper.DomainContext.MVC
 
             services.AddInjectionConfiguration();
 
+            services.AddInjectionConfigurationDataBase(Configuration);
+
             services.AddHealthChecksConfiguration(Configuration);
 
             services.AddAuthenticationConfiguration();

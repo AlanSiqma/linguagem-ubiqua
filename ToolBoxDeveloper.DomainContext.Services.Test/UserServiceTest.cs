@@ -9,6 +9,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
+using ToolBoxDeveloper.DomainContext.Domain.Specs;
 using Xunit;
 
 namespace ToolBoxDeveloper.DomainContext.Services.Test
@@ -137,8 +138,8 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             userEntity.SetPassword(userPassword);
             UserDto moqDto = this.MoqUserDto(id);
             List<UserEntity> entities = new();
-
-            moqRepository.Setup(m => m.Get(x => x.Email.Equals(moqDto.Email))).Returns(Task.FromResult(entities));
+           
+            moqRepository.Setup(m => m.Get(UserEntitySpec.FindEntityByEmail(moqDto.Email))).Returns(Task.FromResult(entities));
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             moqMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
 
