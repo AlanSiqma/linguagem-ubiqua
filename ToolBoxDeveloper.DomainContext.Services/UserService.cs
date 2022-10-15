@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
@@ -51,14 +50,12 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
         public async Task<bool> Autenticate(UserDto dto)
         {
-            bool result = false;
-
             var entity = await this._userRepository.Get(UserEntitySpec.Autenticate(dto));
             
             if (entity.Count > 0)
-                result = true;
+                return true;
 
-            return result;
+            return false;
         }
 
         private async Task<UserEntity> FindEntityById(string id)
@@ -66,7 +63,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
             if (id.IsNullOrEmptyOrWhiteSpace())            
                 this.HandleErrorMessage("Campo id é obrigatorio");            
 
-            return (await this._userRepository.Get(UserEntitySpec.FindEntityById(id))).FirstOrDefault();
+            return (await this._userRepository.Get(id));
         }
 
         private void HandleErrorMessage(string message)

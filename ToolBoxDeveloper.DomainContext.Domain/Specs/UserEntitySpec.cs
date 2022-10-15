@@ -12,10 +12,6 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Specs
         {
             return x => x.Email.Equals(dto.Email) && x.Password.Equals(dto.Password.Encrypt());
         }
-        public static Expression<Func<UserEntity, bool>> FindEntityById(string id)
-        {
-            return x => x.Id.Equals(id);
-        }
 
         public static Expression<Func<UserEntity, bool>> FindEntityByEmail(string email)
         {

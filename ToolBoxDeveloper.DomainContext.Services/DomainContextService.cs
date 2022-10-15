@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
@@ -9,7 +8,6 @@ using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
-using ToolBoxDeveloper.DomainContext.Domain.Specs;
 
 namespace ToolBoxDeveloper.DomainContext.Services
 {
@@ -56,10 +54,8 @@ namespace ToolBoxDeveloper.DomainContext.Services
         {
             if (id.IsNullOrEmptyOrWhiteSpace())
                 this.HandleErrorMessage("Campo id é obrigatorio");
-            
-            var result = await this._domainContextRepository.Get(DomainContextEntitySpec.FindEntityById(id));
 
-            return result.FirstOrDefault();
+            return await this._domainContextRepository.Get(id);
         }
 
         private async Task Update(DomainContextDto dto)

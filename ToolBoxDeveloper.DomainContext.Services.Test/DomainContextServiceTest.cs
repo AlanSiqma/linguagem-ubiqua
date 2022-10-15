@@ -62,9 +62,8 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             var id = this.id;
             DomainContextEntity domainContextEntity = MoqDomainContextEntity(this.id);
             DomainContextDto dtoMoq = MoqDomainContextDto(this.id);
-            List<DomainContextEntity> list = MoqListDomainContextEntity(domainContextEntity);
 
-            moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
+            moqRepository.Setup(x => x.Get(id)).Returns(Task.FromResult(domainContextEntity));
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
             DomainContextService domainContextService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);

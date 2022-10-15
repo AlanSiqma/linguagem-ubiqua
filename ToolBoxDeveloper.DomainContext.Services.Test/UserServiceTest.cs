@@ -71,9 +71,8 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             userEntity.Id = id;
             userEntity.SetPassword(userPassword);
             UserDto moqDto = this.MoqUserDto(id);
-            List<UserEntity> list = MoqListUserEntity(userEntity); 
 
-            moqRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
+            moqRepository.Setup(x => x.Get(localId)).Returns(Task.FromResult(userEntity));
             moqMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
 
             UserService userService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
