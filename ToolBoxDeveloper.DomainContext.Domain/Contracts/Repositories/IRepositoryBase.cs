@@ -13,6 +13,5 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories
         Task<TEntity> Create(TEntity entity);
         Task Update(string id, TEntity entity);
         Task Remove(TEntity entity);
-        Task Remove(string id);
     }
 }

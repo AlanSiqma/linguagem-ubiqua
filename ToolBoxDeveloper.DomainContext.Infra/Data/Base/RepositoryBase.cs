@@ -52,10 +52,5 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
         {
             await _collections.DeleteOneAsync(RepositorySpec.FindEntityById<TEntity>(entity.Id) );
         }
-
-        public async Task Remove(string id)
-        {
-            await _collections.DeleteOneAsync(RepositorySpec.FindEntityById<TEntity>(id));
-        }
     }
 }
