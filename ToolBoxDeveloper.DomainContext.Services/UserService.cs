@@ -16,7 +16,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
     {
        
         private readonly IUserRepository _userRepository;
-        public readonly IMapper _mapper;
+        private readonly IMapper _mapper;
         private readonly INotifier _notifier;
         public UserService(IUserRepository userRepository, IMapper mapper, INotifier notifier)
         {
@@ -93,18 +93,16 @@ namespace ToolBoxDeveloper.DomainContext.Services
             await this._userRepository.Create(entityMap);
         }
         private async Task<bool> EmailExists(UserDto dto)
-        {
-            bool result = false;
-
+        {          
             var entities = await this._userRepository.Get(UserEntitySpec.FindEntityByEmail(dto.Email));
 
             if (entities ==null || entities.Count > 0)
             {
                 this._notifier.Handle(new NotificationDto($"E-mail: {dto.Email}, já está cadastrado",true));
-                result = true;
+                return true;
             }
 
-            return result;
+            return false;
         }
     }
 }

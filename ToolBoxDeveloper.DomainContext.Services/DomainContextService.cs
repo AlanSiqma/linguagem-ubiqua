@@ -15,7 +15,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
     {
        
         private readonly IDomainContextRepository _domainContextRepository;
-        public readonly IMapper _mapper;
+        private readonly IMapper _mapper;
         private readonly INotifier _notifier;
         public DomainContextService(IDomainContextRepository domainContextRepository,            
             IMapper mapper,
