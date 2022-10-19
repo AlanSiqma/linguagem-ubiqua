@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using ToolBoxDeveloper.DomainContext.Domain.Dto.Base;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Dto
 {
-    public class DomainContextDto
+    public class DomainContextDto: BaseDto
     {
         public DomainContextDto()
         {
@@ -19,8 +20,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
             this.Key = key;
             this.Description = description;
             this.UserRegister = userRegister;
-        }
-        public string Id { get; set; }
+        }      
 
         [DisplayName("Empresa")]
         [Required(ErrorMessage = "Favor informar uma Empresa")]

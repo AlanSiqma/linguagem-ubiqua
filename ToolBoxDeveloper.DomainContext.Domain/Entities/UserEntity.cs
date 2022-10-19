@@ -13,7 +13,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
 
             this.Email = email;
         }
-        internal UserEntity()
+        public UserEntity()
         {
 
         }
