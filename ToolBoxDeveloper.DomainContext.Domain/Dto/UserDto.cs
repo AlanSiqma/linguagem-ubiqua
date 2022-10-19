@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using ToolBoxDeveloper.DomainContext.Domain.Dto.Base;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Dto
 {
     [ExcludeFromCodeCoverage]
-    public class UserDto
+    public class UserDto: BaseDto
     {
-        public string Id { get; set; }
+       
         [Required(ErrorMessage = "Favor informar um usuário")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Favor informar uma senha")]

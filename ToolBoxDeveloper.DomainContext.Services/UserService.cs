@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
@@ -9,44 +7,30 @@ using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
 using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 using ToolBoxDeveloper.DomainContext.Domain.Specs;
+using ToolBoxDeveloper.DomainContext.Services.Base;
 
 namespace ToolBoxDeveloper.DomainContext.Services
 {
-    public class UserService : IUserService
+    public class UserService : BaseService<UserEntity, UserDto>, IUserService
     {
        
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly INotifier _notifier;
-        public UserService(IUserRepository userRepository, IMapper mapper, INotifier notifier)
+        public UserService(IUserRepository repository, IMapper mapper, INotifier notifier) : base(repository, mapper, notifier)
         {
-            this._userRepository = userRepository;
+            this._userRepository = repository;
             this._mapper = mapper;          
             this._notifier = notifier;
         }
 
-        public async Task AddOrUpdate(UserDto dto)
+        public override async Task AddOrUpdate(UserDto dto)
         {
             if (dto.Id.IsNullOrEmptyOrWhiteSpace())
                 await this.Create(dto);
             else
                 await this.Update(dto);
-        }
-
-        public async Task Delete(string id)
-        {
-            await this._userRepository.Remove(await this.FindEntityById(id));
-        }
-
-        public async Task<UserDto> Find(string id)
-        {
-            return _mapper.Map<UserDto>(await this.FindEntityById(id));
-        }
-
-        public async Task<List<UserDto>> GetAll()
-        {
-            return _mapper.Map<List<UserDto>>(await this._userRepository.Get());
-        }
+        }              
 
         public async Task<bool> Autenticate(UserDto dto)
         {
@@ -56,20 +40,6 @@ namespace ToolBoxDeveloper.DomainContext.Services
                 return true;
 
             return false;
-        }
-
-        private async Task<UserEntity> FindEntityById(string id)
-        {
-            if (id.IsNullOrEmptyOrWhiteSpace())            
-                this.HandleErrorMessage("Campo id é obrigatorio");            
-
-            return (await this._userRepository.Get(id));
-        }
-
-        private void HandleErrorMessage(string message)
-        {
-            this._notifier.Handle(new NotificationDto(message));
-            throw new ArgumentException(message);
         }
 
         private async Task Update(UserDto dto)
@@ -92,6 +62,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
             await this._userRepository.Create(entityMap);
         }
+
         private async Task<bool> EmailExists(UserDto dto)
         {          
             var entities = await this._userRepository.Get(UserEntitySpec.FindEntityByEmail(dto.Email));
