@@ -26,13 +26,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Base
             this._mapper = mapper;
             this._notifier = notifier;
         }
-        public virtual async Task AddOrUpdate(TDto dto)
-        {
-            if (dto.Id.IsNullOrEmptyOrWhiteSpace())
-                await this.Create(dto);
-            else
-                await this.Update(dto);
-        }
+     
 
         public async Task<List<TDto>> GetAll()
         {
@@ -57,18 +51,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Base
             return await this._repository.Get(id);
         }
 
-        private async Task Update(TDto dto)
-        {
-            TEntity entity = _mapper.Map<TEntity>(dto);
-            await this._repository.Update(dto.Id, entity);
-        }
-
-        private async Task Create(TDto dto)
-        {
-
-            TEntity entity = _mapper.Map<TEntity>(dto);
-            await this._repository.Create(entity);
-        }
         private void HandleErrorMessage(string message)
         {
             this._notifier.Handle(new NotificationDto(message));

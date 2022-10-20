@@ -24,7 +24,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
             this._notifier = notifier;
         }
 
-        public override async Task AddOrUpdate(UserDto dto)
+        public async Task AddOrUpdate(UserDto dto)
         {
             if (dto.Id.IsNullOrEmptyOrWhiteSpace())
                 await this.Create(dto);
