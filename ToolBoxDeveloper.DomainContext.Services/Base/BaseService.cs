@@ -22,11 +22,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Base
          INotifier notifier)
         {
             this._repository = repository;
-
             this._mapper = mapper;
             this._notifier = notifier;
         }
-     
 
         public async Task<List<TDto>> GetAll()
         {

@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services.Base;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Contracts.Services
 {
-    public interface IUserService
+    public interface IUserService:IBaseService<UserDto>
     {
-        Task<List<UserDto>> GetAll();
-        Task AddOrUpdate(UserDto dto);
-        Task<UserDto> Find(string id);
-        Task Delete(string id);
         Task<bool> Autenticate(UserDto dto);
     }
 }
