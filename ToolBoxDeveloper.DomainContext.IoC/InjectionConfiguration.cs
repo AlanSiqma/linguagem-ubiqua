@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System.Configuration;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
