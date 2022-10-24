@@ -12,8 +12,7 @@ using ToolBoxDeveloper.DomainContext.Services.Base;
 namespace ToolBoxDeveloper.DomainContext.Services
 {
     public class UserService : BaseService<UserEntity, UserDto>, IUserService
-    {
-       
+    {  
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly INotifier _notifier;

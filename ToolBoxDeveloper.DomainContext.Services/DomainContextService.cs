@@ -34,7 +34,6 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
         private async Task Create(DomainContextDto dto)
         {
-
             DomainContextEntity entity = _mapper.Map<DomainContextEntity>(dto);
             await this._domainContextRepository.Create(entity);
         }
