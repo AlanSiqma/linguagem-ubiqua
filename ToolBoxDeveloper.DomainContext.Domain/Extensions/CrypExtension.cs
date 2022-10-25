@@ -7,16 +7,16 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Extensions
 {
     public static class CrypExtension
     {
-        public static string Encrypt(this string Texto)
+        public static string Encrypt(this string text)
         {
-            if (Texto.IsNullOrEmptyOrWhiteSpace())
+            if (text.IsNullOrEmptyOrWhiteSpace())
                 throw new ArgumentException("Valor não pode ser nulo, estar vazio ou conter apenas espaços");
 
             byte[] Hash;
             StringBuilder Retorno = new StringBuilder();
 
             using (HashAlgorithm Algoritmo = SHA256.Create())
-                Hash = Algoritmo.ComputeHash(Encoding.Unicode.GetBytes(Texto));
+                Hash = Algoritmo.ComputeHash(Encoding.Unicode.GetBytes(text));
 
             foreach (byte B in Hash)
                 Retorno.AppendFormat(CultureInfo.InvariantCulture, "{0:X2}", B);
