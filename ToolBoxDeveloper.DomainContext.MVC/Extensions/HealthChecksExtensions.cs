@@ -27,9 +27,8 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
             ConfigurationBinder.Bind(configurationSection, appSettings);
 
             services.AddHealthChecks()
-                .AddMongoDb(mongodbConnectionString: appSettings.ConnectionString,
-                name: "Instancia mongoDB");
-                //.AddCheck<DependeciesValidadeHealthCheck>("Health Checks customizavel");
+                .AddMongoDb(mongodbConnectionString: appSettings.ConnectionString,name: "Instancia mongoDB")
+                .AddCheck<DependeciesValidadeHealthCheck>("Health Checks customizavel");
 
             services.AddHealthChecksUI(setupSettings: setup =>
             {

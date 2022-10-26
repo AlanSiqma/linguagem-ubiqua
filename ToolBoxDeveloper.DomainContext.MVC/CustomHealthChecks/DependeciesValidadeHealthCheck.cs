@@ -10,7 +10,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.CustomHealthChecks
             CancellationToken cancellationToken = default)
         {
             var hCheck = new HealthCheckResult
-                        (status: HealthStatus.Unhealthy,description: "API está doente");
+                        (status: HealthStatus.Healthy,description: "API não está doente");
 
             return Task.FromResult(hCheck);
         }
