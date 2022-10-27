@@ -8,10 +8,10 @@ using ToolBoxDeveloper.DomainContext.Domain.Dto;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 {
-    public class AutenticationController : Controller
+    public class AuthenticationController : Controller
     {
         private readonly IUserService _userService;
-        public AutenticationController(IUserService userService)
+        public AuthenticationController(IUserService userService)
         {
             this._userService = userService;
         }

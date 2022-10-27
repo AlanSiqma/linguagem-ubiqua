@@ -36,7 +36,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
                 else
                     return View("Index",dto);
 
-                return RedirectToAction("Index", "Autentication");
+                return RedirectToAction("Index", "Authentication");
             }
             catch(Exception ex)
             {
