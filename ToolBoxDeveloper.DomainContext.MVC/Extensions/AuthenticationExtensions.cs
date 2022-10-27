@@ -11,8 +11,8 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
               .AddCookie(opt =>
               {
-                  opt.LoginPath = new PathString("/Autentication/Index");
-                  opt.LogoutPath = new PathString("/Autentication/Logout");
+                  opt.LoginPath = new PathString("/Authentication/Index");
+                  opt.LogoutPath = new PathString("/Authentication/Logout");
                   opt.Cookie = new CookieBuilder()
                   {
                       Name = "DomainContext",
