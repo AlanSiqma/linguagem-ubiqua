@@ -55,7 +55,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch (Exception ex)
             {
-                this._logger.LogError($"Erro: {ex.Message}");
+                this._logger.LogError($"Exception: {ex.Message}");
                 throw;
             }
         }
@@ -79,7 +79,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch (Exception ex)
             {
-                this._logger.LogError($"Erro: {ex.Message}");
+                this._logger.LogError($"Exception: {ex.Message}");
                 throw;
             }
         }
@@ -93,7 +93,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch (Exception ex)
             {
-                this._logger.LogError($"Erro: {ex.Message}");
+                this._logger.LogError($"Exception: {ex.Message}");
                 throw;
             }
         }

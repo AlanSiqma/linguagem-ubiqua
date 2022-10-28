@@ -2,10 +2,8 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
-using ToolBoxDeveloper.DomainContext.Domain.Contracts.Notifications;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
-using ToolBoxDeveloper.DomainContext.Domain.Notifications;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 {
@@ -40,7 +38,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch(Exception ex)
             {
-                this._logger.LogError($"Erro: {ex.Message}");
+                this._logger.LogError($"Exception: {ex.Message}");
                 throw;
             }
         }
@@ -64,7 +62,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch(Exception ex)
             {
-                this._logger.LogError($"Erro: {ex.Message}");
+                this._logger.LogError($"Exception: {ex.Message}");
                 throw;
             }
         }
@@ -78,7 +76,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch(Exception ex)
             {
-                this._logger.LogError($"Erro: {ex.Message}");
+                this._logger.LogError($"Exception: {ex.Message}");
                 throw;
             }
         }
