@@ -42,7 +42,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             services.AddAutoMapper(typeof(InjectionConfiguration));
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
