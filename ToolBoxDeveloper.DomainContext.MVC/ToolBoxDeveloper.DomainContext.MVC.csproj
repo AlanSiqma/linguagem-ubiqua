@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="style-healthchecks.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="6.0.2" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="6.0.5" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />

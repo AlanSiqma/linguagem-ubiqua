@@ -18,7 +18,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
-            app.UseHealthChecksUI(options => { options.UIPath = "/dashboard"; });
+            app.UseHealthChecksUI(options => { 
+                options.UIPath = "/dashboard"; 
+                options.AddCustomStylesheet("style-healthchecks.css"); 
+            });
         }
         public static void AddHealthChecksConfiguration(this IServiceCollection services, IConfiguration Configuration)
         {
@@ -36,6 +39,8 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
                 setup.MaximumHistoryEntriesPerEndpoint(10);
                 setup.AddHealthCheckEndpoint("API com Health Checks", "/health");
             }).AddInMemoryStorage(); 
+
+
 
             services.AddHealthChecksUI();
         }
