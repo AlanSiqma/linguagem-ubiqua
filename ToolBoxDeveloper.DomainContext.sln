@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Infra", "04-Infra", "{FE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Infra", "ToolBoxDeveloper.DomainContext.Infra\ToolBoxDeveloper.DomainContext.Infra.csproj", "{7739DF4D-16A7-4F92-A779-CC9836E78C78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolBoxDeveloper.DomainContext.IoC", "ToolBoxDeveloper.DomainContext.IoC\ToolBoxDeveloper.DomainContext.IoC.csproj", "{B25FA062-9881-4334-98F1-7DFF5EE1D6DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.IoC", "ToolBoxDeveloper.DomainContext.IoC\ToolBoxDeveloper.DomainContext.IoC.csproj", "{B25FA062-9881-4334-98F1-7DFF5EE1D6DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +67,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5102C0C1-8EC7-47F1-8F0C-18480200D5A6} = {1F8A4BD8-94CA-4BEA-838B-A467955E18B1}
+		{8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95} = {FE4C3703-91CF-4908-82E9-27BDEDBB7CE9}
 		{FBF98099-4861-4C22-9677-8A22A44E6C3D} = {8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}
 		{3CA96629-34C9-497D-9AC8-7049679AB0A0} = {8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}
 		{BE3F2441-BB68-463A-B7FE-81D375291181} = {34EE1C51-1921-43BD-B463-051CA5ED589C}

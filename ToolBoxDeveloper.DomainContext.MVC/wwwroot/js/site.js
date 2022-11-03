@@ -11,4 +11,8 @@ $(document).ready(function () {
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
+
+    setTimeout(function () {
+        $(".alert").alert('close');
+    }, 5000)
 });
