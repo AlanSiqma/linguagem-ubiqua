@@ -12,8 +12,8 @@ namespace ToolBoxDeveloper.DomainContext.Services
 {
     public class DomainContextService : BaseService<DomainContextEntity, DomainContextDto>, IDomainContextService
     {
-        private IDomainContextRepository _domainContextRepository;
-        private IMapper _mapper;
+        private readonly IDomainContextRepository _domainContextRepository;
+        private readonly IMapper _mapper;
         public DomainContextService(IDomainContextRepository repository, IMapper mapper, INotifier notifier) : base(repository, mapper, notifier)
         {
             this._domainContextRepository = repository;
