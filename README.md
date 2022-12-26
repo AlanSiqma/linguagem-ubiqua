@@ -22,4 +22,4 @@ Mongo DB
 
 # Servidor de teste
 
-Você pode acessar a aplicação pelo [endereço](https://linguagem-ubiqua.herokuapp.com/)
+Você pode acessar a aplicação pelo [endereço](https://linguagem-ubiq-prod-linguagem-ubiqua-g2h2hr.mo1.mogenius.io/)
