@@ -7,7 +7,7 @@ services:
     environment:
       - PORT=8000
     ports:
-      - 8000:8000
+      - 8000:80
     build:
       context: .
       dockerfile: Dockerfile
