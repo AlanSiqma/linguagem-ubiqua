@@ -22,4 +22,4 @@ RUN dotnet publish "ToolBoxDeveloper.DomainContext.MVC.csproj" -c Release -o /ap
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-CMD ASPNETCORE_URLS="http://*:$PORT" dotnet ToolBoxDeveloper.DomainContext.MVC.dll
+ENTRYPOINT ["dotnet", "ToolBoxDeveloper.DomainContext.MVC.dll"]
