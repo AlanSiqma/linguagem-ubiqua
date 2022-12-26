@@ -18,9 +18,9 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
-            app.UseHealthChecksUI(options => { 
-                options.UIPath = "/dashboard"; 
-                options.AddCustomStylesheet("style-healthchecks.css"); 
+            app.UseHealthChecksUI(options => {
+                options.UIPath = "/dashboard";
+               
             });
         }
         public static void AddHealthChecksConfiguration(this IServiceCollection services, IConfiguration Configuration)
