@@ -35,7 +35,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 
         private static DomainContextDto MoqDomainContextDto()
         {
-            return new()
+            return new DomainContextDto()
             {
                 Id = Guid.NewGuid().ToString(),
                 Organization = "ToolBoDevelopr",

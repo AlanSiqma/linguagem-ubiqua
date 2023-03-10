@@ -10,12 +10,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-        private readonly ILogger<UserController> _logger;
       
-        public UserController(IUserService userService, ILogger<UserController> logger)
+        public UserController(IUserService userService)
         {
             this._userService = userService;
-            this._logger = logger;          
+               
         }
 
         public ActionResult Index()
@@ -39,7 +38,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             catch(Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
-                this._logger.LogError(mesage);
+             
                 throw;
             }
         }
@@ -64,7 +63,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             catch(Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
-                this._logger.LogError(mesage);
                 throw;
             }
         }
@@ -79,7 +77,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             catch(Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
-                this._logger.LogError(mesage);
                 throw;
             }
         }
