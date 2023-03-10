@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Serilog;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Settings;
 using ToolBoxDeveloper.DomainContext.Domain.Settings;
 using ToolBoxDeveloper.DomainContext.IoC;
@@ -24,7 +22,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
 
             services.AddSingleton<IDatabaseSettings>(sp =>sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
@@ -48,7 +45,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSerilogRequestLogging();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();

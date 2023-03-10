@@ -46,10 +46,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
                                 new Claim("Nome", dto.Email),
                             };
 
-            ClaimsIdentity identity = new(claims, cookieAuthentication);
-            ClaimsPrincipal claimsPrincipal = new(identity);
+            ClaimsIdentity identity = new ClaimsIdentity(claims, cookieAuthentication);
+            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
 
-            AuthenticationProperties authProperties = new() { IsPersistent = true };
+            AuthenticationProperties authProperties = new AuthenticationProperties() { IsPersistent = true };
 
             await HttpContext
                         .SignInAsync(cookieAuthentication,claimsPrincipal,authProperties);

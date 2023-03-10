@@ -5,7 +5,8 @@ Linguagem Ubíqua (ou Linguagem Onipresente) é um conceito central de DDD. Ela 
 
 Visa o gerenciamento da linguagem ubíqua das empresas, facilitando assim o entendimento da regra de negocio.
 
-Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) versao 6.0
+Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/3.1) versao 3.1
+
 
 # Pré requesito
 Mongo DB
@@ -22,4 +23,4 @@ Mongo DB
 
 # Servidor de teste
 
-Você pode acessar a aplicação pelo [endereço](https://linguagem-ubiq-prod-linguagem-ubiqua-g2h2hr.mo1.mogenius.io/)
+Você pode acessar a aplicação pelo [endereço](https://www.ubiquitouslanguage.devtoolkit.com.br/)

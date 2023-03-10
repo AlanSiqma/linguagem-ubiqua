@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using ToolBoxDeveloper.DomainContext.MVC.Models;
 
@@ -9,10 +8,9 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
-        {
-            this._logger = logger;   
+       
+        public HomeController()
+        { 
         }
 
         public IActionResult Index()
@@ -32,9 +30,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
             var exceptionHandlerFeature =
                           HttpContext.Features.Get<IExceptionHandlerFeature>()!;
-
-            if(exceptionHandlerFeature.Error != null)
-                this._logger.LogError($"Erro: {exceptionHandlerFeature.Error.Message}");
 
             return View(new ErrorViewModel { RequestId = requestId, Error = exceptionHandlerFeature.Error });
         }

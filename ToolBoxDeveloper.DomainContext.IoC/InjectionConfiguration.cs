@@ -26,7 +26,7 @@ namespace ToolBoxDeveloper.DomainContext.IoC
         public static IServiceCollection AddInjectionConfigurationDataBase(this IServiceCollection service, IConfiguration configuration)
         {
             var configurationSection = configuration.GetSection(nameof(DatabaseSettings));
-            DatabaseSettings appSettings = new();
+            DatabaseSettings appSettings = new DatabaseSettings();
             ConfigurationBinder.Bind(configurationSection, appSettings);
 
             var client = new MongoClient(appSettings.ConnectionString);

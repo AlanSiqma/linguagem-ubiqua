@@ -15,14 +15,12 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
     {
         private readonly IDomainContextService _domainContextService;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly ILogger<DomainContextController> _logger;
         public DomainContextController(IDomainContextService domainContextService,
-            IHttpContextAccessor httpContextAccessor,
-            ILogger<DomainContextController> logger)
+            IHttpContextAccessor httpContextAccessor)
         {
             this._domainContextService = domainContextService;
             this._httpContextAccessor = httpContextAccessor;
-            this._logger = logger;
+        
         }
         private string NameContext()
         {
@@ -55,8 +53,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch (Exception ex)
             {
-                string mesage = $"Exception: {ex.Message}";
-                this._logger.LogError(mesage);
+                string mesage = $"Exception: {ex.Message}";           
                 throw;
             }
         }
@@ -81,7 +78,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             catch (Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
-                this._logger.LogError(mesage);
+               
                 throw;
             }
         }
@@ -95,8 +92,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch (Exception ex)
             {
-                string mesage = $"Exception: {ex.Message}";
-                this._logger.LogError(mesage);
+                string mesage = $"Exception: {ex.Message}";               
                 throw;
             }
         }

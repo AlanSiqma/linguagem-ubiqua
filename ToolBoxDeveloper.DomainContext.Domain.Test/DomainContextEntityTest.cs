@@ -45,7 +45,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         }
         private static DomainContextEntity MoqDomainContextEntity()
         {
-            return new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
+            return new DomainContextEntity("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
           
         }
     }

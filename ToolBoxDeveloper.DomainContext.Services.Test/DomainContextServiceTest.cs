@@ -15,9 +15,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
     public class DomainContextServiceTest
     {
         string id = "1";
-        Mock<IDomainContextRepository> moqRepository = new();
-        Mock<IMapper> moqMapper = new();
-        Mock<INotifier> moqNotifier = new();
+        Mock<IDomainContextRepository> moqRepository = new Mock<IDomainContextRepository>();
+        Mock<IMapper> moqMapper = new Mock<IMapper>();
+        Mock<INotifier> moqNotifier = new Mock<INotifier>();
         [Fact]
         public async void DeleteSuccess()
         {
@@ -29,7 +29,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(id))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
 
-            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.Delete(this.id);
@@ -50,7 +50,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(x => x.Id.Equals(idRemove))).Returns(Task.FromResult(list));
             moqRepository.Setup(x => x.Remove(domainContextEntity)).Returns(Task.CompletedTask);
 
-            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => domainContextService.Delete(idRemove));
@@ -66,7 +66,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get(id)).Returns(Task.FromResult(domainContextEntity));
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
-            DomainContextService domainContextService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             DomainContextDto result = await domainContextService.Find(this.id);
@@ -95,7 +95,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqMapper.Setup(m => m.Map<DomainContextDto>(domainContextEntity)).Returns(dtoMoq);
 
 
-            DomainContextService domainContextService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => domainContextService.Find(idFind));
@@ -113,7 +113,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             moqRepository.Setup(x => x.Get()).Returns(Task.FromResult(list));
             moqMapper.Setup(m => m.Map<List<DomainContextDto>>(list)).Returns(listDto);
 
-            DomainContextService domainContextService = new(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object, moqMapper.Object, moqNotifier.Object);
 
             //Act
             DomainContextDto result = (await domainContextService.GetAll()).FirstOrDefault();
@@ -137,7 +137,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
 
-            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.AddOrUpdate(dtoMoq);
@@ -156,7 +156,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
             moqMapper.Setup(m => m.Map<DomainContextEntity>(dtoMoq)).Returns(domainContextEntity);
 
-            DomainContextService domainContextService = new(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
+            DomainContextService domainContextService = new DomainContextService(moqRepository.Object,  moqMapper.Object, moqNotifier.Object);
 
             //Act
             await domainContextService.AddOrUpdate(dtoMoq);
@@ -167,7 +167,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
         private static DomainContextEntity MoqDomainContextEntity(string id)
         {
-            return new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
+            return new DomainContextEntity("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = id
             };
@@ -175,21 +175,21 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
 
         private static DomainContextDto MoqDomainContextDto(string id)
         {
-            return new("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
+            return new DomainContextDto("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")
             {
                 Id = id
             };
         }
         private static List<DomainContextEntity> MoqListDomainContextEntity(DomainContextEntity entity)
         {
-            return new()
+            return new List<DomainContextEntity>()
             {
                 entity
             };
         }
         private static List<DomainContextDto> MoqListDomainContextDto(DomainContextDto dto)
         {
-            return new()
+            return new List<DomainContextDto>()
             {
                 dto
             };
