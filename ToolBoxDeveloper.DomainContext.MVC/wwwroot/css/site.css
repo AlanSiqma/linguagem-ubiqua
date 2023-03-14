@@ -164,3 +164,11 @@ body {
     margin-left:10%;
 }
 
+.card  {
+    text-decoration:none;
+    color:black;
+}
+.card:hover {
+    text-decoration: none;
+    color: black;
+}
