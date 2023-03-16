@@ -159,16 +159,24 @@ body {
 }
 
 .container-center {
-    text-align:center;
-    margin-right:10%;
-    margin-left:10%;
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
-.card  {
-    text-decoration:none;
-    color:black;
-}
-.card:hover {
+.card {
     text-decoration: none;
     color: black;
+}
+
+    .card:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+.substack {
+    width:100% !important;
+    height: 320px !important;
+    border: 1px solid #EEE;
+    background: white;
 }

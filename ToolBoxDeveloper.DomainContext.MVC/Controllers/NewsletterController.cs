@@ -2,7 +2,7 @@
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 {
-    public class ContactController : Controller
+    public class NewsletterController : Controller
     {
         public IActionResult Index()
         {
