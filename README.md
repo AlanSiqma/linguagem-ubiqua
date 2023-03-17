@@ -60,3 +60,4 @@ Mongo DB
 ### RODANDO APLICAÇÃO
 - Via prompt de comando acesse o diretorio 'ToolBoxDeveloper.DomainContext.MVC' e execute o comando: 'dotnet run'.
 - Ao termino do build a aplicação estara disponivel no [endereço https](https://localhost:5001) ou no [endereço http](http://localhost:5000).
+    
