@@ -21,9 +21,7 @@ https://join.slack.com/t/slack-ibr8348/shared_invite/zt-1rddq6vld-yQcgFk~_8fLfKR
 ## FAÇA PARTE DA EQUIPE NO TRELLO
 
 https://trello.com/invite/b/IfvGZ5HL/ATTIcaeaa16b4e30e28c7352b533956194ec081451E2/ubiquitous-language
-
 </br>
-
 ### PEGUE UMA TAREFA NO TRELLO.
 
 - https://trello.com/b/IfvGZ5HL/ubiquitous-language
