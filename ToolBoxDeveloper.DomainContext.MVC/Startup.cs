@@ -36,6 +36,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+
             services.AddAutoMapper(typeof(InjectionConfiguration));
         }
 
