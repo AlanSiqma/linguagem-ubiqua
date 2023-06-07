@@ -16,7 +16,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -35,6 +34,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             services.AddAuthenticationConfiguration();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
             services.AddAutoMapper(typeof(InjectionConfiguration));
         }
