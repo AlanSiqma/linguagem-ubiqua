@@ -23,4 +23,6 @@
     <ProjectReference Include="..\ToolBoxDeveloper.DomainContext.IoC\ToolBoxDeveloper.DomainContext.IoC.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>

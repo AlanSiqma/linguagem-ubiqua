@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
@@ -6,6 +7,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Specs
 {
+    [ExcludeFromCodeCoverage]
     public static  class UserEntitySpec
     {
         public static Expression<Func<UserEntity,bool>> Autenticate(UserDto dto)
