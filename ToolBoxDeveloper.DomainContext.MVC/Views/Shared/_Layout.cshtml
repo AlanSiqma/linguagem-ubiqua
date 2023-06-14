@@ -27,7 +27,7 @@
                     <img src="~/images/bussiness_communication_language_media_message_icon.png" width="30" height="30" class="d-inline-block align-top" alt="logo site" />
                     Linguagem Ubíqua
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#v" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
@@ -46,6 +46,11 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="DomainContext" asp-action="Index">Dominios</a>
                             </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        @if (Context.User.Identity.Name != null)
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Logout">Logout</a>
                             </li>
@@ -68,7 +73,7 @@
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - Linguagem Ubíqua - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - Linguagem Ubíqua - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
