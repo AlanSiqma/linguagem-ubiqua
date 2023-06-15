@@ -80,7 +80,7 @@ body {
 }
 
 .logo-site {
-    width: 13%;
+    width: 50%;
     margin-right: 50%;
 }
 
@@ -175,7 +175,7 @@ body {
     }
 
 .substack {
-    width:100% !important;
+    width: 100% !important;
     height: 320px !important;
     border: 1px solid #EEE;
     background: white;
