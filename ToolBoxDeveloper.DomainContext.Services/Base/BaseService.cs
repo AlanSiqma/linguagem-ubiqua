@@ -12,7 +12,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 namespace ToolBoxDeveloper.DomainContext.Services.Base
 {
     public class BaseService<TEntity, TDto> where TEntity : BaseEntity, new()
-          where TDto: BaseDto
+          where TDto : BaseDto
     {
         private readonly IRepositoryBase<TEntity> _repository;
         private readonly IMapper _mapper;

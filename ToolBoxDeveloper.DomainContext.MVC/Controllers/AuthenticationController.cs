@@ -52,7 +52,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             AuthenticationProperties authProperties = new AuthenticationProperties() { IsPersistent = true };
 
             await HttpContext
-                        .SignInAsync(cookieAuthentication,claimsPrincipal,authProperties);
+                        .SignInAsync(cookieAuthentication, claimsPrincipal, authProperties);
 
             return RedirectToAction("Index", "DomainContext");
         }

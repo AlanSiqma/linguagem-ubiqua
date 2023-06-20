@@ -4,8 +4,8 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
 {
     public class NotificationDto
     {
-     
-        public NotificationDto(string mensagem,bool error = false)
+
+        public NotificationDto(string mensagem, bool error = false)
         {
             Mensagem = mensagem;
             Error = error;

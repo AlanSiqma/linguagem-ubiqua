@@ -4,7 +4,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Entities;
 
 namespace ToolBoxDeveloper.DomainContext.MVC.Mapper
 {
-    public class UserProfile:Profile
+    public class UserProfile : Profile
     {
         public UserProfile()
         {

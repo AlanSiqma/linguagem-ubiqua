@@ -7,9 +7,9 @@ using ToolBoxDeveloper.DomainContext.Infra.Data.Base;
 namespace ToolBoxDeveloper.DomainContext.Infra.Data
 {
     [ExcludeFromCodeCoverage]
-    public class DomainContextRepository: RepositoryBase<DomainContextEntity>, IDomainContextRepository
+    public class DomainContextRepository : RepositoryBase<DomainContextEntity>, IDomainContextRepository
     {
-        public DomainContextRepository(IMongoDatabase database) :base(database)
+        public DomainContextRepository(IMongoDatabase database) : base(database)
         {
         }
     }
