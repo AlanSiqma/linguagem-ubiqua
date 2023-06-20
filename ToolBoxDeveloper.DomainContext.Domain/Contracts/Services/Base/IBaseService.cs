@@ -4,7 +4,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Dto.Base;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Contracts.Services.Base
 {
-    public  interface IBaseService<TDto> where TDto : BaseDto
+    public interface IBaseService<TDto> where TDto : BaseDto
     {
         Task<List<TDto>> GetAll();
         Task AddOrUpdate(TDto dto);

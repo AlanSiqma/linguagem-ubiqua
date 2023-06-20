@@ -11,7 +11,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void CreateObjetSuccess()
         {
             //Arrange
-            string password = "123456@asd";            
+            string password = "123456@asd";
 
             //Act
             UserEntity user = new UserEntity(email);
@@ -36,7 +36,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         {
             //Arrange          
             UserEntity user = new UserEntity(email);
-            
+
             //Act && Assert
             Assert.Throws<ArgumentException>(() => user.SetPassword(password));
         }

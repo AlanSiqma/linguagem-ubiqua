@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
@@ -10,11 +9,11 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-      
+
         public UserController(IUserService userService)
         {
             this._userService = userService;
-               
+
         }
 
         public ActionResult Index()
@@ -28,17 +27,17 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             try
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                     await this._userService.AddOrUpdate(dto);
                 else
-                    return View("Index",dto);
+                    return View("Index", dto);
 
                 return RedirectToAction("Index", "Authentication");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
-             
+
                 throw;
             }
         }
@@ -60,7 +59,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
                 throw;
@@ -74,7 +73,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
                 await this._userService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
                 throw;

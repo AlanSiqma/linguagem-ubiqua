@@ -32,7 +32,7 @@ namespace ToolBoxDeveloper.DomainContext.IoC
             var client = new MongoClient(appSettings.ConnectionString);
             var database = client.GetDatabase(appSettings.DatabaseName);
 
-            service.AddSingleton(database);                        
+            service.AddSingleton(database);
 
             return service;
         }

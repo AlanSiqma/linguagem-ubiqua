@@ -10,7 +10,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
 {
     public static class HealthChecksExtensions
     {
-        public  static void UseHealthChecksConfiguration(this IApplicationBuilder app)
+        public static void UseHealthChecksConfiguration(this IApplicationBuilder app)
         {
             app.UseHealthChecks("/health", new HealthCheckOptions
             {
@@ -18,9 +18,10 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
-            app.UseHealthChecksUI(options => {
+            app.UseHealthChecksUI(options =>
+            {
                 options.UIPath = "/dashboard";
-               
+
             });
         }
         public static void AddHealthChecksConfiguration(this IServiceCollection services, IConfiguration Configuration)
@@ -30,7 +31,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
             ConfigurationBinder.Bind(configurationSection, appSettings);
 
             services.AddHealthChecks()
-                .AddMongoDb(mongodbConnectionString: appSettings.ConnectionString,name: "Instancia mongoDB")
+                .AddMongoDb(mongodbConnectionString: appSettings.ConnectionString, name: "Instancia mongoDB")
                 .AddCheck<DependeciesValidadeHealthCheck>("Health Checks customizavel");
 
             services.AddHealthChecksUI(setupSettings: setup =>
@@ -38,7 +39,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
                 setup.SetEvaluationTimeInSeconds(5);
                 setup.MaximumHistoryEntriesPerEndpoint(10);
                 setup.AddHealthCheckEndpoint("API com Health Checks", "/health");
-            }).AddInMemoryStorage(); 
+            }).AddInMemoryStorage();
 
 
 

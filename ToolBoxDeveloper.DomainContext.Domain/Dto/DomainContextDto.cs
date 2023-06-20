@@ -6,7 +6,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Dto
 {
-    public class DomainContextDto: BaseDto
+    public class DomainContextDto : BaseDto
     {
         public DomainContextDto()
         {
@@ -20,7 +20,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
             this.Key = key;
             this.Description = description;
             this.UserRegister = userRegister;
-        }      
+        }
 
         [DisplayName("Empresa")]
         [Required(ErrorMessage = "Favor informar uma Empresa")]

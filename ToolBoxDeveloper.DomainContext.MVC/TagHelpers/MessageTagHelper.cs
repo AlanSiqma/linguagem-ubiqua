@@ -39,7 +39,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.TagHelpers
 
                 stringBuilder.Append(_closeButton);
 
-                output.Content.SetHtmlContent(stringBuilder.ToString()) ;
+                output.Content.SetHtmlContent(stringBuilder.ToString());
 
                 this._notifier.ClearNotification();
             }

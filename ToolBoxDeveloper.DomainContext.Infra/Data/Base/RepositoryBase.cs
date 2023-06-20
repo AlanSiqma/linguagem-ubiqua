@@ -33,7 +33,7 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
 
         public async Task<TEntity> Get(string id)
         {
-            var entity = await this._collections.FindAsync<TEntity>(RepositorySpec.FindEntityById<TEntity>(id)) ;
+            var entity = await this._collections.FindAsync<TEntity>(RepositorySpec.FindEntityById<TEntity>(id));
             return entity.FirstOrDefault();
         }
 
@@ -50,7 +50,7 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
 
         public async Task Remove(TEntity entity)
         {
-            await _collections.DeleteOneAsync(RepositorySpec.FindEntityById<TEntity>(entity.Id) );
+            await _collections.DeleteOneAsync(RepositorySpec.FindEntityById<TEntity>(entity.Id));
         }
     }
 }

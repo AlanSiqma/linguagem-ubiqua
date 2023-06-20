@@ -14,7 +14,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void EncryptSucess(string value)
         {
             //Arrange && Act && Assert
-            Assert.DoesNotMatch(value,value.Encrypt());
+            Assert.DoesNotMatch(value, value.Encrypt());
         }
         [Theory(DisplayName = "Encriptando sem suceso")]
         [InlineData("")]

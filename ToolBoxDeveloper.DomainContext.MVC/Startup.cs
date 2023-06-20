@@ -23,7 +23,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             services.AddControllersWithViews();
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
 
-            services.AddSingleton<IDatabaseSettings>(sp =>sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+            services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddInjectionConfiguration();
 
@@ -61,9 +61,9 @@ namespace ToolBoxDeveloper.DomainContext.MVC
 
             app.UseEndpoints(endpoints =>
             {
-                    endpoints.MapControllerRoute(
-                        name: "default",
-                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

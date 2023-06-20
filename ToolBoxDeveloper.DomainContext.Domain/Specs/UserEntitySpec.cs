@@ -8,9 +8,9 @@ using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 namespace ToolBoxDeveloper.DomainContext.Domain.Specs
 {
     [ExcludeFromCodeCoverage]
-    public static  class UserEntitySpec
+    public static class UserEntitySpec
     {
-        public static Expression<Func<UserEntity,bool>> Autenticate(UserDto dto)
+        public static Expression<Func<UserEntity, bool>> Autenticate(UserDto dto)
         {
             return x => x.Email.Equals(dto.Email) && x.Password.Equals(dto.Password.Encrypt());
         }

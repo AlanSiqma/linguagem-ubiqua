@@ -14,7 +14,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 
             //Act
             DomainContextEntity domainContext = MoqDomainContextEntity();
-            
+
             //Assert 
             Assert.Equal(organization, domainContext.Organization);
         }
@@ -46,7 +46,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         private static DomainContextEntity MoqDomainContextEntity()
         {
             return new DomainContextEntity("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
-          
+
         }
     }
 }

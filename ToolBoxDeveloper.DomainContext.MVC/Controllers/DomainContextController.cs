@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,7 +19,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             this._domainContextService = domainContextService;
             this._httpContextAccessor = httpContextAccessor;
-        
+
         }
         private string NameContext()
         {
@@ -53,7 +52,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch (Exception ex)
             {
-                string mesage = $"Exception: {ex.Message}";           
+                string mesage = $"Exception: {ex.Message}";
                 throw;
             }
         }
@@ -78,7 +77,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             catch (Exception ex)
             {
                 string mesage = $"Exception: {ex.Message}";
-               
+
                 throw;
             }
         }
@@ -92,7 +91,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
             }
             catch (Exception ex)
             {
-                string mesage = $"Exception: {ex.Message}";               
+                string mesage = $"Exception: {ex.Message}";
                 throw;
             }
         }
