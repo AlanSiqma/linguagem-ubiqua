@@ -34,10 +34,8 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
                 return RedirectToAction("Index", "Authentication");
             }
-            catch (Exception ex)
+            catch 
             {
-                string mesage = $"Exception: {ex.Message}";
-
                 throw;
             }
         }
