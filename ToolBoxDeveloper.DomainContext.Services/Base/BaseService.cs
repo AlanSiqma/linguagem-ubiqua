@@ -54,5 +54,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Base
             this._notifier.Handle(new NotificationDto(message));
             throw new ArgumentException(message);
         }
+
     }
 }

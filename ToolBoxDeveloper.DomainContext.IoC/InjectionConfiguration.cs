@@ -15,11 +15,11 @@ namespace ToolBoxDeveloper.DomainContext.IoC
     {
         public static IServiceCollection AddInjectionConfiguration(this IServiceCollection service)
         {
-            service.AddSingleton<INotifier, Notifier>();
-            service.AddTransient<IDomainContextService, DomainContextService>();
-            service.AddTransient<IDomainContextRepository, DomainContextRepository>();
-            service.AddTransient<IUserService, UserService>();
-            service.AddTransient<IUserRepository, UserRepository>();
+            service.AddScoped<INotifier, Notifier>();
+            service.AddScoped<IDomainContextService, DomainContextService>();
+            service.AddScoped<IUserService, UserService>();
+            service.AddScoped<IDomainContextRepository, DomainContextRepository>();
+            service.AddScoped<IUserRepository, UserRepository>();
 
             return service;
         }
