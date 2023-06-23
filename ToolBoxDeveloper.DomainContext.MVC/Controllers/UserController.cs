@@ -34,7 +34,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
                 return RedirectToAction("Index", "Authentication");
             }
-            catch 
+            catch
             {
                 throw;
             }
