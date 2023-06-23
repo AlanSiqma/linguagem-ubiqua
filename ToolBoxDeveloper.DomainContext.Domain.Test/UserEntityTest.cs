@@ -6,7 +6,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 {
     public class UserEntityTest
     {
-        string email = "joares@gmail.com";
+        readonly string email = "joares@gmail.com";
         [Fact]
         public void CreateObjetSuccess()
         {

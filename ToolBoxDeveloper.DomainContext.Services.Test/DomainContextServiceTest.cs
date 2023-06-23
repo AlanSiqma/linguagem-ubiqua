@@ -15,9 +15,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
     public class DomainContextServiceTest
     {
         string id = "1";
-        Mock<IDomainContextRepository> moqRepository = new Mock<IDomainContextRepository>();
-        Mock<IMapper> moqMapper = new Mock<IMapper>();
-        Mock<INotifier> moqNotifier = new Mock<INotifier>();
+        readonly Mock<IDomainContextRepository> moqRepository = new Mock<IDomainContextRepository>();
+        readonly Mock<IMapper> moqMapper = new Mock<IMapper>();
+        readonly Mock<INotifier> moqNotifier = new Mock<INotifier>();
         [Fact]
         public async void DeleteSuccess()
         {
