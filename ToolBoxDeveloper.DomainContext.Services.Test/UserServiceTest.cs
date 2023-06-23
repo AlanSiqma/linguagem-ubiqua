@@ -17,11 +17,11 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
     public class UserServiceTest
     {
         string id = "1";
-        string userPassword = "1";
-        Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
-        Mock<IMapper> moqMapper = new Mock<IMapper>();
-        Mock<INotifier> moqNotifier = new Mock<INotifier>();
-        UserEntity userEntity = new UserEntity("joares");
+        readonly string userPassword = "1";
+        readonly Mock<IUserRepository> moqRepository = new Mock<IUserRepository>();
+        readonly Mock<IMapper> moqMapper = new Mock<IMapper>();
+        readonly Mock<INotifier> moqNotifier = new Mock<INotifier>();
+        readonly UserEntity userEntity = new UserEntity("joares");
 
         [Fact]
         public async void DeleteSuccess()
