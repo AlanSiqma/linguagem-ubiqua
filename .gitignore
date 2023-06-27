@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 
 .sonarqube
+/ToolBoxDeveloper.DomainContext.Services.Test/coverage.opencover.xml
+/ToolBoxDeveloper.DomainContext.Domain.Test/coverage.opencover.xml
