@@ -21,6 +21,16 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
             this.Description = description;
             this.UserRegister = userRegister;
         }
+        ~ DomainContextDto()
+        {
+            this.Id = null;
+            this.Organization = null;
+            this.Domain = null;
+            this.Context = null;
+            this.Key = null;
+            this.Description = null;
+            this.UserRegister = null;
+        }
 
         [DisplayName("Empresa")]
         [Required(ErrorMessage = "Favor informar uma Empresa")]

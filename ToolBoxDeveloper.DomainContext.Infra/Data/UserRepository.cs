@@ -13,16 +13,5 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data
         public UserRepository(IMongoDatabase database) : base(database)
         {
         }
-        public void Dispose()
-        {
-            try
-            {
-                GC.SuppressFinalize(this);
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(ex.Message);
-            }
-        }
     }
 }

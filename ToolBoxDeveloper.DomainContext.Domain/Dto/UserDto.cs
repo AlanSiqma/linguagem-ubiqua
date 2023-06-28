@@ -12,5 +12,12 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
         public string Email { get; set; }
         [Required(ErrorMessage = "Favor informar uma senha")]
         public string Password { get; set; }
+
+        ~UserDto()
+        {
+            this.Id = null;
+            this.Email = null;
+            this.Password = null;
+        }
     }
 }

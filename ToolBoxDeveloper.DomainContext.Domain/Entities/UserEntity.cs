@@ -17,6 +17,12 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
         {
 
         }
+        ~UserEntity()
+        {
+            this.Id = null;
+            this.Email = null;
+            this.Password = null;
+        }
         public string Email { get; set; }
 
         public string Password
