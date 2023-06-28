@@ -10,7 +10,7 @@ using ToolBoxDeveloper.DomainContext.Domain.Specs;
 
 namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
 {
-    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity
+    public class RepositoryBase<TEntity> : IDisposable,  IRepositoryBase<TEntity> where TEntity : BaseEntity
     {
         public readonly IMongoCollection<TEntity> _collections;
 
@@ -51,6 +51,18 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
         public async Task Remove(TEntity entity)
         {
             await _collections.DeleteOneAsync(RepositorySpec.FindEntityById<TEntity>(entity.Id));
+        }
+
+        public void Dispose()
+        {
+            try
+            {
+                GC.SuppressFinalize(this);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex.Message);
+            }
         }
     }
 }
