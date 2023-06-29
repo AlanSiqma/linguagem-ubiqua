@@ -10,11 +10,11 @@ using ToolBoxDeveloper.DomainContext.Domain.Specs;
 
 namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
 {
-    public class RepositoryBase<TEntity> : IDisposable,  IRepositoryBase<TEntity> where TEntity : BaseEntity
+    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : BaseEntity
     {
-        public readonly IMongoCollection<TEntity> _collections;
+        public IMongoCollection<TEntity> _collections;
 
-        private readonly string _dataBaseName = typeof(TEntity).Name;
+        private string _dataBaseName = typeof(TEntity).Name;
         public RepositoryBase(IMongoDatabase database)
         {
             this._collections = database.GetCollection<TEntity>(_dataBaseName);
@@ -57,7 +57,16 @@ namespace ToolBoxDeveloper.DomainContext.Infra.Data.Base
         {
             try
             {
-                GC.SuppressFinalize(this);
+
+                if (_collections == null)
+                {
+                    GC.SuppressFinalize(this);
+                }
+                else
+                {
+                    _collections = null;
+                    _dataBaseName = null;
+                }
             }
             catch (Exception ex)
             {
