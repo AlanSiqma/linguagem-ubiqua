@@ -14,9 +14,9 @@ namespace ToolBoxDeveloper.DomainContext.Services.Base
     public class BaseService<TEntity, TDto> where TEntity : BaseEntity, new()
           where TDto : BaseDto
     {
-        private readonly IRepositoryBase<TEntity> _repository;
-        private readonly IMapper _mapper;
-        private readonly INotifier _notifier;
+        private IRepositoryBase<TEntity> _repository;
+        private IMapper _mapper;
+        private INotifier _notifier;
         public BaseService(IRepositoryBase<TEntity> repository,
          IMapper mapper,
          INotifier notifier)
@@ -24,6 +24,12 @@ namespace ToolBoxDeveloper.DomainContext.Services.Base
             this._repository = repository;
             this._mapper = mapper;
             this._notifier = notifier;
+        }
+        ~BaseService()
+        {
+            this._repository = null;
+            this._mapper = null;
+            this._notifier = null;
         }
 
         public async Task<List<TDto>> GetAll()

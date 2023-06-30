@@ -13,6 +13,10 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Notifications
         {
             _notifications = new List<NotificationDto>();
         }
+        ~ Notifier()
+        {
+            _notifications = null;
+        }
 
         public void Handle(NotificationDto notificacao)
         {
