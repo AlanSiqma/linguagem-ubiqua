@@ -13,28 +13,37 @@ namespace ToolBoxDeveloper.DomainContext.IoC
 {
     public static class InjectionConfiguration
     {
-        public static IServiceCollection AddInjectionConfiguration(this IServiceCollection service)
+        public static IServiceCollection AddInjectionConfiguration(this IServiceCollection services)
         {
-            service.AddScoped<INotifier, Notifier>();
-            service.AddScoped<IDomainContextService, DomainContextService>();
-            service.AddScoped<IUserService, UserService>();
-            service.AddScoped<IDomainContextRepository, DomainContextRepository>();
-            service.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<INotifier, Notifier>();
+            services.AddScoped<IDomainContextService, DomainContextService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDomainContextRepository, DomainContextRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
-            return service;
+            return services;
         }
-        public static IServiceCollection AddInjectionConfigurationDataBase(this IServiceCollection service, IConfiguration configuration)
+
+        public static IServiceCollection AddInjectionConfigurationDataBase(this IServiceCollection services, IConfiguration configuration)
         {
-            var configurationSection = configuration.GetSection(nameof(DatabaseSettings));
-            DatabaseSettings appSettings = new DatabaseSettings();
-            ConfigurationBinder.Bind(configurationSection, appSettings);
+            var databaseSettings = new DatabaseSettings();
+            configuration.GetSection(nameof(DatabaseSettings)).Bind(databaseSettings);
+            services.AddSingleton(databaseSettings);
 
-            var client = new MongoClient(appSettings.ConnectionString);
-            var database = client.GetDatabase(appSettings.DatabaseName);
+            services.AddSingleton<IMongoClient>(provider =>
+            {
+                var settings = provider.GetRequiredService<DatabaseSettings>();
+                return new MongoClient(settings.ConnectionString);
+            });
 
-            service.AddSingleton(database);
+            services.AddScoped<IMongoDatabase>(provider =>
+            {
+                var client = provider.GetRequiredService<IMongoClient>();
+                var settings = provider.GetRequiredService<DatabaseSettings>();
+                return client.GetDatabase(settings.DatabaseName);
+            });
 
-            return service;
+            return services;
         }
     }
 }
