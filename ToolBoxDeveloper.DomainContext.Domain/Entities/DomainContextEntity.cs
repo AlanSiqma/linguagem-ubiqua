@@ -10,16 +10,6 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
         {
 
         }
-        ~  DomainContextEntity()
-        {
-            this.Id = null;
-            this.Organization = null;
-            this.Domain = null;
-            this.Context = null;
-            this.Key = null;
-            this.Description = null;
-            this.UserRegister = null;
-        }
         public DomainContextEntity(string organization, string domain, string context, string key, string description, string userRegister)
         {
             if (organization.IsNullOrEmptyOrWhiteSpace())

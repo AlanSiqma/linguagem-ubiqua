@@ -16,10 +16,6 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
             this.Mensagem = argumentException.Message;
             this.Error = true;
         }
-        ~ NotificationDto()
-        {
-            this.Mensagem = null;
-        }
 
         public bool Error { get; set; }
 
