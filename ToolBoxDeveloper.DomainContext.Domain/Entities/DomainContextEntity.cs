@@ -12,22 +12,22 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
         }
         public DomainContextEntity(string organization, string domain, string context, string key, string description, string userRegister)
         {
-            if (organization.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(organization))
                 throw new ArgumentException("Organização é um campo obrigatorio");
 
-            if (domain.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(domain))
                 throw new ArgumentException("Dominio é um campo obrigatorio");
 
-            if (context.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(context))
                 throw new ArgumentException("Contexto é um campo obrigatorio");
 
-            if (key.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(key))
                 throw new ArgumentException("Chave é um campo obrigatorio");
 
-            if (description.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("Descrição é um campo obrigatorio");
 
-            if (userRegister.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(userRegister))
                 throw new ArgumentException("Usuário que está registrando é um campo obrigatorio");
 
 

@@ -44,7 +44,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
 
         public DomainContextDto SetEmail(string userRegister)
         {
-            if (userRegister.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(userRegister))
                 throw new ArgumentException("Email é um campo obrigatorio");
 
             this.UserRegister = userRegister;

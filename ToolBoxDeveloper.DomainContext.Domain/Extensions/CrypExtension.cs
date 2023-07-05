@@ -9,19 +9,19 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Extensions
     {
         public static string Encrypt(this string text)
         {
-            if (text.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(text))
                 throw new ArgumentException("Valor não pode ser nulo, estar vazio ou conter apenas espaços");
 
-            byte[] Hash;
-            StringBuilder Retorno = new StringBuilder();
+            byte[] hashBytes;
+            StringBuilder stringBuilder = new StringBuilder();
 
             using (HashAlgorithm Algoritmo = SHA256.Create())
-                Hash = Algoritmo.ComputeHash(Encoding.Unicode.GetBytes(text));
+                hashBytes = Algoritmo.ComputeHash(Encoding.Unicode.GetBytes(text));
 
-            foreach (byte B in Hash)
-                Retorno.AppendFormat(CultureInfo.InvariantCulture, "{0:X2}", B);
+            foreach (byte hashByte in hashBytes)
+                stringBuilder.AppendFormat(CultureInfo.InvariantCulture, "{0:X2}", hashByte);
 
-            return Retorno.ToString();
+            return stringBuilder.ToString();
         }
     }
 }
