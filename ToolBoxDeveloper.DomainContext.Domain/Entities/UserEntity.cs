@@ -8,7 +8,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
     {
         public UserEntity(string email)
         {
-            if (email.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(email))
                 throw new ArgumentException("Email é um campo obrigatorio");
 
             this.Email = email;
@@ -26,7 +26,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
 
         public void SetPassword(string password)
         {
-            if (password.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(password))
                 throw new ArgumentException("Senha é um campo obrigatorio");
 
             this.Password = password.Encrypt();

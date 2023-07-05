@@ -49,7 +49,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Base
 
         private async Task<TEntity> FindEntityById(string id)
         {
-            if (id.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(id))
                 this.HandleErrorMessage("Campo id é obrigatorio");
 
             return await this._repository.Get(id);

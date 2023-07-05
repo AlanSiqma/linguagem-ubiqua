@@ -25,7 +25,7 @@ namespace ToolBoxDeveloper.DomainContext.Services
 
         public async Task AddOrUpdate(UserDto dto)
         {
-            if (dto.Id.IsNullOrEmptyOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(dto.Id))
                 await this.Create(dto);
             else
                 await this.Update(dto);

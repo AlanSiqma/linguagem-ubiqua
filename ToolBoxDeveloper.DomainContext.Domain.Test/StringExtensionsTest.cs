@@ -13,7 +13,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void IsNullOrEmptyOrWhiteSpace(string value)
         {
             //Arrange && Act && Assert
-            Assert.True(value.IsNullOrEmptyOrWhiteSpace());
+            Assert.True(string.IsNullOrWhiteSpace(value));
         }
         [Theory(DisplayName = "valor não é nulo ou e não tem espaços vazios")]
         [InlineData("Teste")]
@@ -23,7 +23,7 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
         public void IsNotNullOrEmptyOrWhiteSpace(string value)
         {
             //Arrange && Act && Assert
-            Assert.False(value.IsNullOrEmptyOrWhiteSpace());
+            Assert.False(string.IsNullOrWhiteSpace(value));
         }
     }
 }
