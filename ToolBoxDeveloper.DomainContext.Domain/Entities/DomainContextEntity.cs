@@ -1,6 +1,5 @@
 ﻿using System;
 using ToolBoxDeveloper.DomainContext.Domain.Entities.Base;
-using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Entities
 {

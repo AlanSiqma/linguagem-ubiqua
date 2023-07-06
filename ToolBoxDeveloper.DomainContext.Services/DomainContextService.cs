@@ -5,7 +5,6 @@ using ToolBoxDeveloper.DomainContext.Domain.Contracts.Repositories;
 using ToolBoxDeveloper.DomainContext.Domain.Contracts.Services;
 using ToolBoxDeveloper.DomainContext.Domain.Dto;
 using ToolBoxDeveloper.DomainContext.Domain.Entities;
-using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 using ToolBoxDeveloper.DomainContext.Services.Base;
 
 namespace ToolBoxDeveloper.DomainContext.Services

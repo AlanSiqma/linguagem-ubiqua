@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using ToolBoxDeveloper.DomainContext.Domain.Dto.Base;
-using ToolBoxDeveloper.DomainContext.Domain.Extensions;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Dto
 {
