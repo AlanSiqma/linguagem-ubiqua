@@ -1,5 +1,4 @@
-﻿using ToolBoxDeveloper.DomainContext.Domain.Extensions;
-using Xunit;
+﻿using Xunit;
 
 namespace ToolBoxDeveloper.DomainContext.Domain.Test
 {
