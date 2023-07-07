@@ -22,19 +22,14 @@ namespace ToolBoxDeveloper.DomainContext.MVC
         {
             services.AddControllersWithViews();
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
-
             services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddInjectionConfiguration();
-
             services.AddInjectionConfigurationDataBase(Configuration);
-
             services.AddHealthChecksConfiguration(Configuration);
-
             services.AddAuthenticationConfiguration();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
             services.AddAutoMapper(typeof(InjectionConfiguration));
         }
 
@@ -44,7 +39,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();
 
@@ -55,16 +50,12 @@ namespace ToolBoxDeveloper.DomainContext.MVC
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-            app.UseHealthChecksConfiguration();
-
-            app.UseEndpoints(endpoints =>
-            {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseHealthChecksConfiguration();
         }
     }
 }
