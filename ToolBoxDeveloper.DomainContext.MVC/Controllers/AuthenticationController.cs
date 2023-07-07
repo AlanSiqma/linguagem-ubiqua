@@ -13,7 +13,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         private readonly IUserService _userService;
         public AuthenticationController(IUserService userService)
         {
-            this._userService = userService;
+            _userService = userService;
         }
         public IActionResult Index()
         {
@@ -22,37 +22,32 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserDto dto)
         {
-            if (ModelState.IsValid && await this._userService.Autenticate(dto))
-                return await this.Autenticate(dto);
+            if (ModelState.IsValid && await _userService.Autenticate(dto))
+                return await Autenticate(dto);
 
-            ModelState.AddModelError("ModelOnly", "Usuário ou senha incorreto");
+            ModelState.AddModelError(string.Empty, "Usuário ou senha incorreto");
             return View("Index", dto);
         }
         public async Task<IActionResult> Logout()
         {
-            var cookieAuthentication = CookieAuthenticationDefaults.AuthenticationScheme;
-
-            await HttpContext.SignOutAsync(cookieAuthentication);
-
+             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
         private async Task<IActionResult> Autenticate(UserDto dto)
         {
-            var cookieAuthentication = CookieAuthenticationDefaults.AuthenticationScheme;
-            Claim[] claims = new[]
+            var claims = new[]
                             {
                                 new Claim(ClaimTypes.Name, dto.Email),
                                 new Claim(ClaimTypes.Role, "Administrator"),
                                 new Claim("Nome", dto.Email),
                             };
 
-            ClaimsIdentity identity = new ClaimsIdentity(claims, cookieAuthentication);
-            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
 
             AuthenticationProperties authProperties = new AuthenticationProperties() { IsPersistent = true };
 
-            await HttpContext
-                        .SignInAsync(cookieAuthentication, claimsPrincipal, authProperties);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
 
             return RedirectToAction("Index", "DomainContext");
         }
