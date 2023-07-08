@@ -12,7 +12,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
 
         public UserController(IUserService userService)
         {
-            this._userService = userService;
+            _userService = userService;
 
         }
 
@@ -25,25 +25,17 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(UserDto dto)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                    await this._userService.AddOrUpdate(dto);
-                else
-                    return View("Index", dto);
+            if (ModelState.IsValid)
+                await _userService.AddOrUpdate(dto);
+            else
+                return View("Index", dto);
 
-                return RedirectToAction("Index", "Authentication");
-            }
-            catch
-            {
-                throw;
-            }
+            return RedirectToAction("Index", "Authentication");
         }
 
         public async Task<ActionResult> Edit(string id)
         {
-            UserDto result = await this._userService.Find(id);
-
+            UserDto result = await _userService.Find(id);
             return View(result);
         }
 
@@ -53,13 +45,12 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             try
             {
-                await this._userService.AddOrUpdate(dto);
-
+                await _userService.AddOrUpdate(dto);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                string mesage = $"Exception: {ex.Message}";
+                string message = $"Exception: {ex.Message}";
                 throw;
             }
         }
@@ -68,12 +59,12 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         {
             try
             {
-                await this._userService.Delete(id);
+                await _userService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                string mesage = $"Exception: {ex.Message}";
+                string message = $"Exception: {ex.Message}";
                 throw;
             }
         }
