@@ -13,7 +13,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         public UserController(IUserService userService)
         {
             _userService = userService;
-
         }
 
         public ActionResult Index()
@@ -43,30 +42,15 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(UserDto dto)
         {
-            try
-            {
-                await _userService.AddOrUpdate(dto);
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
-            {
-                string message = $"Exception: {ex.Message}";
-                throw;
-            }
+            await _userService.AddOrUpdate(dto);
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<ActionResult> Delete(string id)
         {
-            try
-            {
-                await _userService.Delete(id);
-                return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
-            {
-                string message = $"Exception: {ex.Message}";
-                throw;
-            }
+            await _userService.Delete(id);
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }
