@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using ToolBoxDeveloper.DomainContext.Domain.Settings;
 using ToolBoxDeveloper.DomainContext.MVC.CustomHealthChecks;
 
@@ -14,7 +15,7 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
         {
             app.UseHealthChecks("/health", new HealthCheckOptions
             {
-                Predicate = p => true,
+                Predicate = _ => true,
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
@@ -24,14 +25,15 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
 
             });
         }
-        public static void AddHealthChecksConfiguration(this IServiceCollection services, IConfiguration Configuration)
+        public static void AddHealthChecksConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            var configurationSection = Configuration.GetSection(nameof(DatabaseSettings));
-            DatabaseSettings appSettings = new DatabaseSettings();
-            ConfigurationBinder.Bind(configurationSection, appSettings);
+            services.Configure<DatabaseSettings>(configuration.GetSection(nameof(DatabaseSettings)));
+
+            var serviceProvider = services.BuildServiceProvider();
+            var appSettings = serviceProvider.GetRequiredService<IOptions<DatabaseSettings>>().Value;
 
             services.AddHealthChecks()
-                .AddMongoDb(mongodbConnectionString: appSettings.ConnectionString, name: "Instancia mongoDB")
+                .AddMongoDb(appSettings.ConnectionString, name: "Instancia mongoDB")
                 .AddCheck<DependeciesValidadeHealthCheck>("Health Checks customizavel");
 
             services.AddHealthChecksUI(setupSettings: setup =>
@@ -40,10 +42,6 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
                 setup.MaximumHistoryEntriesPerEndpoint(10);
                 setup.AddHealthCheckEndpoint("API com Health Checks", "/health");
             }).AddInMemoryStorage();
-
-
-
-            services.AddHealthChecksUI();
         }
     }
 }
