@@ -6,24 +6,26 @@ namespace ToolBoxDeveloper.DomainContext.MVC.Extensions
 {
     public static class TagHelperOutputExtensions
     {
-        private static readonly string _alert = "alert";
-        private static readonly string _danger = "alert-danger";
-        private static readonly string _primary = "alert-primary";
-        private static readonly string _dismissible = "alert-dismissible";
-        private static readonly string _fade = "fade";
-        private static readonly string _show = "show";
+        private const string AlertClass = "alert";
+        private const string DangerClass = "alert-danger";
+        private const string PrimaryClass = "alert-primary";
+        private const string DismissibleClass = "alert-dismissible";
+        private const string FadeClass = "fade";
+        private const string ShowClass = "show";
+
         public static void AddClassAlert(this TagHelperOutput output, bool anyError)
         {
-            output.AddClass(_alert, HtmlEncoder.Default);
+            output.AddClass(AlertClass, HtmlEncoder.Default);
 
             if (anyError)
-                output.AddClass(_danger, HtmlEncoder.Default);
+                output.AddClass(DangerClass, HtmlEncoder.Default);
             else
-                output.AddClass(_primary, HtmlEncoder.Default);
+                output.AddClass(PrimaryClass, HtmlEncoder.Default);
 
-            output.AddClass(_dismissible, HtmlEncoder.Default);
-            output.AddClass(_fade, HtmlEncoder.Default);
-            output.AddClass(_show, HtmlEncoder.Default);
+            output.AddClass(DismissibleClass, HtmlEncoder.Default);
+            output.AddClass(FadeClass, HtmlEncoder.Default);
+            output.AddClass(ShowClass, HtmlEncoder.Default);
         }
     }
+
 }
