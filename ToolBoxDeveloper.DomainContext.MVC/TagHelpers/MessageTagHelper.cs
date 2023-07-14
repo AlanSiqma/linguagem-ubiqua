@@ -11,37 +11,33 @@ namespace ToolBoxDeveloper.DomainContext.MVC.TagHelpers
     public class MessageTagHelper : TagHelper
     {
         private readonly INotifier _notifier;
-
-        #region properties alert
-        private readonly string _div = "div";
-        private readonly string _alert = "alert";
-        private readonly string _closeButton = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\r\n    <span aria-hidden=\"true\">&times;</span>\r\n  </button>";
-        private readonly string _role = "role";
-        #endregion
+        private const string DivTagName  = "div";
+        private const string AlertClassName  = "alert";
+        private const string CloseButtonHtml  = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\r\n    <span aria-hidden=\"true\">&times;</span>\r\n  </button>";
+        private const string RoleAttributeName  = "role";       
         public MessageTagHelper(INotifier notifier)
         {
-            this._notifier = notifier;
+            _notifier = notifier;
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            if (this._notifier.HasNotification())
+            if (_notifier.HasNotification())
             {
-                StringBuilder stringBuilder = new StringBuilder();
+                List<NotificationDto> notifications = _notifier.GetNotifications();
 
-                List<NotificationDto> notifications = this._notifier.GetNotifications();
-
-                output.TagName = _div;
+                output.TagName = DivTagName ;
                 output.AddClassAlert(notifications.Any(x => x.Error));
-                output.Attributes.Add(_role, _alert);
+                output.Attributes.Add(RoleAttributeName , AlertClassName );
 
+                StringBuilder stringBuilder = new StringBuilder();
                 foreach (var item in notifications)
                     stringBuilder.Append($"<p>{item.Mensagem}</p>");
 
-                stringBuilder.Append(_closeButton);
+                stringBuilder.Append(CloseButtonHtml );
 
                 output.Content.SetHtmlContent(stringBuilder.ToString());
 
-                this._notifier.ClearNotification();
+                _notifier.ClearNotification();
             }
         }
 
