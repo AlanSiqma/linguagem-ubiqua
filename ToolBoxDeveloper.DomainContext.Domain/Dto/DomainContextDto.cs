@@ -22,24 +22,24 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Dto
         }
         [DisplayName("Empresa")]
         [Required(ErrorMessage = "Favor informar uma Empresa")]
-        public string Organization { get; set; }
+        public string Organization { get; set; } = string.Empty;
 
         [DisplayName("Dominio")]
         [Required(ErrorMessage = "Favor informar um Dominio")]
-        public string Domain { get; set; }
+        public string Domain { get; set; } = string.Empty;
 
         [DisplayName("Contexto")]
         [Required(ErrorMessage = "Favor informar um Contexto")]
-        public string Context { get; set; }
+        public string Context { get; set; } = string.Empty;
 
         [DisplayName("Chave")]
         [Required(ErrorMessage = "Favor informar uma Chave")]
-        public string Key { get; set; }
+        public string Key { get; set; } = string.Empty;
 
         [DisplayName("Valor")]
         [Required(ErrorMessage = "Favor informar um Valor")]
-        public string Description { get; set; }
-        public string UserRegister { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public string UserRegister { get; set; } = string.Empty;
 
         public DomainContextDto SetEmail(string userRegister)
         {
