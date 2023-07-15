@@ -38,11 +38,11 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
             this.UserRegister = userRegister;
         }
 
-        public string Organization { get; set; }
-        public string Domain { get; set; }
-        public string Context { get; set; }
-        public string Key { get; set; }
-        public string Description { get; set; }
-        public string UserRegister { get; set; }
+        public string Organization { get; set; } = string.Empty;
+        public string Domain { get; set; } = string.Empty;
+        public string Context { get; set; } = string.Empty;
+        public string Key { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string UserRegister { get; set; } = string.Empty;
     }
 }

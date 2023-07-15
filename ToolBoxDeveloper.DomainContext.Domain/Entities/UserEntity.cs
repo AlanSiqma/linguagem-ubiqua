@@ -17,12 +17,9 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Entities
         {
 
         }
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
-        public string Password
-        {
-            get; private set;
-        }
+        public string Password { get; private set; } = string.Empty; 
 
         public void SetPassword(string password)
         {
