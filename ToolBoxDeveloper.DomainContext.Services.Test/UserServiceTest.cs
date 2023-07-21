@@ -186,14 +186,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             Assert.False(result);
         }
 
-        private static List<UserDto> MoqListUserDto(UserDto moqDto)
-        {
-            return new List<UserDto>()
-            {
-                moqDto
-            };
-        }
-
         // Helper methods
 
         private void SetupMockRepositoryForDelete(string id, UserEntity entity)
