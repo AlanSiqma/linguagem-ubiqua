@@ -54,16 +54,24 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         public async void Find_Success()
         {
             //Arrange
-            SetupMockRepositoryForFind(UserId, userEntity);
-            UserDto expectedDto = MoqUserDto(UserId );
-            mockMapper .Setup(m => m.Map<UserDto>(userEntity )).Returns(expectedDto);
-            UserService userService = new UserService(mockRepository .Object, mockMapper .Object, mockNotifier.Object);
+            var localId = UserId;
+            userEntity.Id = UserId;
+            userEntity.SetPassword(UserPassword);
+            UserDto moqDto = this.MoqUserDto(UserId);
+            List<UserEntity> list = MoqListUserEntity(userEntity);
+
+            mockRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
+            mockMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
+
+            UserService userService = new(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
 
             //Act
-            var result = await userService.Find(UserId );
+            var result = await userService.Find(UserId);
 
             //Assert
-            AssertUserDtoEqualEntity(result, userEntity);
+            Assert.Equal(userEntity.Id, result.Id);
+            Assert.Equal(userEntity.Email, result.Email);
+            Assert.Equal(userEntity.Password, result.Password);
         }
 
         [Theory(DisplayName = "Buscar contexto sem sucesso")]
@@ -163,7 +171,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
         }
 
         [Fact]
-        public async void AutenticateNotSuccess()
+        public async void Autenticate_NotSuccess()
         {
             //Arrange
             UserId = "20";
