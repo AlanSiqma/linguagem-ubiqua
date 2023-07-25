@@ -60,7 +60,7 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             UserDto moqDto = this.MoqUserDto(UserId);
             List<UserEntity> list = MoqListUserEntity(userEntity);
 
-            mockRepository.Setup(x => x.Get(x => x.Id.Equals(localId))).Returns(Task.FromResult(list));
+            mockRepository.Setup(x => x.Get(localId)).Returns(Task.FromResult(userEntity));
             mockMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
 
             UserService userService = new(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
