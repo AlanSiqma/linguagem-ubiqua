@@ -13,8 +13,11 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 
         public void EncryptSucess(string value)
         {
-            //Arrange && Act && Assert
-            Assert.DoesNotMatch(value, value.Encrypt());
+            // Arrange && Act
+            string encryptedValue = value.Encrypt();
+
+            // Assert
+            Assert.NotEqual(value, encryptedValue);
         }
         [Theory(DisplayName = "Encriptando sem suceso")]
         [InlineData("")]

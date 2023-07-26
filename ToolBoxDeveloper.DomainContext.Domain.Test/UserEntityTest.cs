@@ -6,39 +6,41 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 {
     public class UserEntityTest
     {
-        readonly string email = "joares@gmail.com";
-        [Fact]
-        public void CreateObjetSuccess()
+        readonly string validEmail = "joares@gmail.com";
+
+        [Fact(DisplayName = "Criar objeto com sucesso")]
+        public void CreateObjectSuccess()
         {
-            //Arrange
+            // Arrange
             string password = "123456@asd";
 
-            //Act
-            UserEntity user = new UserEntity(email);
+            // Act
+            UserEntity user = new UserEntity(validEmail);
             user.SetPassword(password);
 
-            //Assert 
-            Assert.Equal(email, user.Email);
-        }
-        [Theory(DisplayName = "Erro ao criar objeto, email invalido")]
-        [InlineData("")]
-        [InlineData(null)]
-        public void CreateObjetEmailNotSuccess(string email)
-        {
-            //Arrange && Act && Assert
-            Assert.Throws<ArgumentException>(() => new UserEntity(email));
+            // Assert
+            Assert.Equal(validEmail, user.Email);
         }
 
-        [Theory(DisplayName = "Erro ao criar objeto, senha invalida")]
+        [Theory(DisplayName = "Erro ao criar objeto, e-mail inválido")]
         [InlineData("")]
         [InlineData(null)]
-        public void CreateObjetPasswordNotSuccess(string password)
+        public void CreateObjectEmailNotSuccess(string invalidEmail)
         {
-            //Arrange          
-            UserEntity user = new UserEntity(email);
+            // Arrange, Act & Assert
+            Assert.Throws<ArgumentException>(() => new UserEntity(invalidEmail));
+        }
 
-            //Act && Assert
-            Assert.Throws<ArgumentException>(() => user.SetPassword(password));
+        [Theory(DisplayName = "Erro ao criar objeto, senha inválida")]
+        [InlineData("")]
+        [InlineData(null)]
+        public void CreateObjectPasswordNotSuccess(string invalidPassword)
+        {
+            // Arrange
+            UserEntity user = new UserEntity(validEmail);
+
+            // Act & Assert
+            Assert.Throws<ArgumentException>(() => user.SetPassword(invalidPassword));
         }
     }
 }
