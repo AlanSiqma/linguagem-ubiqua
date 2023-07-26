@@ -6,12 +6,25 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 {
     public class DomainContextDtoTest
     {
+        private DomainContextDto CreateMockDomainContextDto()
+        {
+            return new DomainContextDto
+            {
+                Id = Guid.NewGuid().ToString(),
+                Organization = "ToolBoxDeveloper",
+                Domain = "DomainContext",
+                Context = "Teste1",
+                Key = "Teste1",
+                Description = "Teste unitário"
+            };
+        }
+
         [Fact]
         public void SetEmailSuccess()
         {
             //Arange
             string email = "joares@gmail.com";
-            DomainContextDto dto = MoqDomainContextDto();
+            DomainContextDto dto = CreateMockDomainContextDto();
 
             //Act
             dto.SetEmail(email);
@@ -26,24 +39,11 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 
         public void SetEmailNotSuccess(string email)
         {
-            //Arange
-            DomainContextDto dto = MoqDomainContextDto();
+            // Arrange
+            DomainContextDto dto = CreateMockDomainContextDto();
 
-            //Act && Arrange
+            // Act && Assert
             Assert.Throws<ArgumentException>(() => dto.SetEmail(email));
-        }
-
-        private static DomainContextDto MoqDomainContextDto()
-        {
-            return new DomainContextDto()
-            {
-                Id = Guid.NewGuid().ToString(),
-                Organization = "ToolBoDevelopr",
-                Domain = "DomainContext",
-                Context = "Teste1",
-                Key = "Teste1",
-                Description = "Teste unitario"
-            };
         }
     }
 }

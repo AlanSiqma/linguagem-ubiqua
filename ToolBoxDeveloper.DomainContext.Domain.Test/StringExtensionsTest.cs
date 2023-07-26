@@ -4,25 +4,30 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 {
     public class StringExtensionsTest
     {
-        [Theory(DisplayName = "valor é nulo ou tem espaços vazios")]
+        [Theory(DisplayName = "Verificar se o valor é nulo ou tem espaços vazios")]
         [InlineData("")]
         [InlineData(" ")]
         [InlineData(null)]
-
-        public void IsNullOrEmptyOrWhiteSpace(string value)
+        public void IsNullOrEmptyOrWhiteSpace_ShouldReturnTrue(string value)
         {
-            //Arrange && Act && Assert
-            Assert.True(string.IsNullOrWhiteSpace(value));
+            // Act
+            bool result = string.IsNullOrWhiteSpace(value);
+
+            // Assert
+            Assert.True(result);
         }
-        [Theory(DisplayName = "valor não é nulo ou e não tem espaços vazios")]
+
+        [Theory(DisplayName = "Verificar se o valor não é nulo e não tem espaços vazios")]
         [InlineData("Teste")]
         [InlineData("1")]
         [InlineData("asd")]
-
-        public void IsNotNullOrEmptyOrWhiteSpace(string value)
+        public void IsNotNullOrEmptyOrWhiteSpace_ShouldReturnFalse(string value)
         {
-            //Arrange && Act && Assert
-            Assert.False(string.IsNullOrWhiteSpace(value));
+            // Act
+            bool result = string.IsNullOrWhiteSpace(value);
+
+            // Assert
+            Assert.False(result);
         }
     }
 }

@@ -6,47 +6,48 @@ namespace ToolBoxDeveloper.DomainContext.Domain.Test
 {
     public class DomainContextEntityTest
     {
-        [Fact]
+        private DomainContextEntity CreateMockDomainContextEntity()
+        {
+            return new DomainContextEntity("ToolBoxDeveloper", "DomainContext", "Teste1", "Teste1", "Teste unitário", "joares");
+        }
+
+        [Fact(DisplayName = "Criar objeto com sucesso")]
         public void CreateObjectSuccess()
         {
-            //Arrage 
-            string organization = "ToolBoDevelopr";
+            // Arrange
+            string organization = "ToolBoxDeveloper";
 
-            //Act
-            DomainContextEntity domainContext = MoqDomainContextEntity();
+            // Act
+            DomainContextEntity domainContext = CreateMockDomainContextEntity();
 
-            //Assert 
+            // Assert
             Assert.Equal(organization, domainContext.Organization);
         }
-        [Theory(DisplayName = "Multipla instancias parametros vazios DomainContextEntity")]
-        [InlineData("", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", "", "Teste1", "Teste1", "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", "", "Teste1", "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", "Teste1", "", "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "", "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "")]
 
+        [Theory(DisplayName = "Múltiplas instâncias com parâmetros vazios DomainContextEntity")]
+        [InlineData("", "DomainContext", "Teste1", "Teste1", "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", "", "Teste1", "Teste1", "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", "", "Teste1", "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", "Teste1", "", "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", "Teste1", "Teste1", "", "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", "Teste1", "Teste1", "Teste unitário", "")]
         public void CreateObjectParametersEmpty(string organization, string domain, string context, string key, string description, string userRegister)
         {
-            //Arange && Act && Assert 
+            // Arrange, Act & Assert
             Assert.Throws<ArgumentException>(() => new DomainContextEntity(organization, domain, context, key, description, userRegister));
         }
-        [Theory(DisplayName = "Multipla instancias parametros nulos DomainContextEntity")]
-        [InlineData(null, "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", null, "Teste1", "Teste1", "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", null, "Teste1", "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", "Teste1", null, "Teste unitario", "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", null, "joares")]
-        [InlineData("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", null)]
+
+        [Theory(DisplayName = "Múltiplas instâncias com parâmetros nulos DomainContextEntity")]
+        [InlineData(null, "DomainContext", "Teste1", "Teste1", "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", null, "Teste1", "Teste1", "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", null, "Teste1", "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", "Teste1", null, "Teste unitário", "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", "Teste1", "Teste1", null, "joares")]
+        [InlineData("ToolBoxDeveloper", "DomainContext", "Teste1", "Teste1", "Teste unitário", null)]
         public void CreateObjectParametersNull(string organization, string domain, string context, string key, string description, string userRegister)
         {
-            //Arange && Act && Assert 
+            // Arrange, Act & Assert
             Assert.Throws<ArgumentException>(() => new DomainContextEntity(organization, domain, context, key, description, userRegister));
-        }
-        private static DomainContextEntity MoqDomainContextEntity()
-        {
-            return new DomainContextEntity("ToolBoDevelopr", "DomainContext", "Teste1", "Teste1", "Teste unitario", "joares");
-
         }
     }
 }
