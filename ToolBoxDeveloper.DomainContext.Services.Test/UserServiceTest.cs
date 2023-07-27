@@ -224,22 +224,6 @@ namespace ToolBoxDeveloper.DomainContext.Services.Test
             mockRepository.Setup(x => x.Get()).ReturnsAsync(list);
         }
 
-        private void SetupMockRepositoryForAddOrUpdate(string id, UserEntity entity)
-        {
-            entity.Id = id;
-            entity.SetPassword(UserPassword);
-
-            mockMapper.Setup(m => m.Map<UserDto>(entity)).Returns(MoqUserDto(id));
-            mockRepository.Setup(m => m.Get(UserEntitySpec.FindEntityByEmail(entity.Email))).ReturnsAsync(new List<UserEntity>());
-        }
-
-        private void SetupMockRepositoryForAutenticate(string email, string password, UserEntity entity)
-        {
-            mockMapper.Setup(m => m.Map<UserEntity>(MoqUserDto(UserId))).Returns(entity);
-            mockRepository.Setup(x => x.Get(x => x.Email.Equals(email) && x.Password.Equals(password.Encrypt()))).ReturnsAsync(MoqListUserEntity(entity));
-        }
-
-
         private UserDto MoqUserDto(string id)
         {
             return new UserDto()
