@@ -5,12 +5,12 @@ Linguagem Ubíqua (ou Linguagem Onipresente) é um conceito central de DDD. Ela 
 
 Visa o gerenciamento da linguagem ubíqua das empresas, facilitando assim o entendimento da regra de negocio.
 
-Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/3.1) versao 3.1
+Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) versao 6.0
 
-Você pode acessar a aplicação pelo [link](https://www.ubiquitouslanguage.devtoolkit.com.br/)
+Você pode acessar a aplicação pelo [link](https://www.linguagemubiqua.devtoolkit.com.br/)
 ## ENTRE NO SLACK
 
-https://join.slack.com/t/slack-ibr8348/shared_invite/zt-1rddq6vld-yQcgFk~_8fLfKRJO_g0SVg
+https://join.slack.com/t/devtoolkit/shared_invite/zt-20h6komuo-n2bhRcti4XwZj0wOvTH6bg
 
 ### LÁ NO SLACK
 
