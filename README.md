@@ -10,7 +10,7 @@ Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) versao 
 Você pode acessar a aplicação pelo [link](https://www.linguagemubiqua.devtoolkit.com.br/)
 ## ENTRE NO SLACK
 
-https://join.slack.com/t/slack-ibr8348/shared_invite/zt-1rddq6vld-yQcgFk~_8fLfKRJO_g0SVg
+https://join.slack.com/t/devtoolkit/shared_invite/zt-20h6komuo-n2bhRcti4XwZj0wOvTH6bg
 
 ### LÁ NO SLACK
 
