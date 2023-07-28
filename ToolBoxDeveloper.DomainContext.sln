@@ -5,27 +5,27 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-UI", "01-UI", "{1F8A4BD8-94CA-4BEA-838B-A467955E18B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.MVC", "ToolBoxDeveloper.DomainContext.MVC\ToolBoxDeveloper.DomainContext.MVC.csproj", "{5102C0C1-8EC7-47F1-8F0C-18480200D5A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.MVC", "src\ToolBoxDeveloper.DomainContext.MVC\ToolBoxDeveloper.DomainContext.MVC.csproj", "{5102C0C1-8EC7-47F1-8F0C-18480200D5A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Test", "05-Test", "{8B78D3F1-F2EC-426A-92D5-82CEB6CB3C95}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Domain.Test", "ToolBoxDeveloper.DomainContext.Domain.Test\ToolBoxDeveloper.DomainContext.Domain.Test.csproj", "{FBF98099-4861-4C22-9677-8A22A44E6C3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Domain.Test", "test\ToolBoxDeveloper.DomainContext.Domain.Test\ToolBoxDeveloper.DomainContext.Domain.Test.csproj", "{FBF98099-4861-4C22-9677-8A22A44E6C3D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Services.Test", "ToolBoxDeveloper.DomainContext.Services.Test\ToolBoxDeveloper.DomainContext.Services.Test.csproj", "{3CA96629-34C9-497D-9AC8-7049679AB0A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Services.Test", "test\ToolBoxDeveloper.DomainContext.Services.Test\ToolBoxDeveloper.DomainContext.Services.Test.csproj", "{3CA96629-34C9-497D-9AC8-7049679AB0A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Domain", "03-Domain", "{34EE1C51-1921-43BD-B463-051CA5ED589C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Domain", "ToolBoxDeveloper.DomainContext.Domain\ToolBoxDeveloper.DomainContext.Domain.csproj", "{BE3F2441-BB68-463A-B7FE-81D375291181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Domain", "src\ToolBoxDeveloper.DomainContext.Domain\ToolBoxDeveloper.DomainContext.Domain.csproj", "{BE3F2441-BB68-463A-B7FE-81D375291181}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Services", "02-Services", "{D0FD157A-AC84-4FF8-A15D-167EB4C7D858}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Services", "ToolBoxDeveloper.DomainContext.Services\ToolBoxDeveloper.DomainContext.Services.csproj", "{E777D661-42C2-4ECF-BA01-3BDBD882C2C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Services", "src\ToolBoxDeveloper.DomainContext.Services\ToolBoxDeveloper.DomainContext.Services.csproj", "{E777D661-42C2-4ECF-BA01-3BDBD882C2C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Infra", "04-Infra", "{FE4C3703-91CF-4908-82E9-27BDEDBB7CE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Infra", "ToolBoxDeveloper.DomainContext.Infra\ToolBoxDeveloper.DomainContext.Infra.csproj", "{7739DF4D-16A7-4F92-A779-CC9836E78C78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.Infra", "src\ToolBoxDeveloper.DomainContext.Infra\ToolBoxDeveloper.DomainContext.Infra.csproj", "{7739DF4D-16A7-4F92-A779-CC9836E78C78}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.IoC", "ToolBoxDeveloper.DomainContext.IoC\ToolBoxDeveloper.DomainContext.IoC.csproj", "{B25FA062-9881-4334-98F1-7DFF5EE1D6DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDeveloper.DomainContext.IoC", "src\ToolBoxDeveloper.DomainContext.IoC\ToolBoxDeveloper.DomainContext.IoC.csproj", "{B25FA062-9881-4334-98F1-7DFF5EE1D6DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
