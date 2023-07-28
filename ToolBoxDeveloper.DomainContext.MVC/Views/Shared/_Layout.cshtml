@@ -33,18 +33,18 @@
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">Sobre</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">SOBRE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="LeanOn" asp-action="Index">Apoie</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="LeanOn" asp-action="Index">APOIE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Newsletter" asp-action="Index">Newsletter</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Newsletter" asp-action="Index">NEWSLETTER</a>
                         </li>
                         @if (Context.User.Identity.Name != null)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="DomainContext" asp-action="Index">Dominios</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="DomainContext" asp-action="Index">DOMINIOS</a>
                             </li>
                         }
                     </ul>
@@ -52,13 +52,13 @@
                         @if (Context.User.Identity.Name != null)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Logout">Logout</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Logout">LOGOUT</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Index">Login</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Index">LOGIN</a>
                             </li>
                         }
                     </ul>
