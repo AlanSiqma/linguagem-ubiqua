@@ -1,0 +1,19 @@
+﻿@model Devtoolkit.LinguagemUbiqua.Domain.Dto.DomainContextDto
+<h1>Criar novo Dominio</h1>
+<hr />
+
+<div class="jumbotron create-domain-jumbotron">
+
+    <form asp-action="Create">
+
+        @Html.HiddenFor(x => x.UserRegister)
+        @Html.ValidationMessage("ModelOnly")
+        @Html.ValidationSummary(true)
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <partial name="_CreateOrEdit" />
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
