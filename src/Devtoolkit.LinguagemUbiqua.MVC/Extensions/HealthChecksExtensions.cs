@@ -1,11 +1,11 @@
-﻿using HealthChecks.UI.Client;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Settings;
+using Devtoolkit.LinguagemUbiqua.MVC.CustomHealthChecks;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Devtoolkit.LinguagemUbiqua.Domain.Settings;
-using Devtoolkit.LinguagemUbiqua.MVC.CustomHealthChecks;
 
 namespace Devtoolkit.LinguagemUbiqua.MVC.Extensions
 {

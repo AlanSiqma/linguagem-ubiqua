@@ -1,6 +1,6 @@
-﻿using System;
-using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
 using Devtoolkit.LinguagemUbiqua.Domain.Extensions;
+using System;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Entities
 {
@@ -19,7 +19,7 @@ namespace Devtoolkit.LinguagemUbiqua.Domain.Entities
         }
         public string Email { get; set; } = string.Empty;
 
-        public string Password { get; private set; } = string.Empty; 
+        public string Password { get; private set; } = string.Empty;
 
         public void SetPassword(string password)
         {

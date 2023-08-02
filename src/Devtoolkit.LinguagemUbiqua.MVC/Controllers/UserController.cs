@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Services;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Services;
 using Devtoolkit.LinguagemUbiqua.Domain.Dto;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Devtoolkit.LinguagemUbiqua.MVC.Controllers
 {

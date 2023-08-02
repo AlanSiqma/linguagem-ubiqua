@@ -1,13 +1,13 @@
 using AutoMapper;
+using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Notifications;
+using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
+using Devtoolkit.LinguagemUbiqua.Domain.Dto;
+using Devtoolkit.LinguagemUbiqua.Domain.Entities;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Notifications;
-using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
-using Devtoolkit.LinguagemUbiqua.Domain.Dto;
-using Devtoolkit.LinguagemUbiqua.Domain.Entities;
 using Xunit;
 
 namespace Devtoolkit.LinguagemUbiqua.Services.Test

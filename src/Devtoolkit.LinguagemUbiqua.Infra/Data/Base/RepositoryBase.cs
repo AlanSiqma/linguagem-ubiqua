@@ -1,12 +1,12 @@
-﻿using MongoDB.Driver;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
+using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
+using Devtoolkit.LinguagemUbiqua.Domain.Specs;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
-using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
-using Devtoolkit.LinguagemUbiqua.Domain.Specs;
 
 namespace Devtoolkit.LinguagemUbiqua.Infra.Data.Base
 {

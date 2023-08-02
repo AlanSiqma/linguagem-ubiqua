@@ -1,5 +1,5 @@
-﻿using System;
-using Devtoolkit.LinguagemUbiqua.Domain.Dto;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Dto;
+using System;
 using Xunit;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Test
