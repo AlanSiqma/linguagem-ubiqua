@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Dto.Base;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Devtoolkit.LinguagemUbiqua.Domain.Dto.Base;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Contracts.Services.Base
 {

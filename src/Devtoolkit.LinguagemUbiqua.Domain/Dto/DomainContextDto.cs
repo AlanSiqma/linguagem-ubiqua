@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Dto.Base;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Devtoolkit.LinguagemUbiqua.Domain.Dto.Base;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Dto
 {

@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Dto.Base;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
-using Devtoolkit.LinguagemUbiqua.Domain.Dto.Base;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Dto
 {

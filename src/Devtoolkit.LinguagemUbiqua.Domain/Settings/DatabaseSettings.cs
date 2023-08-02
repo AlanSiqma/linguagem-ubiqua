@@ -1,5 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Settings;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Settings;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Settings
 {

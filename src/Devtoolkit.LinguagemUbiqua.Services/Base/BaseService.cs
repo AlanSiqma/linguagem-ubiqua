@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Notifications;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
 using Devtoolkit.LinguagemUbiqua.Domain.Dto;
 using Devtoolkit.LinguagemUbiqua.Domain.Dto.Base;
 using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Devtoolkit.LinguagemUbiqua.Services.Base
 {

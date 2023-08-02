@@ -1,5 +1,5 @@
-﻿using System;
-using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
+using System;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Entities
 {

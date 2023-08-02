@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using Devtoolkit.LinguagemUbiqua.MVC.Models;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Devtoolkit.LinguagemUbiqua.MVC.Models;
 
 namespace Devtoolkit.LinguagemUbiqua.MVC.Controllers
 {

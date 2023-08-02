@@ -1,13 +1,13 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Driver;
-using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Notifications;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Notifications;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Services;
 using Devtoolkit.LinguagemUbiqua.Domain.Notifications;
 using Devtoolkit.LinguagemUbiqua.Domain.Settings;
 using Devtoolkit.LinguagemUbiqua.Infra.Data;
 using Devtoolkit.LinguagemUbiqua.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Driver;
 
 namespace Devtoolkit.LinguagemUbiqua.IoC
 {

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
-using Devtoolkit.LinguagemUbiqua.Domain.Entities.Base;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Specs
 {

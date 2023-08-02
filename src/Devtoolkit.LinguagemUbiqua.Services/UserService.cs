@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using System.Threading.Tasks;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Notifications;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Services;
@@ -7,6 +6,7 @@ using Devtoolkit.LinguagemUbiqua.Domain.Dto;
 using Devtoolkit.LinguagemUbiqua.Domain.Entities;
 using Devtoolkit.LinguagemUbiqua.Domain.Specs;
 using Devtoolkit.LinguagemUbiqua.Services.Base;
+using System.Threading.Tasks;
 
 namespace Devtoolkit.LinguagemUbiqua.Services
 {

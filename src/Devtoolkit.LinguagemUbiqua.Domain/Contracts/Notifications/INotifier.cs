@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Devtoolkit.LinguagemUbiqua.Domain.Dto;
+﻿using Devtoolkit.LinguagemUbiqua.Domain.Dto;
+using System.Collections.Generic;
 
 namespace Devtoolkit.LinguagemUbiqua.Domain.Contracts.Notifications
 {
