@@ -13,7 +13,7 @@ namespace Devtoolkit.LinguagemUbiqua.Domain.Extensions
                 throw new ArgumentException("Valor não pode ser nulo, estar vazio ou conter apenas espaços");
 
             byte[] hashBytes;
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new ();
 
             using (HashAlgorithm Algoritmo = SHA256.Create())
                 hashBytes = Algoritmo.ComputeHash(Encoding.Unicode.GetBytes(text));

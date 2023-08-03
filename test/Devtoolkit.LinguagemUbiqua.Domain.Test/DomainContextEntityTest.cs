@@ -6,7 +6,7 @@ namespace Devtoolkit.LinguagemUbiqua.Domain.Test
 {
     public class DomainContextEntityTest
     {
-        private DomainContextEntity CreateMockDomainContextEntity()
+        private static DomainContextEntity CreateMockDomainContextEntity()
         {
             return new DomainContextEntity("ToolBoxDeveloper", "DomainContext", "Teste1", "Teste1", "Teste unitário", "joares");
         }

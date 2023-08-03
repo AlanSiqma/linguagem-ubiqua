@@ -45,7 +45,7 @@ namespace Devtoolkit.LinguagemUbiqua.MVC.Controllers
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
 
-            AuthenticationProperties authProperties = new AuthenticationProperties() { IsPersistent = true };
+            AuthenticationProperties authProperties = new () { IsPersistent = true };
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
 
