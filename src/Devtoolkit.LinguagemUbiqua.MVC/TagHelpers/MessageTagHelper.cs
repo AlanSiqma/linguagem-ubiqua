@@ -29,7 +29,7 @@ namespace Devtoolkit.LinguagemUbiqua.MVC.TagHelpers
                 output.AddClassAlert(notifications.Any(x => x.Error));
                 output.Attributes.Add(RoleAttributeName, AlertClassName);
 
-                StringBuilder stringBuilder = new StringBuilder();
+                StringBuilder stringBuilder = new ();
                 foreach (var item in notifications)
                     stringBuilder.Append($"<p>{item.Mensagem}</p>");
 

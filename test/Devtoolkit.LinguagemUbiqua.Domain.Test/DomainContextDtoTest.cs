@@ -6,7 +6,7 @@ namespace Devtoolkit.LinguagemUbiqua.Domain.Test
 {
     public class DomainContextDtoTest
     {
-        private DomainContextDto CreateMockDomainContextDto()
+        private static DomainContextDto CreateMockDomainContextDto()
         {
             return new DomainContextDto
             {

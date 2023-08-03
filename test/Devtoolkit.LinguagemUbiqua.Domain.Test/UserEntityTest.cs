@@ -15,7 +15,7 @@ namespace Devtoolkit.LinguagemUbiqua.Domain.Test
             string password = "123456@asd";
 
             // Act
-            UserEntity user = new UserEntity(validEmail);
+            UserEntity user = new (validEmail);
             user.SetPassword(password);
 
             // Assert
@@ -37,7 +37,7 @@ namespace Devtoolkit.LinguagemUbiqua.Domain.Test
         public void CreateObjectPasswordNotSuccess(string invalidPassword)
         {
             // Arrange
-            UserEntity user = new UserEntity(validEmail);
+            UserEntity user = new (validEmail);
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => user.SetPassword(invalidPassword));

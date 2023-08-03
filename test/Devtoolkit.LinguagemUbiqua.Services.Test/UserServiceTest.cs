@@ -18,17 +18,17 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
     {
         private string UserId = "1";
         private const string UserPassword = "1";
-        private readonly Mock<IUserRepository> mockRepository = new Mock<IUserRepository>();
-        private readonly Mock<IMapper> mockMapper = new Mock<IMapper>();
-        private readonly Mock<INotifier> mockNotifier = new Mock<INotifier>();
-        private readonly UserEntity userEntity = new UserEntity("joares");
+        private readonly Mock<IUserRepository> mockRepository = new();
+        private readonly Mock<IMapper> mockMapper = new();
+        private readonly Mock<INotifier> mockNotifier = new();
+        private readonly UserEntity userEntity = new("joares");
 
         [Fact]
         public async void Delete_Success()
         {
             //Arrange
             SetupMockRepositoryForDelete(UserId, userEntity);
-            UserService userService = new UserService(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
+            UserService userService = new (mockRepository.Object, mockMapper.Object, mockNotifier.Object);
 
             //Act
             await userService.Delete(UserId);
@@ -44,7 +44,7 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
         {
             //Arrange           
             SetupMockRepositoryForDelete(id, userEntity);
-            UserService userService = new UserService(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
+            UserService userService = new (mockRepository.Object, mockMapper.Object, mockNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => userService.Delete(id));
@@ -57,7 +57,7 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
             var localId = UserId;
             userEntity.Id = UserId;
             userEntity.SetPassword(UserPassword);
-            UserDto moqDto = this.MoqUserDto(UserId);
+            UserDto moqDto = MoqUserDto(UserId);
             List<UserEntity> list = MoqListUserEntity(userEntity);
 
             mockRepository.Setup(x => x.Get(localId)).Returns(Task.FromResult(userEntity));
@@ -81,7 +81,7 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
         {
             //Arrange
             SetupMockRepositoryForFind(id, userEntity);
-            UserService userService = new UserService(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
+            UserService userService = new (mockRepository.Object, mockMapper.Object, mockNotifier.Object);
 
             //Act &&  Assert
             await Assert.ThrowsAsync<ArgumentException>(() => userService.Find(id));
@@ -110,14 +110,14 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
             UserId = " ";
             userEntity.Id = UserId;
             userEntity.SetPassword(UserPassword);
-            UserDto moqDto = this.MoqUserDto(UserId);
-            List<UserEntity> entities = new List<UserEntity>();
+            UserDto moqDto = MoqUserDto(UserId);
+            List<UserEntity> entities = new ();
 
             mockRepository.Setup(m => m.Get(UserEntitySpec.FindEntityByEmail(moqDto.Email))).Returns(Task.FromResult(entities));
             mockMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             mockMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
 
-            UserService userService = new UserService(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
+            UserService userService = new (mockRepository.Object, mockMapper.Object, mockNotifier.Object);
 
             //Act
             await userService.AddOrUpdate(moqDto);
@@ -133,12 +133,12 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
             //Arrange
             userEntity.Id = UserId;
             userEntity.SetPassword(UserPassword);
-            UserDto moqDto = this.MoqUserDto(UserId);
+            UserDto moqDto = MoqUserDto(UserId);
 
             mockMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             mockMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
 
-            UserService userService = new UserService(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
+            UserService userService = new (mockRepository.Object, mockMapper.Object, mockNotifier.Object);
 
             //Act
             await userService.AddOrUpdate(moqDto);
@@ -156,13 +156,13 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
             userEntity.Id = UserId;
             userEntity.SetPassword(UserPassword);
             List<UserEntity> list = MoqListUserEntity(userEntity);
-            UserDto moqDto = this.MoqUserDto(UserId);
+            UserDto moqDto = MoqUserDto(UserId);
 
             mockMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             mockMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
             mockRepository.Setup(x => x.Get(x => x.Email.Equals(moqDto.Email) && x.Password.Equals(moqDto.Password.Encrypt()))).Returns(Task.FromResult(list));
 
-            UserService userService = new UserService(mockRepository.Object, mockMapper.Object, mockNotifier.Object);
+            UserService userService = new (mockRepository.Object, mockMapper.Object, mockNotifier.Object);
 
             //Act
             var result = await userService.Autenticate(moqDto);
@@ -176,17 +176,17 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
         {
             //Arrange
             UserId = "20";
-            Mock<INotifier> moqNotifier = new Mock<INotifier>();
+            Mock<INotifier> moqNotifier = new ();
             userEntity.Id = UserId;
             userEntity.SetPassword(UserPassword);
-            List<UserEntity> list = new List<UserEntity>();
-            UserDto moqDto = this.MoqUserDto(UserId);
+            List<UserEntity> list = new ();
+            UserDto moqDto = MoqUserDto(UserId);
 
             mockMapper.Setup(m => m.Map<UserDto>(userEntity)).Returns(moqDto);
             mockMapper.Setup(m => m.Map<UserEntity>(moqDto)).Returns(userEntity);
             mockRepository.Setup(x => x.Get(x => x.Email.Equals(moqDto.Email) && x.Password.Equals(moqDto.Password.Encrypt()))).Returns(Task.FromResult(list));
 
-            UserService userService = new UserService(mockRepository.Object, mockMapper.Object, moqNotifier.Object);
+            UserService userService = new (mockRepository.Object, mockMapper.Object, moqNotifier.Object);
 
             //Act
             var result = await userService.Autenticate(moqDto);
@@ -225,7 +225,7 @@ namespace Devtoolkit.LinguagemUbiqua.Services.Test
             mockRepository.Setup(x => x.Get()).ReturnsAsync(list);
         }
 
-        private UserDto MoqUserDto(string id)
+        private static UserDto MoqUserDto(string id)
         {
             return new UserDto()
             {
