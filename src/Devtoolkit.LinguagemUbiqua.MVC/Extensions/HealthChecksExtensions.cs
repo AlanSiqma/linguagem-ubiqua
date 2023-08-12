@@ -22,7 +22,7 @@ namespace Devtoolkit.LinguagemUbiqua.MVC.Extensions
             app.UseHealthChecksUI(options =>
             {
                 options.UIPath = "/dashboard";
-
+                options.AddCustomStylesheet("style-healthchecks.css");
             });
         }
         public static void AddHealthChecksConfiguration(this IServiceCollection services, IConfiguration configuration)
