@@ -8,26 +8,6 @@ Visa o gerenciamento da linguagem ubíqua das empresas, facilitando assim o ente
 Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) versao 6.0
 
 Você pode acessar a aplicação pelo [link](https://www.linguagemubiqua.devtoolkit.com.br/)
-## ENTRE NO SLACK
-
-https://join.slack.com/t/devtoolkit/shared_invite/zt-20h6komuo-n2bhRcti4XwZj0wOvTH6bg
-
-### LÁ NO SLACK
-
-- Se apresente. Nome, cidade, profissão, e principais habilidades.
-- Pergunte sobre as tarefas em aberto.
-- Troque uma ideia com o time técnico. Comente como planeja solucionar. Ouça os conselhos dos devs mais experientes. Esse alinhamento é super importante pra aumentar significativamente as chances do seu PULL REQUEST ser aprovado depois.
-
-## FAÇA PARTE DA EQUIPE NO TRELLO
-
-https://trello.com/invite/b/IfvGZ5HL/ATTIcaeaa16b4e30e28c7352b533956194ec081451E2/ubiquitous-language
-</br>
-### PEGUE UMA TAREFA NO TRELLO.
-
-- https://trello.com/b/IfvGZ5HL/ubiquitous-language
-- Coloque no seu nome e mova para DOING.
-
-</br>
 
 ##  GITHUB
 
