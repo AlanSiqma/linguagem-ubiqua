@@ -18,8 +18,7 @@
                 <th scope="col">Dominio</th>
                 <th scope="col">Contexto</th>
                 <th scope="col">Chave</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Usuario</th>
+                <th scope="col">Descrição</th>                
                 <th scope="col">Editar</th>
                 <th scope="col">Excluir</th>
             </tr>
@@ -42,9 +41,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserRegister)
                     </td>
                     <td>
                         <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-info">
