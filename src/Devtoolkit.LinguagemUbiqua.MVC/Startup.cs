@@ -1,5 +1,6 @@
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Settings;
 using Devtoolkit.LinguagemUbiqua.Domain.Settings;
+using Devtoolkit.LinguagemUbiqua.Infra.Data.Sqlite.Context;
 using Devtoolkit.LinguagemUbiqua.IoC;
 using Devtoolkit.LinguagemUbiqua.MVC.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +22,7 @@ namespace Devtoolkit.LinguagemUbiqua.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<AppDbContext>();
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
             services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 

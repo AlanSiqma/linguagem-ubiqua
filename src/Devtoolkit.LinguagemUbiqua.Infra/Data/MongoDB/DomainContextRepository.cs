@@ -13,5 +13,6 @@ namespace Devtoolkit.LinguagemUbiqua.Infra.Data
         public DomainContextRepository(IMongoDatabase database) : base(database)
         {
         }
+
     }
 }
