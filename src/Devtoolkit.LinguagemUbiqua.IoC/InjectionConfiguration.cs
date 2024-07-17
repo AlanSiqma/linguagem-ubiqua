@@ -3,12 +3,11 @@ using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Repositories;
 using Devtoolkit.LinguagemUbiqua.Domain.Contracts.Services;
 using Devtoolkit.LinguagemUbiqua.Domain.Notifications;
 using Devtoolkit.LinguagemUbiqua.Domain.Settings;
-using Devtoolkit.LinguagemUbiqua.Infra.Data;
+using Devtoolkit.LinguagemUbiqua.Infra.Data.Sqlite;
 using Devtoolkit.LinguagemUbiqua.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-
 namespace Devtoolkit.LinguagemUbiqua.IoC
 {
     public static class InjectionConfiguration
@@ -18,8 +17,8 @@ namespace Devtoolkit.LinguagemUbiqua.IoC
             services.AddScoped<INotifier, Notifier>();
             services.AddScoped<IDomainContextService, DomainContextService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IDomainContextRepository, DomainContextRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IDomainContextRepository, DomainContextSqliteRepository>();
+            services.AddScoped<IUserRepository, UserSqliteRepository>();
 
             return services;
         }

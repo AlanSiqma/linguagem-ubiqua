@@ -352,3 +352,6 @@ MigrationBackup/
 .sonarqube
 /ToolBoxDeveloper.DomainContext.Services.Test/coverage.opencover.xml
 /ToolBoxDeveloper.DomainContext.Domain.Test/coverage.opencover.xml
+/src/Devtoolkit.LinguagemUbiqua.MVC/app.db
+/src/Devtoolkit.LinguagemUbiqua.MVC/app.db-shm
+/src/Devtoolkit.LinguagemUbiqua.MVC/app.db-wal
