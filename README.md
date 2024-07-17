@@ -27,14 +27,6 @@ Você pode acessar a aplicação pelo [link](https://www.linguagemubiqua.devtool
 
 ## RODANDO APLICAÇÃO LOCALMENTE
 
-## PRÉ REQUESITO
-Mongo DB
-
-### RODANDO MONGO VIA DOCKER:
-- Instale o [docker](https://docs.docker.com/engine/install/)
-- Abra o prompt de comando e digite: docker pull mongo 
-- Apos baixar a imagem via prompt de comando digite o comando: docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=ubiqua -e MONGO_INITDB_ROOT_PASSWORD=e296cd9f mongo
-
 ### RODANDO APLICAÇÃO
 - Via prompt de comando acesse o diretorio 'src/Devtoolkit.LinguagemUbiqua.MVC' e execute o comando: 'dotnet run'.
 - Ao termino do build a aplicação estara disponivel no [endereço https](https://localhost:5001) ou no [endereço http](http://localhost:5000).
